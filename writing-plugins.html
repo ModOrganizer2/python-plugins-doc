@@ -123,6 +123,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#iplugin-interface"><code class="docutils literal notranslate"><span class="pre">IPlugin</span></code> interface</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tutorial-plugins">Tutorial Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#official-plugins">Official Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unofficial-plugins">Unofficial Plugins</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
@@ -415,7 +421,7 @@ usually returns <code class="docutils literal notranslate"><span class="pre">Tru
 enable the plugin. You can also use a plugin setting to allow users to disable
 your plugins.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">settings</span></code>: Returns the list of settings (that user can modify) for this plugin.
-Settings can be <code class="docutils literal notranslate"><span class="pre">int`</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> or list of <code class="docutils literal notranslate"><span class="pre">str</span></code>. Here we indicate
+Settings can be <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> or list of <code class="docutils literal notranslate"><span class="pre">str</span></code>. Here we indicate
 that we have a “enabled” setting that user could use to disable the plugin (and
 we use it in <code class="docutils literal notranslate"><span class="pre">isActive</span></code>).</p></li>
 </ul>
@@ -427,6 +433,88 @@ a “bug” in <code class="docutils literal notranslate"><span class="pre">boos
 is an instance of <a class="reference internal" href="api/mobase.IOrganizer.html#mobase.IOrganizer" title="mobase.IOrganizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOrganizer</span></code></a> which is the class used to interface with MO2.
 Here, we use it in the <code class="docutils literal notranslate"><span class="pre">isActive()</span></code> method to retrieve the “enabled” setting for our plugin.
 See <a class="reference internal" href="api/mobase.IOrganizer.html#mobase.IOrganizer" title="mobase.IOrganizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOrganizer</span></code></a> for more details.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>This section contains (links to) examples of MO2 Python plugins.
+Some of these plugins have been created for educational purpose and are thus very detailed and
+easy to understand or get started from.</p>
+<div class="section" id="tutorial-plugins">
+<h3>Tutorial Plugins<a class="headerlink" href="#tutorial-plugins" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/Holt59/modorganizer-python_plugins">This repository</a> contains examples of Python
+plugins that were written only to help users write their own plugins.
+If you want to start somewhere, this is the place to go.</p>
+</div>
+<div class="section" id="official-plugins">
+<h3>Official Plugins<a class="headerlink" href="#official-plugins" title="Permalink to this headline">¶</a></h3>
+<p>These plugins are (or will be) included in MO2 releases and are usually maintain by some members of
+the MO2 development teams.
+These plugins are not as well documented as the ones in the repository above.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-basic_games">Basic Games</a> [<code class="docutils literal notranslate"><span class="pre">IPluginGame</span></code>]</dt><dd><p>This is the meta-plugin for “basic” games. It is a complex
+plugins and should mostly be investigated if you want to add a game to it.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-fnistool">FNIS Tool</a> [<code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code>]:</dt><dd><p>Plugin to integrate FNIS into MO2.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-preview_dds">Preview DDS</a> [<code class="docutils literal notranslate"><span class="pre">IPluginPreview</span></code>]:</dt><dd><p>Plugin to preview DDS files. Quite complex due to the use
+of OpenGL for display.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-form43_checker">Form 43 Checker</a> [<code class="docutils literal notranslate"><span class="pre">IPluginDiagnose</span></code>]:</dt><dd><p>Plugin that warn users if there are form 43 ESPs (Skyrim ESPs)
+enabled when managing a Skyrim SE instance.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-tool_configurator">Tool Configurator</a> [<code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code>]:</dt><dd><p>Plugin that allows easier modifications of game settings.
+Mostly contains a complex GUI for managing INI files.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-script_extender_plugin_checker">Script Extender Plugin Checker</a> [<code class="docutils literal notranslate"><span class="pre">IPluginDiagnose</span></code>]:</dt><dd><p>Plugin that checks Script Extender logs to see
+if some plugins have failed to load and display information to the user if possible.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="unofficial-plugins">
+<h3>Unofficial Plugins<a class="headerlink" href="#unofficial-plugins" title="Permalink to this headline">¶</a></h3>
+<p>These plugins have been created by developpers for MO2 and are usually distributed on Nexus.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/deorder/mo2-plugins">Merge Plugins Hide</a> [<code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code>]:</dt><dd><p>Hide / unhide plugins that were merged using <code class="docutils literal notranslate"><span class="pre">Merge</span> <span class="pre">Plugins</span></code> or <code class="docutils literal notranslate"><span class="pre">zMerge</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/AnyOldName3/ModOrganizer-to-OpenMW">OpenMW Exporter</a> [<code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code>]:</dt><dd><p>A Mod Organizer plugin to export your VFS, plugin selection and load order to OpenMW.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/AnyOldName3/modorganizer-orphaned_script_extender_save_deleter">Orphaned Script Extender Save Deleter</a> [<code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code>]:</dt><dd><p>Mod Organizer plugin to delete orphaned script extender co-saves.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/deorder/mo2-plugins">Sync Mod Order</a> [<code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code>]:</dt><dd><p>Synchronize mod order from current profile to another while keeping the (enabled/disabled) state intact.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>Feel free to open an issue or a pull-request if you want to add your own plugin to the list.</em></p>
 </div>
 </div>
 </div>
