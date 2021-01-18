@@ -390,6 +390,17 @@ snippet (replace the name and directory as needed):</p></li>
 extension from Visual Studio Code marketplace.</p></li>
 <li><p>Add the following to your Visual Studio Code settings (<code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code>)</p></li>
 </ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="o">.</span><span class="n">vscode</span><span class="o">/</span><span class="n">settings</span><span class="o">.</span><span class="n">json</span>
+<span class="p">{</span>
+    <span class="s2">&quot;triggerTaskOnSave.on&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;triggerTaskOnSave.tasks&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;reload plugin&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;*.py&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="testing-the-setup">
