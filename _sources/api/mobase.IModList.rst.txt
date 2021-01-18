@@ -11,10 +11,16 @@ IModList
    .. autosummary::
 
       ~IModList.allMods
+      ~IModList.allModsByProfilePriority
       ~IModList.displayName
+      ~IModList.getMod
+      ~IModList.onModInstalled
       ~IModList.onModMoved
+      ~IModList.onModRemoved
       ~IModList.onModStateChanged
       ~IModList.priority
+      ~IModList.removeMod
+      ~IModList.renameMod
       ~IModList.setActive
       ~IModList.setPriority
       ~IModList.state
@@ -22,10 +28,16 @@ IModList
    .. rubric:: Methods Documentation
 
    .. automethod:: allMods
+   .. automethod:: allModsByProfilePriority
    .. automethod:: displayName
+   .. automethod:: getMod
+   .. automethod:: onModInstalled
    .. automethod:: onModMoved
+   .. automethod:: onModRemoved
    .. automethod:: onModStateChanged
    .. automethod:: priority
+   .. automethod:: removeMod
+   .. automethod:: renameMod
    .. automethod:: setActive
    .. automethod:: setPriority
    .. automethod:: state

@@ -12,6 +12,8 @@ IPluginInstaller
 
       ~IPluginInstaller.isArchiveSupported
       ~IPluginInstaller.isManualInstaller
+      ~IPluginInstaller.onInstallationEnd
+      ~IPluginInstaller.onInstallationStart
       ~IPluginInstaller.priority
       ~IPluginInstaller.setInstallationManager
       ~IPluginInstaller.setParentWidget
@@ -20,6 +22,8 @@ IPluginInstaller
 
    .. automethod:: isArchiveSupported
    .. automethod:: isManualInstaller
+   .. automethod:: onInstallationEnd
+   .. automethod:: onInstallationStart
    .. automethod:: priority
    .. automethod:: setInstallationManager
    .. automethod:: setParentWidget

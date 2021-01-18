@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>IPluginGame &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="../index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../mobase.html#classes">Classes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -251,7 +261,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/api/mobase.IPluginGame.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -310,12 +320,15 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.dataDirectory" title="mobase.IPluginGame.dataDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataDirectory</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
-<dd class="field-odd"><p>The name of the directory containing data (relative to the game folder).</p>
+<dd class="field-odd"><p>The path to the directory containing data (absolute path).</p>
 </dd>
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.documentsDirectory" title="mobase.IPluginGame.documentsDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">documentsDirectory</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.detectGame" title="mobase.IPluginGame.detectGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detectGame</span></code></a>()</p></td>
+<td><p>Detect the game.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.documentsDirectory" title="mobase.IPluginGame.documentsDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">documentsDirectory</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The directory of the documents folder where configuration files and such for this game reside.</p>
@@ -323,7 +336,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.executableForcedLoads" title="mobase.IPluginGame.executableForcedLoads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executableForcedLoads</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.executableForcedLoads" title="mobase.IPluginGame.executableForcedLoads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executableForcedLoads</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>A list of automatically discovered libraries that can be force loaded with executables.</p>
@@ -331,7 +344,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.executables" title="mobase.IPluginGame.executables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executables</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.executables" title="mobase.IPluginGame.executables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executables</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>A list of automatically discovered executables of the game itself and tools surrounding it.</p>
@@ -339,13 +352,13 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.feature" title="mobase.IPluginGame.feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code></a>(feature_type)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.feature" title="mobase.IPluginGame.feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code></a>(feature_type)</p></td>
 <td><p>Retrieve a specified game feature from this plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.featureList" title="mobase.IPluginGame.featureList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">featureList</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.featureList" title="mobase.IPluginGame.featureList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">featureList</span></code></a>()</p></td>
 <td><p>Retrieve the list of game features implemented for this plugin.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameDirectory" title="mobase.IPluginGame.gameDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameDirectory</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameDirectory" title="mobase.IPluginGame.gameDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameDirectory</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The directory containing the game installation.</p>
@@ -353,7 +366,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameIcon" title="mobase.IPluginGame.gameIcon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameIcon</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameIcon" title="mobase.IPluginGame.gameIcon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameIcon</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The icon representing the game.</p>
@@ -361,7 +374,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameName" title="mobase.IPluginGame.gameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameName</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameName" title="mobase.IPluginGame.gameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameName</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The name of the game (as displayed to the user).</p>
@@ -369,7 +382,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameNexusName" title="mobase.IPluginGame.gameNexusName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameNexusName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameNexusName" title="mobase.IPluginGame.gameNexusName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameNexusName</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The name of the game identifier for Nexus.</p>
@@ -377,7 +390,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameShortName" title="mobase.IPluginGame.gameShortName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameShortName</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameShortName" title="mobase.IPluginGame.gameShortName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameShortName</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The short name of the game.</p>
@@ -385,10 +398,10 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVariants" title="mobase.IPluginGame.gameVariants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVariants</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVariants" title="mobase.IPluginGame.gameVariants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVariants</span></code></a>()</p></td>
 <td><p>Retrieve the list of variants for this game.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVersion" title="mobase.IPluginGame.gameVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVersion</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVersion" title="mobase.IPluginGame.gameVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVersion</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The version of the game.</p>
@@ -396,7 +409,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.getLauncherName" title="mobase.IPluginGame.getLauncherName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLauncherName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.getLauncherName" title="mobase.IPluginGame.getLauncherName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLauncherName</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The name of the launcher executable to run (relative to the game folder), or an</p>
@@ -404,7 +417,7 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.iniFiles" title="mobase.IPluginGame.iniFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iniFiles</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.iniFiles" title="mobase.IPluginGame.iniFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iniFiles</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The list of INI files this game uses. The first file in the list should be the</p>
@@ -412,16 +425,19 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.initializeProfile" title="mobase.IPluginGame.initializeProfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initializeProfile</span></code></a>(directory, settings)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.initializeProfile" title="mobase.IPluginGame.initializeProfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initializeProfile</span></code></a>(directory, settings)</p></td>
 <td><p>Initialize a profile for this game.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.isInstalled" title="mobase.IPluginGame.isInstalled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isInstalled</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.isInstalled" title="mobase.IPluginGame.isInstalled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isInstalled</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>True if this game has been discovered as installed, False otherwise.</p>
 </dd>
 </dl>
 </p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.listSaves" title="mobase.IPluginGame.listSaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listSaves</span></code></a>(folder)</p></td>
+<td><p>List saves in the given directory.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.loadOrderMechanism" title="mobase.IPluginGame.loadOrderMechanism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loadOrderMechanism</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
@@ -450,22 +466,6 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.primarySources" title="mobase.IPluginGame.primarySources"><code class="xref py py-obj docutils literal notranslate"><span class="pre">primarySources</span></code></a>()</p></td>
 <td><p>Retrieve primary alternative ‘short’ names for this game.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.savegameExtension" title="mobase.IPluginGame.savegameExtension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savegameExtension</span></code></a>()</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">returns</dt>
-<dd class="field-odd"><p>The file extension of save games for this game.</p>
-</dd>
-</dl>
-</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.savegameSEExtension" title="mobase.IPluginGame.savegameSEExtension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savegameSEExtension</span></code></a>()</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">returns</dt>
-<dd class="field-odd"><p>The file extension of Script Extender saves for this game.</p>
-</dd>
-</dl>
-</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.savesDirectory" title="mobase.IPluginGame.savesDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savesDirectory</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
@@ -542,12 +542,32 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 <em class="property">abstract </em><code class="sig-name descname">dataDirectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.dataDirectory" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The name of the directory containing data (relative to the game folder).</p>
+<dd class="field-odd"><p>The path to the directory containing data (absolute path).</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">QDir</span></code></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IPluginGame.detectGame">
+<em class="property">abstract </em><code class="sig-name descname">detectGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.detectGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the game.</p>
+<p>This method is the first called for game plugins (before <cite>init()</cite>). The following
+methods should work properly after the call to <cite>detectGame()</cite> (and before <cite>init()</cite>):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>gameName()</p></li>
+<li><p>isInstalled()</p></li>
+<li><p>gameIcon()</p></li>
+<li><p>gameDirectory()</p></li>
+<li><p>dataDirectory()</p></li>
+<li><p>gameVariants()</p></li>
+<li><p>looksValid()</p></li>
+</ul>
+</div></blockquote>
+<p>See <cite>IPlugin.init()</cite> for more.</p>
 </dd></dl>
 
 <dl class="method">
@@ -783,6 +803,23 @@ it so the implementations have to gracefully handle the case that the directory 
 </dd></dl>
 
 <dl class="method">
+<dt id="mobase.IPluginGame.listSaves">
+<em class="property">abstract </em><code class="sig-name descname">listSaves</code><span class="sig-paren">(</span><em class="sig-param">folder</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.listSaves" title="Permalink to this definition">¶</a></dt>
+<dd><p>List saves in the given directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>folder</strong> – The folder to list saves from.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list of game saves in the given folder.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="mobase.ISaveGame.html#mobase.ISaveGame" title="mobase.ISaveGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">ISaveGame</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="mobase.IPluginGame.loadOrderMechanism">
 <em class="property">abstract </em><code class="sig-name descname">loadOrderMechanism</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.loadOrderMechanism" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -875,32 +912,6 @@ as a primary source for the game so that it is not flagged as an alternative one
 </dd></dl>
 
 <dl class="method">
-<dt id="mobase.IPluginGame.savegameExtension">
-<em class="property">abstract </em><code class="sig-name descname">savegameExtension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.savegameExtension" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The file extension of save games for this game.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="mobase.IPluginGame.savegameSEExtension">
-<em class="property">abstract </em><code class="sig-name descname">savegameSEExtension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.savegameSEExtension" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The file extension of Script Extender saves for this game.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="mobase.IPluginGame.savesDirectory">
 <em class="property">abstract </em><code class="sig-name descname">savesDirectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.savesDirectory" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -979,7 +990,7 @@ game variants have their own nexus pages and others can handle downloads from ot
 game pages and should be allowed to do so (e.g., you can install some Skyrim LE mod even
 when using Skyrim SE).</p>
 <p>The short name should be considered the primary handler for a directly supported game
-for puroses of auto-launching an instance.</p>
+for purposes of auto-launching an instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The list of valid short names for this game.</p>
@@ -999,37 +1010,29 @@ for puroses of auto-launching an instance.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mobase.IPluginInstaller.html" class="btn btn-neutral float-right" title="IPluginInstaller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="mobase.IPluginFileMapper.html" class="btn btn-neutral float-left" title="IPluginFileMapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="mobase.IPluginInstaller.html" class="btn btn-neutral float-right" title="IPluginInstaller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.IPluginFileMapper.html" class="btn btn-neutral float-left" title="IPluginFileMapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

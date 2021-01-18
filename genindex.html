@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Index &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -20,7 +20,10 @@
   
     <link rel="shortcut icon" href="_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -53,7 +56,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -92,6 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -146,6 +150,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mobase.html#classes">Classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.FileInfo.html">FileInfo</a></li>
@@ -170,6 +175,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ISaveGame.html">ISaveGame</a></li>
@@ -183,6 +189,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -190,6 +197,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.VersionScheme.html">VersionScheme</a></li>
@@ -237,6 +245,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -248,7 +258,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
         
       </li>
     
@@ -290,6 +300,8 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.IProfile.html#mobase.IProfile.absoluteIniFilePath">absoluteIniFilePath() (mobase.IProfile method)</a>
+</li>
       <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.absolutePath">absolutePath() (mobase.IModInterface method)</a>
 
       <ul>
@@ -322,6 +334,8 @@
 </li>
       <li><a href="api/mobase.IModList.html#mobase.IModList.allMods">allMods() (mobase.IModList method)</a>
 </li>
+      <li><a href="api/mobase.IModList.html#mobase.IModList.allModsByProfilePriority">allModsByProfilePriority() (mobase.IModList method)</a>
+</li>
       <li><a href="api/mobase.ReleaseType.html#mobase.ReleaseType.ALPHA">ALPHA (mobase.ReleaseType attribute)</a>
 </li>
       <li><a href="api/mobase.ModState.html#mobase.ModState.ALTERNATE">ALTERNATE (mobase.ModState attribute)</a>
@@ -345,6 +359,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.basePath">basePath() (mobase.IOrganizer method)</a>
+</li>
+      <li><a href="api/mobase.PluginRequirementFactory.html#mobase.PluginRequirementFactory.basic">basic() (mobase.PluginRequirementFactory static method)</a>
 </li>
       <li><a href="api/mobase.ReleaseType.html#mobase.ReleaseType.BETA">BETA (mobase.ReleaseType attribute)</a>
 </li>
@@ -378,17 +394,27 @@
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.CCPlugins">CCPlugins() (mobase.IPluginGame method)</a>
 </li>
+      <li><a href="api/mobase.IPluginRequirement.html#mobase.IPluginRequirement.check">check() (mobase.IPluginRequirement method)</a>
+</li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.clear">clear() (mobase.IFileTree method)</a>
 
       <ul>
         <li><a href="api/mobase.VersionInfo.html#mobase.VersionInfo.clear">(mobase.VersionInfo method)</a>
 </li>
       </ul></li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.clearPluginSettings">clearPluginSettings() (mobase.IModInterface method)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.color">color() (mobase.IModInterface method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.comments">comments() (mobase.IModInterface method)</a>
+</li>
       <li><a href="api/mobase.ProfileSetting.html#mobase.ProfileSetting.CONFIGURATION">CONFIGURATION (mobase.ProfileSetting attribute)</a>
 </li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.CONTINUE">CONTINUE (mobase.IFileTree attribute)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.converted">converted() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.copy">copy() (mobase.IFileTree method)</a>
 </li>
@@ -438,12 +464,16 @@
 </li>
       <li><a href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry.detach">detach() (mobase.FileTreeEntry method)</a>
 </li>
+      <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.detectGame">detectGame() (mobase.IPluginGame method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.PluginRequirementFactory.html#mobase.PluginRequirementFactory.diagnose">diagnose() (mobase.PluginRequirementFactory static method)</a>
+</li>
       <li><a href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry.DIRECTORY">DIRECTORY (mobase.FileTreeEntry attribute)</a>
 </li>
       <li><a href="api/mobase.VersionScheme.html#mobase.VersionScheme.DISCOVER">DISCOVER (mobase.VersionScheme attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IPluginTool.html#mobase.IPluginTool.display">display() (mobase.IPluginTool method)</a>
 </li>
       <li><a href="api/mobase.IModList.html#mobase.IModList.displayName">displayName() (mobase.IModList method)</a>
@@ -462,17 +492,9 @@
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.documentsDirectory">documentsDirectory() (mobase.IPluginGame method)</a>
 </li>
-      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.downloadComplete">downloadComplete (mobase.IDownloadManager attribute)</a>
-</li>
-      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.downloadFailed">downloadFailed (mobase.IDownloadManager attribute)</a>
-</li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.downloadManager">downloadManager() (mobase.IOrganizer method)</a>
 </li>
       <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.downloadPath">downloadPath() (mobase.IDownloadManager method)</a>
-</li>
-      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.downloadPaused">downloadPaused (mobase.IDownloadManager attribute)</a>
-</li>
-      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.downloadRemoved">downloadRemoved (mobase.IDownloadManager attribute)</a>
 </li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.downloadsPath">downloadsPath() (mobase.IOrganizer method)</a>
 </li>
@@ -490,16 +512,28 @@
 </li>
       <li><a href="api/mobase.ModState.html#mobase.ModState.ENDORSED">ENDORSED (mobase.ModState attribute)</a>
 </li>
+      <li><a href="api/mobase.EndorsedState.html#mobase.EndorsedState.ENDORSED_FALSE">ENDORSED_FALSE (mobase.EndorsedState attribute)</a>
+</li>
+      <li><a href="api/mobase.EndorsedState.html#mobase.EndorsedState.ENDORSED_NEVER">ENDORSED_NEVER (mobase.EndorsedState attribute)</a>
+</li>
+      <li><a href="api/mobase.EndorsedState.html#mobase.EndorsedState.ENDORSED_TRUE">ENDORSED_TRUE (mobase.EndorsedState attribute)</a>
+</li>
+      <li><a href="api/mobase.EndorsedState.html#mobase.EndorsedState.ENDORSED_UNKNOWN">ENDORSED_UNKNOWN (mobase.EndorsedState attribute)</a>
+</li>
+      <li><a href="api/mobase.EndorsedState.html#mobase.EndorsedState">EndorsedState (class in mobase)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.endorsedState">endorsedState() (mobase.IModInterface method)</a>
+</li>
       <li><a href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge.endorsementsAvailable">endorsementsAvailable (mobase.IModRepositoryBridge attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge.endorsementToggled">endorsementToggled (mobase.IModRepositoryBridge attribute)</a>
 </li>
       <li><a href="api/mobase.ModState.html#mobase.ModState.ESSENTIAL">ESSENTIAL (mobase.ModState attribute)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.executableForcedLoads">executableForcedLoads() (mobase.IPluginGame method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.ExecutableForcedLoadSetting.html#mobase.ExecutableForcedLoadSetting">ExecutableForcedLoadSetting (class in mobase)</a>
 </li>
       <li><a href="api/mobase.ExecutableInfo.html#mobase.ExecutableInfo">ExecutableInfo (class in mobase)</a>
@@ -546,15 +580,17 @@
 </li>
       <li><a href="api/mobase.ModRepositoryFileInfo.html#mobase.ModRepositoryFileInfo.fileName">fileName (mobase.ModRepositoryFileInfo attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.FileInfo.html#mobase.FileInfo.filePath">filePath (mobase.FileInfo attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge.filesAvailable">filesAvailable (mobase.IModRepositoryBridge attribute)</a>
 </li>
       <li><a href="api/mobase.ModRepositoryFileInfo.html#mobase.ModRepositoryFileInfo.fileSize">fileSize (mobase.ModRepositoryFileInfo attribute)</a>
 </li>
       <li><a href="api/mobase.ModRepositoryFileInfo.html#mobase.ModRepositoryFileInfo.fileTime">fileTime (mobase.ModRepositoryFileInfo attribute)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.fileTree">fileTree() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry">FileTreeEntry (class in mobase)</a>
 </li>
@@ -582,14 +618,20 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.PluginRequirementFactory.html#mobase.PluginRequirementFactory.gameDependency">gameDependency() (mobase.PluginRequirementFactory method)</a>
+</li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.gameDirectory">gameDirectory() (mobase.IPluginGame method)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.gameIcon">gameIcon() (mobase.IPluginGame method)</a>
 </li>
       <li><a href="api/mobase.ModRepositoryFileInfo.html#mobase.ModRepositoryFileInfo.gameName">gameName (mobase.ModRepositoryFileInfo attribute)</a>
 </li>
-      <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.gameName">gameName() (mobase.IPluginGame method)</a>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.gameName">gameName() (mobase.IModInterface method)</a>
+
+      <ul>
+        <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.gameName">(mobase.IPluginGame method)</a>
 </li>
+      </ul></li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.gameNexusName">gameNexusName() (mobase.IPluginGame method)</a>
 </li>
       <li><a href="api/mobase.GamePlugins.html#mobase.GamePlugins">GamePlugins (class in mobase)</a>
@@ -612,11 +654,11 @@
 </li>
       <li><a href="api/mobase.ScriptExtender.html#mobase.ScriptExtender.getExtenderVersion">getExtenderVersion() (mobase.ScriptExtender method)</a>
 </li>
-      <li><a href="api/mobase.ISaveGame.html#mobase.ISaveGame.getFilename">getFilename() (mobase.ISaveGame method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.getFileOrigins">getFileOrigins() (mobase.IOrganizer method)</a>
+</li>
+      <li><a href="api/mobase.ISaveGame.html#mobase.ISaveGame.getFilepath">getFilepath() (mobase.ISaveGame method)</a>
 </li>
       <li><a href="api/mobase.getFileVersion.html#mobase.getFileVersion">getFileVersion() (in module mobase)</a>
 </li>
@@ -630,11 +672,13 @@
 </li>
       <li><a href="api/mobase.SaveGameInfo.html#mobase.SaveGameInfo.getMissingAssets">getMissingAssets() (mobase.SaveGameInfo method)</a>
 </li>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.getMod">getMod() (mobase.IOrganizer method)</a>
+      <li><a href="api/mobase.IModList.html#mobase.IModList.getMod">getMod() (mobase.IModList method)</a>
+</li>
+      <li><a href="api/mobase.ISaveGame.html#mobase.ISaveGame.getName">getName() (mobase.ISaveGame method)</a>
+</li>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.getPluginDataPath">getPluginDataPath() (mobase.IOrganizer static method)</a>
 </li>
       <li><a href="api/mobase.getProductVersion.html#mobase.getProductVersion">getProductVersion() (in module mobase)</a>
-</li>
-      <li><a href="api/mobase.SaveGameInfo.html#mobase.SaveGameInfo.getSaveGameInfo">getSaveGameInfo() (mobase.SaveGameInfo method)</a>
 </li>
       <li><a href="api/mobase.SaveGameInfo.html#mobase.SaveGameInfo.getSaveGameWidget">getSaveGameWidget() (mobase.SaveGameInfo method)</a>
 </li>
@@ -656,13 +700,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IPluginModPage.html#mobase.IPluginModPage.handlesDownload">handlesDownload() (mobase.IPluginModPage method)</a>
 </li>
-      <li><a href="api/mobase.IPluginDiagnose.html#mobase.IPluginDiagnose.hasGuidedFix">hasGuidedFix() (mobase.IPluginDiagnose method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/mobase.ISaveGame.html#mobase.ISaveGame.hasScriptExtenderFile">hasScriptExtenderFile() (mobase.ISaveGame method)</a>
-</li>
-      <li><a href="api/mobase.SaveGameInfo.html#mobase.SaveGameInfo.hasScriptExtenderSave">hasScriptExtenderSave() (mobase.SaveGameInfo method)</a>
+      <li><a href="api/mobase.IPluginDiagnose.html#mobase.IPluginDiagnose.hasGuidedFix">hasGuidedFix() (mobase.IPluginDiagnose method)</a>
 </li>
       <li><a href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry.hasSuffix">hasSuffix() (mobase.FileTreeEntry method)</a>
 </li>
@@ -681,6 +721,8 @@
       <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager">IDownloadManager (class in mobase)</a>
 </li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree">IFileTree (class in mobase)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.ignoredVersion">ignoredVersion() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IInstallationManager.html#mobase.IInstallationManager">IInstallationManager (class in mobase)</a>
 </li>
@@ -708,6 +750,8 @@
       </ul></li>
       <li><a href="api/mobase.IInstallationManager.html#mobase.IInstallationManager.installArchive">installArchive() (mobase.IInstallationManager method)</a>
 </li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.installationFile">installationFile() (mobase.IModInterface method)</a>
+</li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.installMod">installMod() (mobase.IOrganizer method)</a>
 </li>
       <li><a href="api/mobase.InstallResult.html#mobase.InstallResult">InstallResult (class in mobase)</a>
@@ -728,12 +772,12 @@
 </li>
       <li><a href="api/mobase.IPluginDiagnose.html#mobase.IPluginDiagnose">IPluginDiagnose (class in mobase)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IPluginFileMapper.html#mobase.IPluginFileMapper">IPluginFileMapper (class in mobase)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame">IPluginGame (class in mobase)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IPluginInstaller.html#mobase.IPluginInstaller">IPluginInstaller (class in mobase)</a>
 </li>
       <li><a href="api/mobase.IPluginInstallerCustom.html#mobase.IPluginInstallerCustom">IPluginInstallerCustom (class in mobase)</a>
@@ -746,11 +790,11 @@
 </li>
       <li><a href="api/mobase.IPluginPreview.html#mobase.IPluginPreview">IPluginPreview (class in mobase)</a>
 </li>
+      <li><a href="api/mobase.IPluginRequirement.html#mobase.IPluginRequirement">IPluginRequirement (class in mobase)</a>
+</li>
       <li><a href="api/mobase.IPluginTool.html#mobase.IPluginTool">IPluginTool (class in mobase)</a>
 </li>
       <li><a href="api/mobase.IProfile.html#mobase.IProfile">IProfile (class in mobase)</a>
-</li>
-      <li><a href="api/mobase.IPlugin.html#mobase.IPlugin.isActive">isActive() (mobase.IPlugin method)</a>
 </li>
       <li><a href="api/mobase.IPluginInstaller.html#mobase.IPluginInstaller.isArchiveSupported">isArchiveSupported() (mobase.IPluginInstaller method)</a>
 
@@ -762,6 +806,8 @@
 </li>
       <li><a href="api/mobase.ISaveGameInfoWidget.html#mobase.ISaveGameInfoWidget">ISaveGameInfoWidget (class in mobase)</a>
 </li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.isBackup">isBackup() (mobase.IModInterface method)</a>
+</li>
       <li><a href="api/mobase.ExecutableInfo.html#mobase.ExecutableInfo.isCustom">isCustom() (mobase.ExecutableInfo method)</a>
 </li>
       <li><a href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry.isDir">isDir() (mobase.FileTreeEntry method)</a>
@@ -769,6 +815,8 @@
       <li><a href="api/mobase.Mapping.html#mobase.Mapping.isDirectory">isDirectory (mobase.Mapping attribute)</a>
 </li>
       <li><a href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry.isFile">isFile() (mobase.FileTreeEntry method)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.isForeign">isForeign() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.isInstalled">isInstalled() (mobase.IPluginGame method)</a>
 
@@ -781,6 +829,12 @@
       <li><a href="api/mobase.IPluginInstaller.html#mobase.IPluginInstaller.isManualInstaller">isManualInstaller() (mobase.IPluginInstaller method)</a>
 </li>
       <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.isMaster">isMaster() (mobase.IPluginList method)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.isOverwrite">isOverwrite() (mobase.IModInterface method)</a>
+</li>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.isPluginEnabled">isPluginEnabled() (mobase.IOrganizer method)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.isSeparator">isSeparator() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.ExecutableInfo.html#mobase.ExecutableInfo.isValid">isValid() (mobase.ExecutableInfo method)</a>
 
@@ -808,6 +862,8 @@
 </li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.listDirectories">listDirectories() (mobase.IOrganizer method)</a>
 </li>
+      <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.listSaves">listSaves() (mobase.IPluginGame method)</a>
+</li>
       <li><a href="api/mobase.VersionScheme.html#mobase.VersionScheme.LITERAL">LITERAL (mobase.VersionScheme attribute)</a>
 </li>
       <li><a href="api/mobase.ScriptExtender.html#mobase.ScriptExtender.loaderName">loaderName() (mobase.ScriptExtender method)</a>
@@ -821,6 +877,8 @@
       <li><a href="api/mobase.LoadOrderMechanism.html#mobase.LoadOrderMechanism">LoadOrderMechanism (class in mobase)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.loadOrderMechanism">loadOrderMechanism() (mobase.IPluginGame method)</a>
+</li>
+      <li><a href="api/mobase.IPlugin.html#mobase.IPlugin.localizedName">localizedName() (mobase.IPlugin method)</a>
 </li>
       <li><a href="api/mobase.LocalSavegames.html#mobase.LocalSavegames">LocalSavegames (class in mobase)</a>
 </li>
@@ -850,6 +908,8 @@
         <li><a href="api/mobase.LocalSavegames.html#mobase.LocalSavegames.mappings">(mobase.LocalSavegames method)</a>
 </li>
       </ul></li>
+      <li><a href="api/mobase.IPlugin.html#mobase.IPlugin.master">master() (mobase.IPlugin method)</a>
+</li>
       <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.masters">masters() (mobase.IPluginList method)</a>
 </li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.MERGE">MERGE (mobase.IFileTree attribute)</a>
@@ -864,10 +924,10 @@
 </li>
       <li><a href="mobase.html#module-mobase">mobase (module)</a>
 </li>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.modDataChanged">modDataChanged() (mobase.IOrganizer method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.modDataChanged">modDataChanged() (mobase.IOrganizer method)</a>
+</li>
       <li><a href="api/mobase.ModDataChecker.html#mobase.ModDataChecker">ModDataChecker (class in mobase)</a>
 </li>
       <li><a href="api/mobase.ModDataContent.html#mobase.ModDataContent">ModDataContent (class in mobase)</a>
@@ -885,8 +945,6 @@
       <li><a href="api/mobase.UnmanagedMods.html#mobase.UnmanagedMods.mods">mods() (mobase.UnmanagedMods method)</a>
 </li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.modsPath">modsPath() (mobase.IOrganizer method)</a>
-</li>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.modsSortedByProfilePriority">modsSortedByProfilePriority() (mobase.IOrganizer method)</a>
 </li>
       <li><a href="api/mobase.ModState.html#mobase.ModState">ModState (class in mobase)</a>
 </li>
@@ -912,17 +970,23 @@
         <li><a href="api/mobase.IProfile.html#mobase.IProfile.name">(mobase.IProfile method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.ModRepositoryFileInfo.html#mobase.ModRepositoryFileInfo.newestVersion">newestVersion (mobase.ModRepositoryFileInfo attribute)</a>
 </li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.newestVersion">newestVersion() (mobase.IModInterface method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.nexusGameID">nexusGameID() (mobase.IPluginGame method)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.nexusId">nexusId() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.nexusModOrganizerID">nexusModOrganizerID() (mobase.IPluginGame method)</a>
 </li>
       <li><a href="api/mobase.SortMechanism.html#mobase.SortMechanism.NONE">NONE (mobase.SortMechanism attribute)</a>
 </li>
       <li><a href="api/mobase.InstallResult.html#mobase.InstallResult.NOT_ATTEMPTED">NOT_ATTEMPTED (mobase.InstallResult attribute)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.notes">notes() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.VersionScheme.html#mobase.VersionScheme.NUMBERS_AND_LETTERS">NUMBERS_AND_LETTERS (mobase.VersionScheme attribute)</a>
 </li>
@@ -934,21 +998,47 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onAboutToRun">onAboutToRun() (mobase.IOrganizer method)</a>
 </li>
+      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.onDownloadComplete">onDownloadComplete() (mobase.IDownloadManager method)</a>
+</li>
+      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.onDownloadFailed">onDownloadFailed() (mobase.IDownloadManager method)</a>
+</li>
+      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.onDownloadPaused">onDownloadPaused() (mobase.IDownloadManager method)</a>
+</li>
+      <li><a href="api/mobase.IDownloadManager.html#mobase.IDownloadManager.onDownloadRemoved">onDownloadRemoved() (mobase.IDownloadManager method)</a>
+</li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onFinishedRun">onFinishedRun() (mobase.IOrganizer method)</a>
 </li>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onModInstalled">onModInstalled() (mobase.IOrganizer method)</a>
+      <li><a href="api/mobase.IPluginInstaller.html#mobase.IPluginInstaller.onInstallationEnd">onInstallationEnd() (mobase.IPluginInstaller method)</a>
+</li>
+      <li><a href="api/mobase.IPluginInstaller.html#mobase.IPluginInstaller.onInstallationStart">onInstallationStart() (mobase.IPluginInstaller method)</a>
+</li>
+      <li><a href="api/mobase.IModList.html#mobase.IModList.onModInstalled">onModInstalled() (mobase.IModList method)</a>
 </li>
       <li><a href="api/mobase.IModList.html#mobase.IModList.onModMoved">onModMoved() (mobase.IModList method)</a>
 </li>
+      <li><a href="api/mobase.IModList.html#mobase.IModList.onModRemoved">onModRemoved() (mobase.IModList method)</a>
+</li>
       <li><a href="api/mobase.IModList.html#mobase.IModList.onModStateChanged">onModStateChanged() (mobase.IModList method)</a>
 </li>
-      <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.onPluginMoved">onPluginMoved() (mobase.IPluginList method)</a>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onPluginDisabled">onPluginDisabled() (mobase.IOrganizer method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onPluginEnabled">onPluginEnabled() (mobase.IOrganizer method)</a>
+</li>
+      <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.onPluginMoved">onPluginMoved() (mobase.IPluginList method)</a>
+</li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onPluginSettingChanged">onPluginSettingChanged() (mobase.IOrganizer method)</a>
 </li>
+      <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.onPluginStateChanged">onPluginStateChanged() (mobase.IPluginList method)</a>
+</li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onProfileChanged">onProfileChanged() (mobase.IOrganizer method)</a>
+</li>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onProfileCreated">onProfileCreated() (mobase.IOrganizer method)</a>
+</li>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onProfileRemoved">onProfileRemoved() (mobase.IOrganizer method)</a>
+</li>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.onProfileRenamed">onProfileRenamed() (mobase.IOrganizer method)</a>
 </li>
       <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.onRefreshed">onRefreshed() (mobase.IPluginList method)</a>
 </li>
@@ -982,20 +1072,30 @@
 </li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.pluginDataPath">pluginDataPath() (mobase.IOrganizer method)</a>
 </li>
+      <li><a href="api/mobase.PluginRequirementFactory.html#mobase.PluginRequirementFactory.pluginDependency">pluginDependency() (mobase.PluginRequirementFactory method)</a>
+</li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.pluginList">pluginList() (mobase.IOrganizer method)</a>
 </li>
       <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.pluginNames">pluginNames() (mobase.IPluginList method)</a>
 </li>
       <li><a href="api/mobase.ScriptExtender.html#mobase.ScriptExtender.PluginPath">PluginPath() (mobase.ScriptExtender method)</a>
 </li>
+      <li><a href="api/mobase.PluginRequirementFactory.html#mobase.PluginRequirementFactory">PluginRequirementFactory (class in mobase)</a>
+</li>
       <li><a href="api/mobase.LoadOrderMechanism.html#mobase.LoadOrderMechanism.PLUGINS_TXT">PLUGINS_TXT (mobase.LoadOrderMechanism attribute)</a>
 </li>
       <li><a href="api/mobase.PluginSetting.html#mobase.PluginSetting">PluginSetting (class in mobase)</a>
 </li>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.pluginSetting">pluginSetting() (mobase.IOrganizer method)</a>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.pluginSetting">pluginSetting() (mobase.IModInterface method)</a>
+
+      <ul>
+        <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.pluginSetting">(mobase.IOrganizer method)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.pluginSettings">pluginSettings() (mobase.IModInterface method)</a>
+</li>
       <li><a href="api/mobase.PluginState.html#mobase.PluginState">PluginState (class in mobase)</a>
 </li>
       <li><a href="api/mobase.ReleaseType.html#mobase.ReleaseType.PRE_ALPHA">PRE_ALPHA (mobase.ReleaseType attribute)</a>
@@ -1005,6 +1105,8 @@
       <li><a href="api/mobase.LocalSavegames.html#mobase.LocalSavegames.prepareProfile">prepareProfile() (mobase.LocalSavegames method)</a>
 </li>
       <li><a href="api/mobase.GuessQuality.html#mobase.GuessQuality.PRESET">PRESET (mobase.GuessQuality attribute)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.primaryCategory">primaryCategory() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.primaryPlugins">primaryPlugins() (mobase.IPluginGame method)</a>
 </li>
@@ -1038,18 +1140,14 @@
 </li>
       <li><a href="api/mobase.UnmanagedMods.html#mobase.UnmanagedMods.referenceFile">referenceFile() (mobase.UnmanagedMods method)</a>
 </li>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.refreshModList">refreshModList() (mobase.IOrganizer method)</a>
+      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.refresh">refresh() (mobase.IOrganizer method)</a>
 </li>
       <li><a href="api/mobase.VersionScheme.html#mobase.VersionScheme.REGULAR">REGULAR (mobase.VersionScheme attribute)</a>
 </li>
       <li><a href="api/mobase.ReleaseType.html#mobase.ReleaseType">ReleaseType (class in mobase)</a>
 </li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.remove">remove() (mobase.IFileTree method)</a>
-
-      <ul>
-        <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.remove">(mobase.IModInterface method)</a>
 </li>
-      </ul></li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.removeAll">removeAll() (mobase.IFileTree method)</a>
 </li>
       <li><a href="api/mobase.DataArchives.html#mobase.DataArchives.removeArchive">removeArchive() (mobase.DataArchives method)</a>
@@ -1058,13 +1156,17 @@
 </li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.removeIf">removeIf() (mobase.IFileTree method)</a>
 </li>
+      <li><a href="api/mobase.IModList.html#mobase.IModList.removeMod">removeMod() (mobase.IModList method)</a>
+</li>
+      <li><a href="api/mobase.IModList.html#mobase.IModList.renameMod">renameMod() (mobase.IModList method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.removeMod">removeMod() (mobase.IOrganizer method)</a>
-</li>
       <li><a href="api/mobase.IFileTree.html#mobase.IFileTree.REPLACE">REPLACE (mobase.IFileTree attribute)</a>
 </li>
       <li><a href="api/mobase.ModRepositoryFileInfo.html#mobase.ModRepositoryFileInfo.repository">repository (mobase.ModRepositoryFileInfo attribute)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.repository">repository() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge.requestDescription">requestDescription() (mobase.IModRepositoryBridge method)</a>
 </li>
@@ -1078,6 +1180,8 @@
 </li>
       <li><a href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge.requestToggleEndorsement">requestToggleEndorsement() (mobase.IModRepositoryBridge method)</a>
 </li>
+      <li><a href="api/mobase.IPlugin.html#mobase.IPlugin.requirements">requirements() (mobase.IPlugin method)</a>
+</li>
       <li><a href="api/mobase.GuessedString.html#mobase.GuessedString.reset">reset() (mobase.GuessedString method)</a>
 </li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.resolvePath">resolvePath() (mobase.IOrganizer method)</a>
@@ -1088,15 +1192,11 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/mobase.ScriptExtender.html#mobase.ScriptExtender.saveGameAttachmentExtensions">saveGameAttachmentExtensions() (mobase.ScriptExtender method)</a>
-</li>
-      <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.savegameExtension">savegameExtension() (mobase.IPluginGame method)</a>
+      <li><a href="api/mobase.ScriptExtender.html#mobase.ScriptExtender.savegameExtension">savegameExtension() (mobase.ScriptExtender method)</a>
 </li>
       <li><a href="api/mobase.SaveGameInfo.html#mobase.SaveGameInfo">SaveGameInfo (class in mobase)</a>
 </li>
       <li><a href="api/mobase.ProfileSetting.html#mobase.ProfileSetting.SAVEGAMES">SAVEGAMES (mobase.ProfileSetting attribute)</a>
-</li>
-      <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.savegameSEExtension">savegameSEExtension() (mobase.IPluginGame method)</a>
 </li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.savesDirectory">savesDirectory() (mobase.IPluginGame method)</a>
 </li>
@@ -1122,8 +1222,6 @@
 </li>
       <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.setLoadOrder">setLoadOrder() (mobase.IPluginList method)</a>
 </li>
-      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.setName">setName() (mobase.IModInterface method)</a>
-</li>
       <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.setNewestVersion">setNewestVersion() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.setNexusID">setNexusID() (mobase.IModInterface method)</a>
@@ -1138,19 +1236,27 @@
       </ul></li>
       <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.setPersistent">setPersistent() (mobase.IOrganizer method)</a>
 </li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.setPluginSetting">setPluginSetting() (mobase.IModInterface method)</a>
+
+      <ul>
+        <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.setPluginSetting">(mobase.IOrganizer method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/mobase.IModList.html#mobase.IModList.setPriority">setPriority() (mobase.IModList method)</a>
+
+      <ul>
+        <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.setPriority">(mobase.IPluginList method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/mobase.IOrganizer.html#mobase.IOrganizer.setPluginSetting">setPluginSetting() (mobase.IOrganizer method)</a>
-</li>
-      <li><a href="api/mobase.IModList.html#mobase.IModList.setPriority">setPriority() (mobase.IModList method)</a>
-</li>
       <li><a href="api/mobase.ISaveGameInfoWidget.html#mobase.ISaveGameInfoWidget.setSave">setSave() (mobase.ISaveGameInfoWidget method)</a>
 </li>
       <li><a href="api/mobase.IPluginList.html#mobase.IPluginList.setState">setState() (mobase.IPluginList method)</a>
 </li>
       <li><a href="api/mobase.IPlugin.html#mobase.IPlugin.settings">settings() (mobase.IPlugin method)</a>
 </li>
-      <li><a href="api/mobase.IInstallationManager.html#mobase.IInstallationManager.setURL">setURL() (mobase.IInstallationManager method)</a>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.setUrl">setUrl() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.setVersion">setVersion() (mobase.IModInterface method)</a>
 </li>
@@ -1204,9 +1310,19 @@
 </li>
       <li><a href="api/mobase.IPluginTool.html#mobase.IPluginTool.tooltip">tooltip() (mobase.IPluginTool method)</a>
 </li>
+      <li><a href="api/mobase.TrackedState.html#mobase.TrackedState.TRACKED_FALSE">TRACKED_FALSE (mobase.TrackedState attribute)</a>
+</li>
+      <li><a href="api/mobase.TrackedState.html#mobase.TrackedState.TRACKED_TRUE">TRACKED_TRUE (mobase.TrackedState attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.TrackedState.html#mobase.TrackedState.TRACKED_UNKNOWN">TRACKED_UNKNOWN (mobase.TrackedState attribute)</a>
+</li>
       <li><a href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge.trackedModsAvailable">trackedModsAvailable (mobase.IModRepositoryBridge attribute)</a>
+</li>
+      <li><a href="api/mobase.TrackedState.html#mobase.TrackedState">TrackedState (class in mobase)</a>
+</li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.trackedState">trackedState() (mobase.IModInterface method)</a>
 </li>
       <li><a href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge.trackingToggled">trackingToggled (mobase.IModRepositoryBridge attribute)</a>
 </li>
@@ -1224,6 +1340,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.url">url() (mobase.IModInterface method)</a>
+</li>
       <li><a href="api/mobase.IPluginModPage.html#mobase.IPluginModPage.useIntegratedBrowser">useIntegratedBrowser() (mobase.IPluginModPage method)</a>
 </li>
       <li><a href="api/mobase.GuessQuality.html#mobase.GuessQuality.USER">USER (mobase.GuessQuality attribute)</a>
@@ -1242,6 +1360,8 @@
         <li><a href="api/mobase.ModState.html#mobase.ModState.VALID">(mobase.ModState attribute)</a>
 </li>
       </ul></li>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.validated">validated() (mobase.IModInterface method)</a>
+</li>
       <li><a href="api/mobase.IPluginGame.html#mobase.IPluginGame.validShortNames">validShortNames() (mobase.IPluginGame method)</a>
 </li>
       <li><a href="api/mobase.DataArchives.html#mobase.DataArchives.vanillaArchives">vanillaArchives() (mobase.DataArchives method)</a>
@@ -1252,8 +1372,12 @@
 </li>
       <li><a href="api/mobase.ModRepositoryFileInfo.html#mobase.ModRepositoryFileInfo.version">version (mobase.ModRepositoryFileInfo attribute)</a>
 </li>
-      <li><a href="api/mobase.IPlugin.html#mobase.IPlugin.version">version() (mobase.IPlugin method)</a>
+      <li><a href="api/mobase.IModInterface.html#mobase.IModInterface.version">version() (mobase.IModInterface method)</a>
+
+      <ul>
+        <li><a href="api/mobase.IPlugin.html#mobase.IPlugin.version">(mobase.IPlugin method)</a>
 </li>
+      </ul></li>
       <li><a href="api/mobase.VersionInfo.html#mobase.VersionInfo">VersionInfo (class in mobase)</a>
 </li>
       <li><a href="api/mobase.VersionScheme.html#mobase.VersionScheme">VersionScheme (class in mobase)</a>
@@ -1293,28 +1417,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

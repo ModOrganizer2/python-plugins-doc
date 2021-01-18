@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>mobase API &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -249,7 +259,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/mobase.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -302,86 +312,92 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/mobase.DataArchives.html#mobase.DataArchives" title="mobase.DataArchives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataArchives</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.EndorsedState.html#mobase.EndorsedState" title="mobase.EndorsedState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EndorsedState</span></code></a></p></td>
+<td><p>An enumeration.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></p></td>
 <td><p>Generic enumeration.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.ExecutableForcedLoadSetting.html#mobase.ExecutableForcedLoadSetting" title="mobase.ExecutableForcedLoadSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExecutableForcedLoadSetting</span></code></a>(process, library)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.ExecutableForcedLoadSetting.html#mobase.ExecutableForcedLoadSetting" title="mobase.ExecutableForcedLoadSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExecutableForcedLoadSetting</span></code></a>(process, library)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.ExecutableInfo.html#mobase.ExecutableInfo" title="mobase.ExecutableInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExecutableInfo</span></code></a>(title, binary)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.ExecutableInfo.html#mobase.ExecutableInfo" title="mobase.ExecutableInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExecutableInfo</span></code></a>(title, binary)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.FileInfo.html#mobase.FileInfo" title="mobase.FileInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileInfo</span></code></a>()</p></td>
-<td><p>Information about a virtualised file</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.FileInfo.html#mobase.FileInfo" title="mobase.FileInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileInfo</span></code></a>()</p></td>
+<td><p>Information about a virtualized file</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></p></td>
 <td><p>Represent an entry in a file tree, either a file or a directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.GamePlugins.html#mobase.GamePlugins" title="mobase.GamePlugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GamePlugins</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.GamePlugins.html#mobase.GamePlugins" title="mobase.GamePlugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GamePlugins</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.GuessQuality.html#mobase.GuessQuality" title="mobase.GuessQuality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessQuality</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.GuessQuality.html#mobase.GuessQuality" title="mobase.GuessQuality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessQuality</span></code></a></p></td>
 <td><p>Describes how good the code considers a guess (i.e.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.GuessedString.html#mobase.GuessedString" title="mobase.GuessedString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessedString</span></code></a>(**kwds)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.GuessedString.html#mobase.GuessedString" title="mobase.GuessedString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessedString</span></code></a>(**kwds)</p></td>
 <td><p>Represents a string that may be set from different places.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IDownloadManager.html#mobase.IDownloadManager" title="mobase.IDownloadManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDownloadManager</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IDownloadManager.html#mobase.IDownloadManager" title="mobase.IDownloadManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDownloadManager</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IFileTree.html#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IFileTree</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IFileTree.html#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IFileTree</span></code></a></p></td>
 <td><p>Interface to classes that provides way to visualize and alter file trees.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IInstallationManager.html#mobase.IInstallationManager" title="mobase.IInstallationManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IInstallationManager</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IInstallationManager.html#mobase.IInstallationManager" title="mobase.IInstallationManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IInstallationManager</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IModInterface.html#mobase.IModInterface" title="mobase.IModInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IModInterface</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IModInterface.html#mobase.IModInterface" title="mobase.IModInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IModInterface</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IModList.html#mobase.IModList" title="mobase.IModList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IModList</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IModList.html#mobase.IModList" title="mobase.IModList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IModList</span></code></a></p></td>
 <td><p>Interface to the mod-list.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge" title="mobase.IModRepositoryBridge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IModRepositoryBridge</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IModRepositoryBridge.html#mobase.IModRepositoryBridge" title="mobase.IModRepositoryBridge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IModRepositoryBridge</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IOrganizer.html#mobase.IOrganizer" title="mobase.IOrganizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IOrganizer</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IOrganizer.html#mobase.IOrganizer" title="mobase.IOrganizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IOrganizer</span></code></a></p></td>
 <td><p>Interface to class that provides information about the running session of Mod Organizer to be used by plugins.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPlugin.html#mobase.IPlugin" title="mobase.IPlugin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPlugin</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPlugin.html#mobase.IPlugin" title="mobase.IPlugin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPlugin</span></code></a>()</p></td>
 <td><p>Base class for all plugins.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginDiagnose.html#mobase.IPluginDiagnose" title="mobase.IPluginDiagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginDiagnose</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginDiagnose.html#mobase.IPluginDiagnose" title="mobase.IPluginDiagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginDiagnose</span></code></a>()</p></td>
 <td><p>Plugins that create problem reports to be displayed in the UI.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginFileMapper.html#mobase.IPluginFileMapper" title="mobase.IPluginFileMapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginFileMapper</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginFileMapper.html#mobase.IPluginFileMapper" title="mobase.IPluginFileMapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginFileMapper</span></code></a>()</p></td>
 <td><p>Plugins that adds virtual file links.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginGame.html#mobase.IPluginGame" title="mobase.IPluginGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginGame</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginGame.html#mobase.IPluginGame" title="mobase.IPluginGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginGame</span></code></a>()</p></td>
 <td><p>Base classes for game plugins.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginInstaller.html#mobase.IPluginInstaller" title="mobase.IPluginInstaller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginInstaller</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginInstaller.html#mobase.IPluginInstaller" title="mobase.IPluginInstaller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginInstaller</span></code></a>()</p></td>
 <td><p>This is the top-level class for installer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginInstallerCustom.html#mobase.IPluginInstallerCustom" title="mobase.IPluginInstallerCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginInstallerCustom</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginInstallerCustom.html#mobase.IPluginInstallerCustom" title="mobase.IPluginInstallerCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginInstallerCustom</span></code></a>()</p></td>
 <td><p>Custom installer for mods.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginInstallerSimple.html#mobase.IPluginInstallerSimple" title="mobase.IPluginInstallerSimple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginInstallerSimple</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginInstallerSimple.html#mobase.IPluginInstallerSimple" title="mobase.IPluginInstallerSimple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginInstallerSimple</span></code></a>()</p></td>
 <td><p>Simple installer for mods.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginList.html#mobase.IPluginList" title="mobase.IPluginList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginList</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginList.html#mobase.IPluginList" title="mobase.IPluginList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginList</span></code></a></p></td>
 <td><p>Primary interface to the list of plugins.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginModPage.html#mobase.IPluginModPage" title="mobase.IPluginModPage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginModPage</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginModPage.html#mobase.IPluginModPage" title="mobase.IPluginModPage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginModPage</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginPreview.html#mobase.IPluginPreview" title="mobase.IPluginPreview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginPreview</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginPreview.html#mobase.IPluginPreview" title="mobase.IPluginPreview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginPreview</span></code></a>()</p></td>
 <td><p>These plugins add support for previewing files in the data pane.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IPluginRequirement.html#mobase.IPluginRequirement" title="mobase.IPluginRequirement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginRequirement</span></code></a>()</p></td>
+<td><p>Class representing requirements for plugins.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IPluginTool.html#mobase.IPluginTool" title="mobase.IPluginTool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPluginTool</span></code></a>()</p></td>
 <td><p>This is the simplest of plugin interfaces.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IProfile.html#mobase.IProfile" title="mobase.IProfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IProfile</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Interface to interact with Mod Organizer 2 profiles.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/mobase.ISaveGame.html#mobase.ISaveGame" title="mobase.ISaveGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ISaveGame</span></code></a>()</p></td>
 <td><p>Base class for information about what is in a save game.</p></td>
@@ -401,7 +417,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.LocalSavegames.html#mobase.LocalSavegames" title="mobase.LocalSavegames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalSavegames</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.Mapping.html#mobase.Mapping" title="mobase.Mapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mapping</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.Mapping.html#mobase.Mapping" title="mobase.Mapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mapping</span></code></a>(**kwds)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.ModDataChecker.html#mobase.ModDataChecker" title="mobase.ModDataChecker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModDataChecker</span></code></a>()</p></td>
@@ -416,25 +432,31 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/mobase.ModState.html#mobase.ModState" title="mobase.ModState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModState</span></code></a></p></td>
 <td><p>An enumeration.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.PluginSetting.html#mobase.PluginSetting" title="mobase.PluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PluginSetting</span></code></a>(key, description, default_value)</p></td>
-<td><p>Class to hold the user-configurable parameters a plugin accepts.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.PluginState.html#mobase.PluginState" title="mobase.PluginState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PluginState</span></code></a></p></td>
-<td><p>An enumeration.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.ProfileSetting.html#mobase.ProfileSetting" title="mobase.ProfileSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProfileSetting</span></code></a></p></td>
-<td><p>An enumeration.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.ReleaseType.html#mobase.ReleaseType" title="mobase.ReleaseType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReleaseType</span></code></a></p></td>
-<td><p>An enumeration.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.SaveGameInfo.html#mobase.SaveGameInfo" title="mobase.SaveGameInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SaveGameInfo</span></code></a>()</p></td>
-<td><p>Feature to get hold of stuff to do with save games.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.ScriptExtender.html#mobase.ScriptExtender" title="mobase.ScriptExtender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScriptExtender</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.PluginRequirementFactory.html#mobase.PluginRequirementFactory" title="mobase.PluginRequirementFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PluginRequirementFactory</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.SortMechanism.html#mobase.SortMechanism" title="mobase.SortMechanism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortMechanism</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.PluginSetting.html#mobase.PluginSetting" title="mobase.PluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PluginSetting</span></code></a>(key, description, default_value)</p></td>
+<td><p>Class to hold the user-configurable parameters a plugin accepts.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.PluginState.html#mobase.PluginState" title="mobase.PluginState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PluginState</span></code></a></p></td>
+<td><p>An enumeration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.ProfileSetting.html#mobase.ProfileSetting" title="mobase.ProfileSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProfileSetting</span></code></a></p></td>
+<td><p>An enumeration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.ReleaseType.html#mobase.ReleaseType" title="mobase.ReleaseType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReleaseType</span></code></a></p></td>
+<td><p>An enumeration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.SaveGameInfo.html#mobase.SaveGameInfo" title="mobase.SaveGameInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SaveGameInfo</span></code></a>()</p></td>
+<td><p>Feature to get hold of stuff to do with save games.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.ScriptExtender.html#mobase.ScriptExtender" title="mobase.ScriptExtender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScriptExtender</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.SortMechanism.html#mobase.SortMechanism" title="mobase.SortMechanism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SortMechanism</span></code></a></p></td>
+<td><p>An enumeration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.TrackedState.html#mobase.TrackedState" title="mobase.TrackedState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrackedState</span></code></a></p></td>
 <td><p>An enumeration.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeVar</span></code>(name, *constraints[, bound, …])</p></td>
@@ -461,37 +483,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="api/mobase.getFileVersion.html" class="btn btn-neutral float-right" title="getFileVersion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="faq.html" class="btn btn-neutral float-left" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="api/mobase.getFileVersion.html" class="btn btn-neutral float-right" title="getFileVersion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="faq.html" class="btn btn-neutral float-left" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

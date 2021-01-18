@@ -12,14 +12,14 @@ ISaveGame
 
       ~ISaveGame.allFiles
       ~ISaveGame.getCreationTime
-      ~ISaveGame.getFilename
+      ~ISaveGame.getFilepath
+      ~ISaveGame.getName
       ~ISaveGame.getSaveGroupIdentifier
-      ~ISaveGame.hasScriptExtenderFile
 
    .. rubric:: Methods Documentation
 
    .. automethod:: allFiles
    .. automethod:: getCreationTime
-   .. automethod:: getFilename
+   .. automethod:: getFilepath
+   .. automethod:: getName
    .. automethod:: getSaveGroupIdentifier
-   .. automethod:: hasScriptExtenderFile

@@ -20,19 +20,23 @@ IOrganizer
       ~IOrganizer.findFiles
       ~IOrganizer.getFileOrigins
       ~IOrganizer.getGame
-      ~IOrganizer.getMod
+      ~IOrganizer.getPluginDataPath
       ~IOrganizer.installMod
+      ~IOrganizer.isPluginEnabled
       ~IOrganizer.listDirectories
       ~IOrganizer.managedGame
       ~IOrganizer.modDataChanged
       ~IOrganizer.modList
       ~IOrganizer.modsPath
-      ~IOrganizer.modsSortedByProfilePriority
       ~IOrganizer.onAboutToRun
       ~IOrganizer.onFinishedRun
-      ~IOrganizer.onModInstalled
+      ~IOrganizer.onPluginDisabled
+      ~IOrganizer.onPluginEnabled
       ~IOrganizer.onPluginSettingChanged
       ~IOrganizer.onProfileChanged
+      ~IOrganizer.onProfileCreated
+      ~IOrganizer.onProfileRemoved
+      ~IOrganizer.onProfileRenamed
       ~IOrganizer.onUserInterfaceInitialized
       ~IOrganizer.overwritePath
       ~IOrganizer.persistent
@@ -42,8 +46,7 @@ IOrganizer
       ~IOrganizer.profile
       ~IOrganizer.profileName
       ~IOrganizer.profilePath
-      ~IOrganizer.refreshModList
-      ~IOrganizer.removeMod
+      ~IOrganizer.refresh
       ~IOrganizer.resolvePath
       ~IOrganizer.setPersistent
       ~IOrganizer.setPluginSetting
@@ -62,19 +65,23 @@ IOrganizer
    .. automethod:: findFiles
    .. automethod:: getFileOrigins
    .. automethod:: getGame
-   .. automethod:: getMod
+   .. automethod:: getPluginDataPath
    .. automethod:: installMod
+   .. automethod:: isPluginEnabled
    .. automethod:: listDirectories
    .. automethod:: managedGame
    .. automethod:: modDataChanged
    .. automethod:: modList
    .. automethod:: modsPath
-   .. automethod:: modsSortedByProfilePriority
    .. automethod:: onAboutToRun
    .. automethod:: onFinishedRun
-   .. automethod:: onModInstalled
+   .. automethod:: onPluginDisabled
+   .. automethod:: onPluginEnabled
    .. automethod:: onPluginSettingChanged
    .. automethod:: onProfileChanged
+   .. automethod:: onProfileCreated
+   .. automethod:: onProfileRemoved
+   .. automethod:: onProfileRenamed
    .. automethod:: onUserInterfaceInitialized
    .. automethod:: overwritePath
    .. automethod:: persistent
@@ -84,8 +91,7 @@ IOrganizer
    .. automethod:: profile
    .. automethod:: profileName
    .. automethod:: profilePath
-   .. automethod:: refreshModList
-   .. automethod:: removeMod
+   .. automethod:: refresh
    .. automethod:: resolvePath
    .. automethod:: setPersistent
    .. automethod:: setPluginSetting

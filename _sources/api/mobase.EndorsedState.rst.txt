@@ -1,0 +1,23 @@
+EndorsedState
+=============
+
+.. currentmodule:: mobase
+
+.. autoclass:: EndorsedState
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~EndorsedState.ENDORSED_FALSE
+      ~EndorsedState.ENDORSED_NEVER
+      ~EndorsedState.ENDORSED_TRUE
+      ~EndorsedState.ENDORSED_UNKNOWN
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: ENDORSED_FALSE
+   .. autoattribute:: ENDORSED_NEVER
+   .. autoattribute:: ENDORSED_TRUE
+   .. autoattribute:: ENDORSED_UNKNOWN

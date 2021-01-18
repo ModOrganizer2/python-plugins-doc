@@ -17,7 +17,7 @@ ScriptExtender
       ~ScriptExtender.isInstalled
       ~ScriptExtender.loaderName
       ~ScriptExtender.loaderPath
-      ~ScriptExtender.saveGameAttachmentExtensions
+      ~ScriptExtender.savegameExtension
 
    .. rubric:: Methods Documentation
 
@@ -28,4 +28,4 @@ ScriptExtender
    .. automethod:: isInstalled
    .. automethod:: loaderName
    .. automethod:: loaderPath
-   .. automethod:: saveGameAttachmentExtensions
+   .. automethod:: savegameExtension

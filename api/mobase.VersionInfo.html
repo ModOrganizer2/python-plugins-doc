@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>VersionInfo &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="../index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../mobase.html#classes">Classes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -251,7 +261,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/api/mobase.VersionInfo.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -293,7 +303,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.VersionInfo.displayString" title="mobase.VersionInfo.displayString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displayString</span></code></a>([forced_segments])</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param forced_segments</dt>
-<dd class="field-odd"><p>The number of version segments to display even if the version is 0. 1 is major, 2 is major        and minor, etc. The only implemented ranges are (-inf,2] for major/minor, [3] for major/minor/subminor,</p>
+<dd class="field-odd"><p>The number of version segments to display even if the version is 0. 1 is major, 2 is major</p>
 </dd>
 </dl>
 </p></td>
@@ -344,7 +354,8 @@
 <code class="sig-name descname">displayString</code><span class="sig-paren">(</span><em class="sig-param">forced_segments=2</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.displayString" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>forced_segments</strong> – The number of version segments to display even if the version is 0. 1 is major, 2 is major        and minor, etc. The only implemented ranges are (-inf,2] for major/minor, [3] for major/minor/subminor,
+<dd class="field-odd"><p><strong>forced_segments</strong> – The number of version segments to display even if the version is 0. 1 is major, 2 is major
+and minor, etc. The only implemented ranges are (-inf,2] for major/minor, [3] for major/minor/subminor,
 and [4,inf) for major/minor/subminor/subsubminor. This only versions with a regular scheme.</p>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -406,37 +417,29 @@ and [4,inf) for major/minor/subminor/subsubminor. This only versions with a regu
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mobase.VersionScheme.html" class="btn btn-neutral float-right" title="VersionScheme" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="mobase.UnmanagedMods.html" class="btn btn-neutral float-left" title="UnmanagedMods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="mobase.VersionScheme.html" class="btn btn-neutral float-right" title="VersionScheme" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.UnmanagedMods.html" class="btn btn-neutral float-left" title="UnmanagedMods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

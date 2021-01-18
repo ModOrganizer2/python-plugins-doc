@@ -13,8 +13,10 @@ IPlugin
       ~IPlugin.author
       ~IPlugin.description
       ~IPlugin.init
-      ~IPlugin.isActive
+      ~IPlugin.localizedName
+      ~IPlugin.master
       ~IPlugin.name
+      ~IPlugin.requirements
       ~IPlugin.settings
       ~IPlugin.version
 
@@ -23,7 +25,9 @@ IPlugin
    .. automethod:: author
    .. automethod:: description
    .. automethod:: init
-   .. automethod:: isActive
+   .. automethod:: localizedName
+   .. automethod:: master
    .. automethod:: name
+   .. automethod:: requirements
    .. automethod:: settings
    .. automethod:: version

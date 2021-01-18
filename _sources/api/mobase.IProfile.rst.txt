@@ -10,6 +10,7 @@ IProfile
 
    .. autosummary::
 
+      ~IProfile.absoluteIniFilePath
       ~IProfile.absolutePath
       ~IProfile.invalidationActive
       ~IProfile.localSavesEnabled
@@ -18,6 +19,7 @@ IProfile
 
    .. rubric:: Methods Documentation
 
+   .. automethod:: absoluteIniFilePath
    .. automethod:: absolutePath
    .. automethod:: invalidationActive
    .. automethod:: localSavesEnabled

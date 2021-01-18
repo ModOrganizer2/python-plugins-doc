@@ -11,13 +11,9 @@ SaveGameInfo
    .. autosummary::
 
       ~SaveGameInfo.getMissingAssets
-      ~SaveGameInfo.getSaveGameInfo
       ~SaveGameInfo.getSaveGameWidget
-      ~SaveGameInfo.hasScriptExtenderSave
 
    .. rubric:: Methods Documentation
 
    .. automethod:: getMissingAssets
-   .. automethod:: getSaveGameInfo
    .. automethod:: getSaveGameWidget
-   .. automethod:: hasScriptExtenderSave

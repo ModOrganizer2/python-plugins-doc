@@ -14,15 +14,39 @@ IModInterface
       ~IModInterface.addCategory
       ~IModInterface.addNexusCategory
       ~IModInterface.categories
+      ~IModInterface.clearPluginSettings
+      ~IModInterface.color
+      ~IModInterface.comments
+      ~IModInterface.converted
+      ~IModInterface.endorsedState
+      ~IModInterface.fileTree
+      ~IModInterface.gameName
+      ~IModInterface.ignoredVersion
+      ~IModInterface.installationFile
+      ~IModInterface.isBackup
+      ~IModInterface.isForeign
+      ~IModInterface.isOverwrite
+      ~IModInterface.isSeparator
       ~IModInterface.name
-      ~IModInterface.remove
+      ~IModInterface.newestVersion
+      ~IModInterface.nexusId
+      ~IModInterface.notes
+      ~IModInterface.pluginSetting
+      ~IModInterface.pluginSettings
+      ~IModInterface.primaryCategory
       ~IModInterface.removeCategory
+      ~IModInterface.repository
       ~IModInterface.setGameName
       ~IModInterface.setIsEndorsed
-      ~IModInterface.setName
       ~IModInterface.setNewestVersion
       ~IModInterface.setNexusID
+      ~IModInterface.setPluginSetting
+      ~IModInterface.setUrl
       ~IModInterface.setVersion
+      ~IModInterface.trackedState
+      ~IModInterface.url
+      ~IModInterface.validated
+      ~IModInterface.version
 
    .. rubric:: Methods Documentation
 
@@ -30,12 +54,36 @@ IModInterface
    .. automethod:: addCategory
    .. automethod:: addNexusCategory
    .. automethod:: categories
+   .. automethod:: clearPluginSettings
+   .. automethod:: color
+   .. automethod:: comments
+   .. automethod:: converted
+   .. automethod:: endorsedState
+   .. automethod:: fileTree
+   .. automethod:: gameName
+   .. automethod:: ignoredVersion
+   .. automethod:: installationFile
+   .. automethod:: isBackup
+   .. automethod:: isForeign
+   .. automethod:: isOverwrite
+   .. automethod:: isSeparator
    .. automethod:: name
-   .. automethod:: remove
+   .. automethod:: newestVersion
+   .. automethod:: nexusId
+   .. automethod:: notes
+   .. automethod:: pluginSetting
+   .. automethod:: pluginSettings
+   .. automethod:: primaryCategory
    .. automethod:: removeCategory
+   .. automethod:: repository
    .. automethod:: setGameName
    .. automethod:: setIsEndorsed
-   .. automethod:: setName
    .. automethod:: setNewestVersion
    .. automethod:: setNexusID
+   .. automethod:: setPluginSetting
+   .. automethod:: setUrl
    .. automethod:: setVersion
+   .. automethod:: trackedState
+   .. automethod:: url
+   .. automethod:: validated
+   .. automethod:: version

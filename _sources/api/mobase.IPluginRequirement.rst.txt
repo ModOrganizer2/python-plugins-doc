@@ -1,0 +1,17 @@
+IPluginRequirement
+==================
+
+.. currentmodule:: mobase
+
+.. autoclass:: IPluginRequirement
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~IPluginRequirement.check
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: check

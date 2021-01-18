@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>IPlugin &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="../index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../mobase.html#classes">Classes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -251,7 +261,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/api/mobase.IPlugin.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -298,11 +308,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPlugin.init" title="mobase.IPlugin.init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init</span></code></a>(organizer)</p></td>
 <td><p>Initialize this plugin.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPlugin.isActive" title="mobase.IPlugin.isActive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isActive</span></code></a>()</p></td>
-<td><p>Check if this plugin is active.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPlugin.localizedName" title="mobase.IPlugin.localizedName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">localizedName</span></code></a>()</p></td>
+<td><p>Retrieve the localized name of the plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPlugin.name" title="mobase.IPlugin.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPlugin.master" title="mobase.IPlugin.master"><code class="xref py py-obj docutils literal notranslate"><span class="pre">master</span></code></a>()</p></td>
+<td><p>Retrieve the master plugin of this plugin.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPlugin.name" title="mobase.IPlugin.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a>()</p></td>
 <td><p>Retrieve the name of the plugin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPlugin.requirements" title="mobase.IPlugin.requirements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">requirements</span></code></a>()</p></td>
+<td><p>Retrieve the requirements for this plugin.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPlugin.settings" title="mobase.IPlugin.settings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">settings</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
@@ -353,6 +369,17 @@
 <dt id="mobase.IPlugin.init">
 <em class="property">abstract </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">organizer</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPlugin.init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize this plugin.</p>
+<p>Note that this function may never be called if no <cite>IOrganizer</cite> is available
+at that time, such as when creating the first instance in MO.</p>
+<p>Plugins will probably want to store the organizer pointer. It is guaranteed
+to be valid as long as the plugin is loaded.</p>
+<p>These functions may be called before <cite>init()</cite>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>name()</cite></p></li>
+<li><p>see <cite>IPluginGame</cite> for more.</p></li>
+</ul>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>organizer</strong> – The main organizer interface.</p>
@@ -367,17 +394,36 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="mobase.IPlugin.isActive">
-<em class="property">abstract </em><code class="sig-name descname">isActive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPlugin.isActive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if this plugin is active.</p>
-<p>It is possible to use a plugin setting (specified in <cite>settings()</cite>) here to allow
-users to manually enable/disable a plugin.</p>
+<dt id="mobase.IPlugin.localizedName">
+<code class="sig-name descname">localizedName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPlugin.localizedName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the localized name of the plugin.</p>
+<p>Unlike <cite>name()</cite>, this method can (and should!) return a localized name for the plugin.
+This method returns name() by default.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>True if this plugin is active, False otherwise.</p>
+<dd class="field-odd"><p>The localized name of the plugin.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IPlugin.master">
+<code class="sig-name descname">master</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPlugin.master" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the master plugin of this plugin.</p>
+<p>It is often easier to implement a functionality as multiple plugins in MO2, but ship the
+plugins together, e.g. as a Python module or using <cite>createFunctions()</cite>. In this case, having
+a master plugin (one of the plugin, or a separate one) tells MO2 that these plugins are
+linked and should also be displayed together in the UI. If MO2 ever implements automatic
+updates for plugins, the <cite>master()</cite> plugin will also be used for this purpose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The master plugin of this plugin, or a null pointer if this plugin does not have a master.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -397,6 +443,21 @@ such as <cite>localizedName()</cite>.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IPlugin.requirements">
+<code class="sig-name descname">requirements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPlugin.requirements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the requirements for this plugin.</p>
+<p>This method is called right after <cite>init()</cite> and the ownership the requirements is</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of requirements for this plugin.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="mobase.IPluginRequirement.html#mobase.IPluginRequirement" title="mobase.IPluginRequirement"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPluginRequirement</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -436,37 +497,29 @@ such as <cite>localizedName()</cite>.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mobase.IPluginDiagnose.html" class="btn btn-neutral float-right" title="IPluginDiagnose" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="mobase.IOrganizer.html" class="btn btn-neutral float-left" title="IOrganizer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="mobase.IPluginDiagnose.html" class="btn btn-neutral float-right" title="IPluginDiagnose" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.IOrganizer.html" class="btn btn-neutral float-left" title="IOrganizer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Setting up the environment &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mobase.html#classes">Classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -249,7 +259,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/setup-tools.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -339,6 +349,48 @@ Open <code class="docutils literal notranslate"><span class="pre">settings.json<
 <p>2. You can set the <code class="docutils literal notranslate"><span class="pre">MYPYPATH</span></code> environment variable to <code class="docutils literal notranslate"><span class="pre">$MO2DIR\plugins\data</span></code> (this requires
 restarting VS code).</p>
 </div>
+<div class="section" id="optional-automatically-reload-plugins-during-development">
+<h3>4. [Optional] Automatically reload plugins during development<a class="headerlink" href="#optional-automatically-reload-plugins-during-development" title="Permalink to this headline">¶</a></h3>
+<p>This section is optional and requires you to already have written a “working”
+plugin (a plugin that MO2 can load).</p>
+<p>Since MO2 2.4 alpha 6, a new command has been added to <code class="docutils literal notranslate"><span class="pre">ModOrganizer.exe</span></code> to
+reload plugins during execution.
+If your plugin is named “My Plugin”, you can use the following command to reload
+it while MO2 is running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$MO2DIR\ModOrganizer.exe reload-plugin &quot;My Plugin&quot;
+</pre></div>
+</div>
+<p>If you are using Visual Studio Code, you can send this command to MO2 automatically
+after saving files from your project.</p>
+<ol class="arabic simple">
+<li><p>Create a “reload plugin” task in Visual Studio Code (Ctrl+Shift+P  then
+<code class="docutils literal notranslate"><span class="pre">Tasks:</span> <span class="pre">Configure</span> <span class="pre">task</span></code> or open <code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code>) using the following
+snippet (replace the name and directory as needed):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// .vscode/tasks.json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    &quot;version&quot;: &quot;2.0.0&quot;,
+    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;reload plugin&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;$MO2DIR/ModOrganizer.exe&quot;,
+            &quot;args&quot;: [
+                &quot;reload-plugin&quot;, &quot;My Plugin&quot;
+            ]
+        }
+    ]
+}
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Install the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.triggertaskonsave">Trigger Task on Save</a>
+extension from Visual Studio Code marketplace.</p></li>
+<li><p>Add the following to your Visual Studio Code settings (<code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code>)</p></li>
+</ol>
+</div>
 </div>
 <div class="section" id="testing-the-setup">
 <h2>Testing the setup<a class="headerlink" href="#testing-the-setup" title="Permalink to this headline">¶</a></h2>
@@ -379,7 +431,7 @@ meaning that auto-complete is working:</p></li>
 the 3 following errors:</p></li>
 </ul>
 <img alt="_images/check-setup-3.png" src="_images/check-setup-3.png" />
-<p>If everything is as above, you can delete the test file and move on to writting
+<p>If everything is as above, you can delete the test file and move on to writing
 your own plugin!</p>
 </div>
 </div>
@@ -389,37 +441,29 @@ your own plugin!</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plugin-types.html" class="btn btn-neutral float-right" title="Type of Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to MO2 Python Plugin API’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="plugin-types.html" class="btn btn-neutral float-right" title="Type of Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to MO2 Python Plugin API’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

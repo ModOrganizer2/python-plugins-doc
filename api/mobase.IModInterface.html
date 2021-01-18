@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>IModInterface &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="../index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../mobase.html#classes">Classes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -251,7 +261,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/api/mobase.IModInterface.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -295,12 +305,96 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.categories" title="mobase.IModInterface.categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">categories</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
-<dd class="field-odd"><p>The list of categories assigned to this mod.</p>
+<dd class="field-odd"><p>The list of categories this mod belongs to.</p>
 </dd>
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.name" title="mobase.IModInterface.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.clearPluginSettings" title="mobase.IModInterface.clearPluginSettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearPluginSettings</span></code></a>(plugin_name)</p></td>
+<td><p>Remove all the settings of the specified plugin this mod.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.color" title="mobase.IModInterface.color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The color of the ‘Notes’ column chosen by the user.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.comments" title="mobase.IModInterface.comments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comments</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The comments for this mod, if any.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.converted" title="mobase.IModInterface.converted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">converted</span></code></a>()</p></td>
+<td><p>Check if the mod was marked as converted by the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.endorsedState" title="mobase.IModInterface.endorsedState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endorsedState</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The endorsement state of this mod.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.fileTree" title="mobase.IModInterface.fileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fileTree</span></code></a>()</p></td>
+<td><p>Retrieve a file tree corresponding to the underlying disk content of this mod.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.gameName" title="mobase.IModInterface.gameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameName</span></code></a>()</p></td>
+<td><p>Retrieve the short name of the game associated with this mod.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.ignoredVersion" title="mobase.IModInterface.ignoredVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignoredVersion</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The ignored version of this mod (for update), or an invalid version if the user</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.installationFile" title="mobase.IModInterface.installationFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">installationFile</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The absolute path to the file that was used to install this mod.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.isBackup" title="mobase.IModInterface.isBackup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isBackup</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>True if this mod represents a backup.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.isForeign" title="mobase.IModInterface.isForeign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isForeign</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>True if this mod represents a foreign mod, not managed by MO2.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.isOverwrite" title="mobase.IModInterface.isOverwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isOverwrite</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>True if this mod represents the overwrite mod.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.isSeparator" title="mobase.IModInterface.isSeparator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isSeparator</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>True if this mod represents a separator.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.name" title="mobase.IModInterface.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The name of this mod.</p>
@@ -308,20 +402,60 @@
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.remove" title="mobase.IModInterface.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>()</p></td>
-<td><p>Delete the mod from the disc.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.newestVersion" title="mobase.IModInterface.newestVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newestVersion</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The newest version of this mod (as known by MO2). If this matches version(),</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.nexusId" title="mobase.IModInterface.nexusId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nexusId</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The Nexus ID of this mod.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.notes" title="mobase.IModInterface.notes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">notes</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The notes for this mod, if any.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.pluginSetting" title="mobase.IModInterface.pluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginSetting</span></code></a>(plugin_name, key[, default])</p></td>
+<td><p>Retrieve the specified setting in this mod for a plugin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.pluginSettings" title="mobase.IModInterface.pluginSettings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginSettings</span></code></a>(plugin_name)</p></td>
+<td><p>Retrieve the settings in this mod for a plugin.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.primaryCategory" title="mobase.IModInterface.primaryCategory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">primaryCategory</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The ID of the primary category of this mod.</p>
+</dd>
+</dl>
+</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.removeCategory" title="mobase.IModInterface.removeCategory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeCategory</span></code></a>(name)</p></td>
 <td><p>Unassign a category from this mod.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.setGameName" title="mobase.IModInterface.setGameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setGameName</span></code></a>(name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.repository" title="mobase.IModInterface.repository"><code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The name of the repository from which this mod was installed.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.setGameName" title="mobase.IModInterface.setGameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setGameName</span></code></a>(name)</p></td>
 <td><p>Set the source game of this mod.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.setIsEndorsed" title="mobase.IModInterface.setIsEndorsed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setIsEndorsed</span></code></a>(endorsed)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.setIsEndorsed" title="mobase.IModInterface.setIsEndorsed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setIsEndorsed</span></code></a>(endorsed)</p></td>
 <td><p>Set endorsement state of the mod.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.setName" title="mobase.IModInterface.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
-<td><p>Set the name of this mod.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.setNewestVersion" title="mobase.IModInterface.setNewestVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setNewestVersion</span></code></a>(version)</p></td>
 <td><p>Set the latest known version of this mod.</p></td>
@@ -329,8 +463,41 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.setNexusID" title="mobase.IModInterface.setNexusID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setNexusID</span></code></a>(nexus_id)</p></td>
 <td><p>Set the Nexus ID of this mod.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.setPluginSetting" title="mobase.IModInterface.setPluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPluginSetting</span></code></a>(plugin_name, key, value)</p></td>
+<td><p>Set the specified setting in this mod for a plugin.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.setUrl" title="mobase.IModInterface.setUrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setUrl</span></code></a>(url)</p></td>
+<td><p>Set the URL of this mod.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.setVersion" title="mobase.IModInterface.setVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVersion</span></code></a>(version)</p></td>
 <td><p>Set the version of this mod.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.trackedState" title="mobase.IModInterface.trackedState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trackedState</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The tracked state of this mod.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.url" title="mobase.IModInterface.url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">url</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The URL of this mod, or an empty QString() if no URL is associated</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModInterface.validated" title="mobase.IModInterface.validated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validated</span></code></a>()</p></td>
+<td><p>Check if the mod was marked as validated by the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModInterface.version" title="mobase.IModInterface.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The current version of this mod.</p>
+</dd>
+</dl>
+</p></td>
 </tr>
 </tbody>
 </table>
@@ -376,10 +543,196 @@
 <code class="sig-name descname">categories</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.categories" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The list of categories assigned to this mod.</p>
+<dd class="field-odd"><p>The list of categories this mod belongs to.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.clearPluginSettings">
+<code class="sig-name descname">clearPluginSettings</code><span class="sig-paren">(</span><em class="sig-param">plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.clearPluginSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all the settings of the specified plugin this mod.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plugin_name</strong> – Name of the plugin for which settings should be removed. This should always be <cite>IPlugin.name()</cite>
+unless you have a really good reason to access settings of another plugin.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The old settings from the given plugin, as returned by <cite>pluginSettings()</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.color">
+<code class="sig-name descname">color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.color" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The color of the ‘Notes’ column chosen by the user.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">QColor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.comments">
+<code class="sig-name descname">comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.comments" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The comments for this mod, if any.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.converted">
+<code class="sig-name descname">converted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.converted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the mod was marked as converted by the user.</p>
+<p>When a mod is for a different game, a flag is shown to users to warn them, but
+they can mark mods as converted to remove this flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this mod was marked as converted by the user.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.endorsedState">
+<code class="sig-name descname">endorsedState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.endorsedState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The endorsement state of this mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mobase.EndorsedState.html#mobase.EndorsedState" title="mobase.EndorsedState"><code class="xref py py-class docutils literal notranslate"><span class="pre">EndorsedState</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.fileTree">
+<code class="sig-name descname">fileTree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.fileTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a file tree corresponding to the underlying disk content of this mod.</p>
+<p>The file tree should not be cached by plugins since it is already and updated when
+required.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A file tree representing the content of this mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mobase.IFileTree.html#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFileTree</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.gameName">
+<code class="sig-name descname">gameName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.gameName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the short name of the game associated with this mod. This may differ
+from the current game plugin (e.g. you can install a Skyrim LE game in a SSE
+installation).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The name of the game associated with this mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.ignoredVersion">
+<code class="sig-name descname">ignoredVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.ignoredVersion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ignored version of this mod (for update), or an invalid version if the user</p>
+</dd>
+</dl>
+<p>did not ignore version for this mod.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mobase.VersionInfo.html#mobase.VersionInfo" title="mobase.VersionInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">VersionInfo</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.installationFile">
+<code class="sig-name descname">installationFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.installationFile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The absolute path to the file that was used to install this mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.isBackup">
+<code class="sig-name descname">isBackup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.isBackup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this mod represents a backup.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.isForeign">
+<code class="sig-name descname">isForeign</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.isForeign" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this mod represents a foreign mod, not managed by MO2.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.isOverwrite">
+<code class="sig-name descname">isOverwrite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.isOverwrite" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this mod represents the overwrite mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.isSeparator">
+<code class="sig-name descname">isSeparator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.isSeparator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this mod represents a separator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -398,16 +751,96 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="mobase.IModInterface.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete the mod from the disc.</p>
-<p>This does not update the global ModInfo structure or indices.</p>
-<dl class="field-list simple">
+<dt id="mobase.IModInterface.newestVersion">
+<code class="sig-name descname">newestVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.newestVersion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>True if the mod was deleted, False otherwise.</p>
+<dd class="field-odd"><p>The newest version of this mod (as known by MO2). If this matches version(),</p>
+</dd>
+</dl>
+<p>then the mod is up-to-date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mobase.VersionInfo.html#mobase.VersionInfo" title="mobase.VersionInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">VersionInfo</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.nexusId">
+<code class="sig-name descname">nexusId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.nexusId" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The Nexus ID of this mod.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.notes">
+<code class="sig-name descname">notes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.notes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The notes for this mod, if any.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.pluginSetting">
+<code class="sig-name descname">pluginSetting</code><span class="sig-paren">(</span><em class="sig-param">plugin_name</em>, <em class="sig-param">key</em>, <em class="sig-param">default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.pluginSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the specified setting in this mod for a plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plugin_name</strong> – Name of the plugin for which to retrieve a setting. This should always be <cite>IPlugin.name()</cite>
+unless you have a really good reason to access settings of another plugin.</p></li>
+<li><p><strong>key</strong> – Identifier of the setting.</p></li>
+<li><p><strong>default</strong> – The default value to return if the setting does not exist.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The setting, if found, or the default value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.pluginSettings">
+<code class="sig-name descname">pluginSettings</code><span class="sig-paren">(</span><em class="sig-param">plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.pluginSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the settings in this mod for a plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plugin_name</strong> – Name of the plugin for which to retrieve settings. This should always be <cite>IPlugin.name()</cite>
+unless you have a really good reason to access settings of another plugin.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A map from setting key to value. The map is empty if there are not settings for this mod.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.primaryCategory">
+<code class="sig-name descname">primaryCategory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.primaryCategory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ID of the primary category of this mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -428,6 +861,19 @@
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.repository">
+<code class="sig-name descname">repository</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.repository" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The name of the repository from which this mod was installed.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -455,27 +901,6 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="mobase.IModInterface.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.setName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the name of this mod.</p>
-<p>This will also update the name of the directory that contains this mod</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – New name for this mod.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True if the name was changed, False if an error occured (e.g. if the name is not a valid</p>
-</dd>
-</dl>
-<p>directory name).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="mobase.IModInterface.setNewestVersion">
 <code class="sig-name descname">setNewestVersion</code><span class="sig-paren">(</span><em class="sig-param">version</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.setNewestVersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the latest known version of this mod.</p>
@@ -498,12 +923,104 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="mobase.IModInterface.setPluginSetting">
+<code class="sig-name descname">setPluginSetting</code><span class="sig-paren">(</span><em class="sig-param">plugin_name</em>, <em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.setPluginSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified setting in this mod for a plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plugin_name</strong> – Name of the plugin for which to retrieve a setting. This should always be <cite>IPlugin.name()</cite>
+unless you have a really good reason to access settings of another plugin.</p></li>
+<li><p><strong>key</strong> – Identifier of the setting.</p></li>
+<li><p><strong>value</strong> – New value for the setting to set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the setting was set correctly, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.setUrl">
+<code class="sig-name descname">setUrl</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.setUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the URL of this mod.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> – The URL of this mod.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="mobase.IModInterface.setVersion">
 <code class="sig-name descname">setVersion</code><span class="sig-paren">(</span><em class="sig-param">version</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.setVersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the version of this mod.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>version</strong> – The new version of this mod.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.trackedState">
+<code class="sig-name descname">trackedState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.trackedState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The tracked state of this mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mobase.TrackedState.html#mobase.TrackedState" title="mobase.TrackedState"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrackedState</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.url">
+<code class="sig-name descname">url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.url" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The URL of this mod, or an empty QString() if no URL is associated</p>
+</dd>
+</dl>
+<p>with this mod.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.validated">
+<code class="sig-name descname">validated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.validated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the mod was marked as validated by the user.</p>
+<p>MO2 uses ModDataChecker to check the content of mods, but sometimes these fail, in
+which case mods are incorrectly marked as ‘not containing valid games data’. Users can
+choose to mark these mods as valid to hide the warning / flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if th is mod was marked as containing valid game data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModInterface.version">
+<code class="sig-name descname">version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModInterface.version" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current version of this mod.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mobase.VersionInfo.html#mobase.VersionInfo" title="mobase.VersionInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">VersionInfo</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -517,37 +1034,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mobase.IModList.html" class="btn btn-neutral float-right" title="IModList" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="mobase.IInstallationManager.html" class="btn btn-neutral float-left" title="IInstallationManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="mobase.IModList.html" class="btn btn-neutral float-right" title="IModList" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.IInstallationManager.html" class="btn btn-neutral float-left" title="IInstallationManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>IPluginList &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="../index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../mobase.html#classes">Classes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -251,7 +261,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/api/mobase.IPluginList.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -291,13 +301,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.onPluginMoved" title="mobase.IPluginList.onPluginMoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginMoved</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a plugin is moved.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.onRefreshed" title="mobase.IPluginList.onRefreshed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onRefreshed</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.onPluginStateChanged" title="mobase.IPluginList.onPluginStateChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginStateChanged</span></code></a>(callback)</p></td>
+<td><p>Install a new handler to be called when plugin states change.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.onRefreshed" title="mobase.IPluginList.onRefreshed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onRefreshed</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when the list of plugins is refreshed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.origin" title="mobase.IPluginList.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin</span></code></a>(name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.origin" title="mobase.IPluginList.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin</span></code></a>(name)</p></td>
 <td><p>Retrieve the origin of a plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.pluginNames" title="mobase.IPluginList.pluginNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginNames</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.pluginNames" title="mobase.IPluginList.pluginNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginNames</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>The list of all plugin names.</p>
@@ -305,11 +318,14 @@
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.priority" title="mobase.IPluginList.priority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">priority</span></code></a>(name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.priority" title="mobase.IPluginList.priority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">priority</span></code></a>(name)</p></td>
 <td><p>Retrieve the priority of a plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.setLoadOrder" title="mobase.IPluginList.setLoadOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setLoadOrder</span></code></a>(loadorder)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.setLoadOrder" title="mobase.IPluginList.setLoadOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setLoadOrder</span></code></a>(loadorder)</p></td>
 <td><p>Set the load order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.setPriority" title="mobase.IPluginList.setPriority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPriority</span></code></a>(name, priority)</p></td>
+<td><p>Change the priority of a plugin.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.setState" title="mobase.IPluginList.setState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setState</span></code></a>(name, state)</p></td>
 <td><p>Set the state of a plugin.</p></td>
@@ -383,7 +399,26 @@ if the plugin does not exist.</p>
 <dd><p>Install a new handler to be called when a plugin is moved.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> – The function to call when a plugin is moved. The first parameter is the plugin name, the        second the old priority of the plugin and the third one the new priority.</p>
+<dd class="field-odd"><p><strong>callback</strong> – The function to call when a plugin is moved. The first parameter is the plugin name, the
+second the old priority of the plugin and the third one the new priority.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IPluginList.onPluginStateChanged">
+<code class="sig-name descname">onPluginStateChanged</code><span class="sig-paren">(</span><em class="sig-param">callback</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginList.onPluginStateChanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Install a new handler to be called when plugin states change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> – The function to call when a plugin states change. The parameter is a map from plugin names to new
+plugin states for the plugin whose states have changed.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
@@ -474,6 +509,30 @@ were before.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="mobase.IPluginList.setPriority">
+<code class="sig-name descname">setPriority</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">priority</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginList.setPriority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the priority of a plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Filename of the plugin (without path but with file extension).</p></li>
+<li><p><strong>priority</strong> – New priority of the plugin.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, False if the priority change was not possible. This is usually because</p>
+</dd>
+</dl>
+<p>one of the parameters is invalid. The function returns true even if the plugin was not moved
+at the specified priority (e.g. when trying to move a non-master plugin before a master one).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="mobase.IPluginList.setState">
 <code class="sig-name descname">setState</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">state</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginList.setState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the state of a plugin.</p>
@@ -513,37 +572,29 @@ were before.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mobase.IPluginModPage.html" class="btn btn-neutral float-right" title="IPluginModPage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="mobase.IPluginInstallerSimple.html" class="btn btn-neutral float-left" title="IPluginInstallerSimple" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="mobase.IPluginModPage.html" class="btn btn-neutral float-right" title="IPluginModPage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.IPluginInstallerSimple.html" class="btn btn-neutral float-left" title="IPluginInstallerSimple" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

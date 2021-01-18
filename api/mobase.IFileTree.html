@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>IFileTree &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="../index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../mobase.html#classes">Classes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -251,7 +261,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/api/mobase.IFileTree.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -283,7 +293,7 @@ are supported, but some may not make sense in many situations.</p>
 classes may override relevant methods to do so.</p>
 <p>The tree is built upon FileTreeEntry. A given tree holds shared pointers to its entries
 while each entry holds a weak pointer to its parent, this means that the descending link
-are strong (shared pointers) but the uplink are weaks.</p>
+are strong (shared pointers) but the uplink are weak.</p>
 <p>Accessing the parent is always done by locking the weak pointer so that returned pointer
 or either null or valid. This structure implies that as long as the initial root lives,
 entry should not be destroyed, unless the entry are detached from the root and no shared
@@ -347,7 +357,7 @@ a valid shared pointer.</p>
 <td><p>Retrieve the given entry.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IFileTree.insert" title="mobase.IFileTree.insert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert</span></code></a>(entry[, policy])</p></td>
-<td><p>Insert the given entry in this tree, removing it from its previouis parent.</p></td>
+<td><p>Insert the given entry in this tree, removing it from its previous parent.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IFileTree.merge" title="mobase.IFileTree.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code></a>(other[, overwrites])</p></td>
 <td><p>Merge the given tree with this tree, i.e., insert all entries of the given tree into this tree.</p></td>
@@ -440,7 +450,8 @@ given path.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>path</strong> – Path to the file to create.</p></li>
-<li><p><strong>replace_if_exists</strong> – If True and an entry already exists at the given location, it will be replaced by        a new entry. This will replace both files and directories.</p></li>
+<li><p><strong>replace_if_exists</strong> – If True and an entry already exists at the given location, it will be replaced by
+a new entry. This will replace both files and directories.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -487,7 +498,8 @@ entry, and to subtrees of this tree if the insert policy is MERGE.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entry</strong> – Entry to copy.</p></li>
-<li><p><strong>path</strong> – The path to copy the entry to. If the path ends with / or , the entry will        be copied in the corresponding directory instead of replacing it. If the
+<li><p><strong>path</strong> – The path to copy the entry to. If the path ends with / or , the entry will
+be copied in the corresponding directory instead of replacing it. If the
 given path is empty (<cite>“”</cite>), the entry is copied directly under this tree.</p></li>
 <li><p><strong>policy</strong> – Policy to use to resolve conflicts.</p></li>
 </ul>
@@ -570,7 +582,7 @@ type, <cite>None</cite> is returned.</p>
 <dt id="mobase.IFileTree.insert">
 <code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param">entry</em>, <em class="sig-param">policy=&lt;InsertPolicy.FAIL_IF_EXISTS: Ellipsis&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IFileTree.insert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert the given entry in this tree, removing it from its
-previouis parent.</p>
+previous parent.</p>
 <p>The entry must not be this tree or a parent entry of this tree.</p>
 <blockquote>
 <div><ul class="simple">
@@ -584,7 +596,7 @@ with the same name already exists.</p></li>
 <ul>
 <li><p>If both entries are files, the old file is replaced by the given entry.</p></li>
 <li><p>If both entries are directories, a merge is performed as if using merge().</p></li>
-<li><p>Otherwize the insertion fails (two entries with different types).</p></li>
+<li><p>Otherwise the insertion fails (two entries with different types).</p></li>
 </ul>
 </li>
 </ul>
@@ -617,7 +629,7 @@ of the given tree into this tree.</p>
 <p>The tree must not be this tree or a parent entry of this tree. Files present in both tree
 will be replaced by files in the given tree. After a merge, the source tree will be
 empty but still attached to its parent.</p>
-<p>If <cite>overwrites</cite> is <cite>True</cite>, a map from overriden files to new files will be returned.</p>
+<p>If <cite>overwrites</cite> is <cite>True</cite>, a map from overridden files to new files will be returned.</p>
 <p>Note that the merge process makes no distinction between files and directories
 when merging: if a directory is present in this tree and a file from source
 is in conflict with it, the tree will be removed and the file inserted; if a file
@@ -629,11 +641,11 @@ present in the given path, and all the subtrees of the given source.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>other</strong> – Tree to merge.</p></li>
-<li><p><strong>overwrites</strong> – If True, a mapping from overriden files to new files will be returned.</p></li>
+<li><p><strong>overwrites</strong> – If True, a mapping from overridden files to new files will be returned.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>If <cite>overwrites</cite> is True, a mapping from overriden files to new files, otherwise</p>
+<dd class="field-even"><p>If <cite>overwrites</cite> is True, a mapping from overridden files to new files, otherwise</p>
 </dd>
 </dl>
 <p>the number of overwritten entries.</p>
@@ -663,7 +675,8 @@ entry, and to subtrees of this tree if the insert policy is MERGE.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entry</strong> – Entry to move.</p></li>
-<li><p><strong>path</strong> – The path to move the entry to. If the path ends with / or , the entry will        be inserted in the corresponding directory instead of replacing it. If the
+<li><p><strong>path</strong> – The path to move the entry to. If the path ends with / or , the entry will
+be inserted in the corresponding directory instead of replacing it. If the
 given path is empty (<cite>“”</cite>), this is equivalent to <cite>insert()</cite>.</p></li>
 <li><p><strong>policy</strong> – Policy to use to resolve conflicts.</p></li>
 </ul>
@@ -770,37 +783,29 @@ a <cite>WalkReturn</cite> object to indicates what to do.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mobase.IInstallationManager.html" class="btn btn-neutral float-right" title="IInstallationManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="mobase.IDownloadManager.html" class="btn btn-neutral float-left" title="IDownloadManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="mobase.IInstallationManager.html" class="btn btn-neutral float-right" title="IInstallationManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.IDownloadManager.html" class="btn btn-neutral float-left" title="IDownloadManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

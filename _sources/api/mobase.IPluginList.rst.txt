@@ -14,11 +14,13 @@ IPluginList
       ~IPluginList.loadOrder
       ~IPluginList.masters
       ~IPluginList.onPluginMoved
+      ~IPluginList.onPluginStateChanged
       ~IPluginList.onRefreshed
       ~IPluginList.origin
       ~IPluginList.pluginNames
       ~IPluginList.priority
       ~IPluginList.setLoadOrder
+      ~IPluginList.setPriority
       ~IPluginList.setState
       ~IPluginList.state
 
@@ -28,10 +30,12 @@ IPluginList
    .. automethod:: loadOrder
    .. automethod:: masters
    .. automethod:: onPluginMoved
+   .. automethod:: onPluginStateChanged
    .. automethod:: onRefreshed
    .. automethod:: origin
    .. automethod:: pluginNames
    .. automethod:: priority
    .. automethod:: setLoadOrder
+   .. automethod:: setPriority
    .. automethod:: setState
    .. automethod:: state

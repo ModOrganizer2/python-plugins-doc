@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>ModState &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
+  <title>PluginRequirementFactory &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
 
   
@@ -42,8 +42,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PluginRequirementFactory" href="mobase.PluginRequirementFactory.html" />
-    <link rel="prev" title="ModRepositoryFileInfo" href="mobase.ModRepositoryFileInfo.html" /> 
+    <link rel="next" title="PluginSetting" href="mobase.PluginSetting.html" />
+    <link rel="prev" title="ModState" href="mobase.ModState.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -189,8 +189,8 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataChecker.html">ModDataChecker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ModState</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -256,13 +256,13 @@
         
           <li><a href="../mobase.html"><code class="docutils literal notranslate"><span class="pre">mobase</span></code> API</a> &raquo;</li>
         
-      <li>ModState</li>
+      <li>PluginRequirementFactory</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/mobase.ModState.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/mobase.PluginRequirementFactory.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -275,78 +275,86 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="modstate">
-<h1>ModState<a class="headerlink" href="#modstate" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pluginrequirementfactory">
+<h1>PluginRequirementFactory<a class="headerlink" href="#pluginrequirementfactory" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="mobase.ModState">
-<em class="property">class </em><code class="sig-prename descclassname">mobase.</code><code class="sig-name descname">ModState</code><a class="headerlink" href="#mobase.ModState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>An enumeration.</p>
-<p class="rubric">Attributes Summary</p>
+<dt id="mobase.PluginRequirementFactory">
+<em class="property">class </em><code class="sig-prename descclassname">mobase.</code><code class="sig-name descname">PluginRequirementFactory</code><a class="headerlink" href="#mobase.PluginRequirementFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods Summary</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.ModState.ACTIVE" title="mobase.ModState.ACTIVE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ACTIVE</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.PluginRequirementFactory.basic" title="mobase.PluginRequirementFactory.basic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basic</span></code></a>(checker, description)</p></td>
+<td><p>Create a basic requirement.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.ModState.ALTERNATE" title="mobase.ModState.ALTERNATE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ALTERNATE</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.PluginRequirementFactory.diagnose" title="mobase.PluginRequirementFactory.diagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagnose</span></code></a>(diagnose)</p></td>
+<td><p>Construct a requirement from a diagnose plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.ModState.EMPTY" title="mobase.ModState.EMPTY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EMPTY</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.PluginRequirementFactory.gameDependency" title="mobase.PluginRequirementFactory.gameDependency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameDependency</span></code></a>(**kwds)</p></td>
+<td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.ModState.ENDORSED" title="mobase.ModState.ENDORSED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ENDORSED</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.ModState.ESSENTIAL" title="mobase.ModState.ESSENTIAL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ESSENTIAL</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.ModState.EXISTS" title="mobase.ModState.EXISTS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EXISTS</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.ModState.VALID" title="mobase.ModState.VALID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VALID</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.PluginRequirementFactory.pluginDependency" title="mobase.PluginRequirementFactory.pluginDependency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginDependency</span></code></a>(**kwds)</p></td>
+<td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Attributes Documentation</p>
-<dl class="attribute">
-<dt id="mobase.ModState.ACTIVE">
-<code class="sig-name descname">ACTIVE</code><em class="property"> = Ellipsis</em><a class="headerlink" href="#mobase.ModState.ACTIVE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="mobase.PluginRequirementFactory.basic">
+<em class="property">static </em><code class="sig-name descname">basic</code><span class="sig-paren">(</span><em class="sig-param">checker</em>, <em class="sig-param">description</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.PluginRequirementFactory.basic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a basic requirement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>checker</strong> – The callable to use to check if the requirement is met. Should return True
+if the requirement is met, False otherwise.</p></li>
+<li><p><strong>description</strong> – The description of the problem, when the requirement is not met.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The constructed requirement.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mobase.IPluginRequirement.html#mobase.IPluginRequirement" title="mobase.IPluginRequirement"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPluginRequirement</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="attribute">
-<dt id="mobase.ModState.ALTERNATE">
-<code class="sig-name descname">ALTERNATE</code><em class="property"> = Ellipsis</em><a class="headerlink" href="#mobase.ModState.ALTERNATE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="method">
+<dt id="mobase.PluginRequirementFactory.diagnose">
+<em class="property">static </em><code class="sig-name descname">diagnose</code><span class="sig-paren">(</span><em class="sig-param">diagnose</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.PluginRequirementFactory.diagnose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a requirement from a diagnose plugin.</p>
+<p>If the wrapped diagnose plugin reports a problem, the requirement fails
+and the associated message is the one from the diagnose plugin (or the
+list of messages if multiple problems were reported).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>diagnose</strong> – The diagnose plugin to wrap in this requirement.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The constructed requirement.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mobase.IPluginRequirement.html#mobase.IPluginRequirement" title="mobase.IPluginRequirement"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPluginRequirement</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="attribute">
-<dt id="mobase.ModState.EMPTY">
-<code class="sig-name descname">EMPTY</code><em class="property"> = Ellipsis</em><a class="headerlink" href="#mobase.ModState.EMPTY" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="method">
+<dt id="mobase.PluginRequirementFactory.gameDependency">
+<code class="sig-name descname">gameDependency</code><span class="sig-paren">(</span><em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.PluginRequirementFactory.gameDependency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper for &#64;overload to raise when called.</p>
+</dd></dl>
 
-<dl class="attribute">
-<dt id="mobase.ModState.ENDORSED">
-<code class="sig-name descname">ENDORSED</code><em class="property"> = Ellipsis</em><a class="headerlink" href="#mobase.ModState.ENDORSED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="mobase.ModState.ESSENTIAL">
-<code class="sig-name descname">ESSENTIAL</code><em class="property"> = Ellipsis</em><a class="headerlink" href="#mobase.ModState.ESSENTIAL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="mobase.ModState.EXISTS">
-<code class="sig-name descname">EXISTS</code><em class="property"> = Ellipsis</em><a class="headerlink" href="#mobase.ModState.EXISTS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="mobase.ModState.VALID">
-<code class="sig-name descname">VALID</code><em class="property"> = Ellipsis</em><a class="headerlink" href="#mobase.ModState.VALID" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="method">
+<dt id="mobase.PluginRequirementFactory.pluginDependency">
+<code class="sig-name descname">pluginDependency</code><span class="sig-paren">(</span><em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.PluginRequirementFactory.pluginDependency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper for &#64;overload to raise when called.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -358,8 +366,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="mobase.PluginRequirementFactory.html" class="btn btn-neutral float-right" title="PluginRequirementFactory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="mobase.ModRepositoryFileInfo.html" class="btn btn-neutral float-left" title="ModRepositoryFileInfo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mobase.PluginSetting.html" class="btn btn-neutral float-right" title="PluginSetting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.ModState.html" class="btn btn-neutral float-left" title="ModState" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

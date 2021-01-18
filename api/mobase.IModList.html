@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>IModList &mdash; MO2 Python Plugin API 2.3rc1 documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   
+
   
+  
+
   
 
   
@@ -54,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MO2 Python Plugin API
+            <a href="../index.html" class="icon icon-home"> MO2 Python Plugin API
           
 
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../setup-tools.html#testing-the-setup">Testing the setup</a></li>
@@ -147,6 +151,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../mobase.html#classes">Classes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mobase.BSAInvalidation.html">BSAInvalidation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.DataArchives.html">DataArchives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.EndorsedState.html">EndorsedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableForcedLoadSetting.html">ExecutableForcedLoadSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ExecutableInfo.html">ExecutableInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.FileInfo.html">FileInfo</a></li>
@@ -171,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginList.html">IPluginList</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginModPage.html">IPluginModPage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginPreview.html">IPluginPreview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IPluginRequirement.html">IPluginRequirement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IPluginTool.html">IPluginTool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IProfile.html">IProfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ISaveGame.html">ISaveGame</a></li>
@@ -184,6 +190,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModDataContent.html">ModDataContent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModRepositoryFileInfo.html">ModRepositoryFileInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ModState.html">ModState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.PluginRequirementFactory.html">PluginRequirementFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginSetting.html">PluginSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.PluginState.html">PluginState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ProfileSetting.html">ProfileSetting</a></li>
@@ -191,6 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mobase.SaveGameInfo.html">SaveGameInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.ScriptExtender.html">ScriptExtender</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.SortMechanism.html">SortMechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.TrackedState.html">TrackedState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.UnmanagedMods.html">UnmanagedMods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionInfo.html">VersionInfo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a></li>
@@ -238,6 +246,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -251,7 +261,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/api/mobase.IModList.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -291,20 +301,43 @@ to translate from display name to internal name because the display name might n
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.displayName" title="mobase.IModList.displayName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displayName</span></code></a>(name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.allModsByProfilePriority" title="mobase.IModList.allModsByProfilePriority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">allModsByProfilePriority</span></code></a>([profile])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>The list of mod (names), sorted according to the current profile priorities.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModList.displayName" title="mobase.IModList.displayName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displayName</span></code></a>(name)</p></td>
 <td><p>Retrieve the display name of a mod from its internal name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModList.onModMoved" title="mobase.IModList.onModMoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onModMoved</span></code></a>(callback)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.getMod" title="mobase.IModList.getMod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMod</span></code></a>(name)</p></td>
+<td><p>Retrieve an interface to a mod using its name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModList.onModInstalled" title="mobase.IModList.onModInstalled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onModInstalled</span></code></a>(callback)</p></td>
+<td><p>Install a new handler to be called when a new mod is installed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.onModMoved" title="mobase.IModList.onModMoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onModMoved</span></code></a>(callback)</p></td>
 <td><p>Install a handler to be called when a mod is moved.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModList.onModRemoved" title="mobase.IModList.onModRemoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onModRemoved</span></code></a>(callback)</p></td>
+<td><p>Install a new handler to be called when a mod is removed.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.onModStateChanged" title="mobase.IModList.onModStateChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onModStateChanged</span></code></a>(callback)</p></td>
-<td><p>Install a handler to be called when a mod state changes (enabled/disabled, endorsed, …).</p></td>
+<td><p>Install a handler to be called when mod states change (enabled/disabled, endorsed, …).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModList.priority" title="mobase.IModList.priority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">priority</span></code></a>(name)</p></td>
 <td><p>Retrieve the priority of a mod.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.setActive" title="mobase.IModList.setActive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setActive</span></code></a>(name, active)</p></td>
-<td><p>Enable or disable a mod.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.removeMod" title="mobase.IModList.removeMod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeMod</span></code></a>(mod)</p></td>
+<td><p>Remove a mod (from disc and from the UI).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModList.renameMod" title="mobase.IModList.renameMod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">renameMod</span></code></a>(mod, name)</p></td>
+<td><p>Rename the given mod.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IModList.setActive" title="mobase.IModList.setActive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setActive</span></code></a>(**kwds)</p></td>
+<td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModList.setPriority" title="mobase.IModList.setPriority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPriority</span></code></a>(name, priority)</p></td>
 <td><p>Change the priority of a mod.</p></td>
@@ -321,6 +354,19 @@ to translate from display name to internal name because the display name might n
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A list containing the internal names of all installed mods.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModList.allModsByProfilePriority">
+<code class="sig-name descname">allModsByProfilePriority</code><span class="sig-paren">(</span><em class="sig-param">profile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.allModsByProfilePriority" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of mod (names), sorted according to the current profile priorities.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
@@ -349,12 +395,66 @@ to show to the user.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="mobase.IModList.getMod">
+<code class="sig-name descname">getMod</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.getMod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve an interface to a mod using its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the mod to retrieve.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An interface to the given mod, or <cite>None</cite> if there is no mod with this name.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mobase.IModInterface.html#mobase.IModInterface" title="mobase.IModInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">IModInterface</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModList.onModInstalled">
+<code class="sig-name descname">onModInstalled</code><span class="sig-paren">(</span><em class="sig-param">callback</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.onModInstalled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Install a new handler to be called when a new mod is installed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> – The function to call when a mod is installed. The parameter of the function is the name of the
+newly installed mod.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="mobase.IModList.onModMoved">
 <code class="sig-name descname">onModMoved</code><span class="sig-paren">(</span><em class="sig-param">callback</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.onModMoved" title="Permalink to this definition">¶</a></dt>
 <dd><p>Install a handler to be called when a mod is moved.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> – The function to call when a mod is moved. The first argument is the internal name of the        mod, the second argument the old priority and the third argument the new priority.</p>
+<dd class="field-odd"><p><strong>callback</strong> – The function to call when a mod is moved. The first argument is the internal name of the
+mod, the second argument the old priority and the third argument the new priority.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModList.onModRemoved">
+<code class="sig-name descname">onModRemoved</code><span class="sig-paren">(</span><em class="sig-param">callback</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.onModRemoved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Install a new handler to be called when a mod is removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback</strong> – The function to call when a mod is removed. The parameter of the function is the name of the
+removed mod.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
@@ -368,10 +468,11 @@ to show to the user.</p>
 <dl class="method">
 <dt id="mobase.IModList.onModStateChanged">
 <code class="sig-name descname">onModStateChanged</code><span class="sig-paren">(</span><em class="sig-param">callback</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.onModStateChanged" title="Permalink to this definition">¶</a></dt>
-<dd><p>Install a handler to be called when a mod state changes (enabled/disabled, endorsed, …).</p>
+<dd><p>Install a handler to be called when mod states change (enabled/disabled, endorsed, …).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callback</strong> – The function to call when the state of a mod changes. The first argument is the internal        mod name, and the second one the new state of the mod.</p>
+<dd class="field-odd"><p><strong>callback</strong> – The function to call when the states of mod change. The argument is a map containing the
+mods whose states have changed. Keys are internal mod names and values are mod states.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
@@ -400,25 +501,48 @@ to show to the user.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mobase.IModList.setActive">
-<code class="sig-name descname">setActive</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">active</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.setActive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enable or disable a mod.</p>
-<p>Calling this will cause MO to re-evaluate its virtual file system so this is
-a fairly expensive call.</p>
+<dt id="mobase.IModList.removeMod">
+<code class="sig-name descname">removeMod</code><span class="sig-paren">(</span><em class="sig-param">mod</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.removeMod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a mod (from disc and from the UI).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – Internal name of the mod to enable or disable.</p></li>
-<li><p><strong>active</strong> – True to enable the mod, False to disable it.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>mod</strong> – The mod to remove.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True on success, False otherwise.</p>
+<dd class="field-even"><p>True if the mod was removed, False otherwise.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModList.renameMod">
+<code class="sig-name descname">renameMod</code><span class="sig-paren">(</span><em class="sig-param">mod</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.renameMod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename the given mod.</p>
+<p>This method usually invalidates the given mod so you should use the returned value
+after calling it instead of the passed value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mod</strong> – The mod to rename.</p></li>
+<li><p><strong>name</strong> – The new name of the mod.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A valid reference to the given mod after renaming it.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mobase.IModInterface.html#mobase.IModInterface" title="mobase.IModInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">IModInterface</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="mobase.IModList.setActive">
+<code class="sig-name descname">setActive</code><span class="sig-paren">(</span><em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModList.setActive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper for &#64;overload to raise when called.</p>
 </dd></dl>
 
 <dl class="method">
@@ -469,37 +593,29 @@ old location and all mods with higher priority than the moved mod decrease in pr
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mobase.IModRepositoryBridge.html" class="btn btn-neutral float-right" title="IModRepositoryBridge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="mobase.IModInterface.html" class="btn btn-neutral float-left" title="IModInterface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="mobase.IModRepositoryBridge.html" class="btn btn-neutral float-right" title="IModRepositoryBridge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.IModInterface.html" class="btn btn-neutral float-left" title="IModInterface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Holt59
+        &#169; Copyright 2020, Holt59.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

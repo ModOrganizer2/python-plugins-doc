@@ -1,0 +1,21 @@
+TrackedState
+============
+
+.. currentmodule:: mobase
+
+.. autoclass:: TrackedState
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~TrackedState.TRACKED_FALSE
+      ~TrackedState.TRACKED_TRUE
+      ~TrackedState.TRACKED_UNKNOWN
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: TRACKED_FALSE
+   .. autoattribute:: TRACKED_TRUE
+   .. autoattribute:: TRACKED_UNKNOWN

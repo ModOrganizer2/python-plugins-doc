@@ -15,7 +15,6 @@ IInstallationManager
       ~IInstallationManager.extractFiles
       ~IInstallationManager.getSupportedExtensions
       ~IInstallationManager.installArchive
-      ~IInstallationManager.setURL
 
    .. rubric:: Methods Documentation
 
@@ -24,4 +23,3 @@ IInstallationManager
    .. automethod:: extractFiles
    .. automethod:: getSupportedExtensions
    .. automethod:: installArchive
-   .. automethod:: setURL

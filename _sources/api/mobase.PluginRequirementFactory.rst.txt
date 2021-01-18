@@ -1,0 +1,23 @@
+PluginRequirementFactory
+========================
+
+.. currentmodule:: mobase
+
+.. autoclass:: PluginRequirementFactory
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~PluginRequirementFactory.basic
+      ~PluginRequirementFactory.diagnose
+      ~PluginRequirementFactory.gameDependency
+      ~PluginRequirementFactory.pluginDependency
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: basic
+   .. automethod:: diagnose
+   .. automethod:: gameDependency
+   .. automethod:: pluginDependency
