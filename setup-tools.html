@@ -367,22 +367,22 @@ after saving files from your project.</p>
 <code class="docutils literal notranslate"><span class="pre">Tasks:</span> <span class="pre">Configure</span> <span class="pre">task</span></code> or open <code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code>) using the following
 snippet (replace the name and directory as needed):</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// .vscode/tasks.json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    &quot;version&quot;: &quot;2.0.0&quot;,
-    &quot;tasks&quot;: [
-        {
-            &quot;label&quot;: &quot;reload plugin&quot;,
-            &quot;type&quot;: &quot;shell&quot;,
-            &quot;command&quot;: &quot;$MO2DIR/ModOrganizer.exe&quot;,
-            &quot;args&quot;: [
-                &quot;reload-plugin&quot;, &quot;My Plugin&quot;
-            ]
-        }
-    ]
-}
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// .vscode/tasks.json</span>
+<span class="p">{</span>
+    <span class="c1">// See https://go.microsoft.com/fwlink/?LinkId=733558</span>
+    <span class="c1">// for the documentation about the tasks.json format</span>
+    <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tasks&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;reload plugin&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;$MO2DIR/ModOrganizer.exe&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="s2">&quot;reload-plugin&quot;</span><span class="p">,</span> <span class="s2">&quot;My Plugin&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -390,11 +390,11 @@ snippet (replace the name and directory as needed):</p></li>
 extension from Visual Studio Code marketplace.</p></li>
 <li><p>Add the following to your Visual Studio Code settings (<code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code>)</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="o">.</span><span class="n">vscode</span><span class="o">/</span><span class="n">settings</span><span class="o">.</span><span class="n">json</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// .vscode/settings.json</span>
 <span class="p">{</span>
-    <span class="s2">&quot;triggerTaskOnSave.on&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s2">&quot;triggerTaskOnSave.tasks&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;reload plugin&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;triggerTaskOnSave.on&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;triggerTaskOnSave.tasks&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;reload plugin&quot;</span><span class="o">:</span> <span class="p">[</span>
             <span class="s2">&quot;*.py&quot;</span>
         <span class="p">]</span>
     <span class="p">}</span>
