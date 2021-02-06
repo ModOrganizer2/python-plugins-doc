@@ -133,6 +133,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#unofficial-plugins">Unofficial Plugins</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#internationalization">Internationalization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-translation-code">Adding translation code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-qt-translation-files">Generating Qt translation files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translating">Translating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distributing-translations">Distributing translations</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
@@ -474,6 +481,11 @@ plugins and should mostly be investigated if you want to add a game to it.</p>
 </dl>
 </li>
 <li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-installer_wizard">Installer Wizard</a> [<code class="docutils literal notranslate"><span class="pre">IPluginInstaller</span></code>]:</dt><dd><p>Installer for BAIN archives containing wizard scripts.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/ModOrganizer2/modorganizer-preview_dds">Preview DDS</a> [<code class="docutils literal notranslate"><span class="pre">IPluginPreview</span></code>]:</dt><dd><p>Plugin to preview DDS files. Quite complex due to the use
 of OpenGL for display.</p>
 </dd>
@@ -501,7 +513,7 @@ if some plugins have failed to load and display information to the user if possi
 </div>
 <div class="section" id="unofficial-plugins">
 <h3>Unofficial Plugins<a class="headerlink" href="#unofficial-plugins" title="Permalink to this headline">¶</a></h3>
-<p>These plugins have been created by developpers for MO2 and are usually distributed on Nexus.</p>
+<p>These plugins have been created by developers for MO2 and are usually distributed on Nexus.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/deorder/mo2-plugins">Merge Plugins Hide</a> [<code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code>]:</dt><dd><p>Hide / unhide plugins that were merged using <code class="docutils literal notranslate"><span class="pre">Merge</span> <span class="pre">Plugins</span></code> or <code class="docutils literal notranslate"><span class="pre">zMerge</span></code>.</p>
@@ -525,6 +537,63 @@ if some plugins have failed to load and display information to the user if possi
 </li>
 </ul>
 <p><em>Feel free to open an issue or a pull-request if you want to add your own plugin to the list.</em></p>
+</div>
+</div>
+<div class="section" id="internationalization">
+<h2>Internationalization<a class="headerlink" href="#internationalization" title="Permalink to this headline">¶</a></h2>
+<p>If you plan to distribute your plugin, it is often a good idea to provide translations for it.</p>
+<div class="section" id="adding-translation-code">
+<h3>Adding translation code<a class="headerlink" href="#adding-translation-code" title="Permalink to this headline">¶</a></h3>
+<p>Mod Organizer uses Qt translation system, so you need to adapt your plugin code to provide
+translation strings.
+To do this, you need two things:</p>
+<ol class="arabic simple">
+<li><p>In every class containing strings you need to translate, you must add a <code class="docutils literal notranslate"><span class="pre">__tr</span></code> function
+that takes a <code class="docutils literal notranslate"><span class="pre">str</span></code> input and call <cite>QApplication.translate</cite> on it (see example below).</p></li>
+<li><p>You need to wrap all translatable strings in a call to <code class="docutils literal notranslate"><span class="pre">self.__str(&quot;My</span> <span class="pre">String&quot;)</span></code> (see
+example below).</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+
+<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">localizedName</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># Use self.__tr to wrap string you want translatable.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tr</span><span class="p">(</span><span class="s2">&quot;My Plugin Name&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__tr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># The first argument must EXACTLY match the class name:</span>
+        <span class="k">return</span> <span class="n">QApplication</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;MyPlugin&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-qt-translation-files">
+<h3>Generating Qt translation files<a class="headerlink" href="#generating-qt-translation-files" title="Permalink to this headline">¶</a></h3>
+<p>Once your code is updated, you need to generate the Qt translation file <code class="docutils literal notranslate"><span class="pre">.ts</span></code>.
+You can use <code class="docutils literal notranslate"><span class="pre">PyQt5.lupdate_main</span></code> for this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PyQt5.lupdate_main mysourcefile.py -ts mysourcefile.ts
+</pre></div>
+</div>
+<p>You should generate a single translation file for your whole plugin even if it contains
+multiple files by passing all Python file and Qt UI (<code class="docutils literal notranslate"><span class="pre">.ui</span></code>) file to the command above.</p>
+</div>
+<div class="section" id="translating">
+<h3>Translating<a class="headerlink" href="#translating" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have the original <code class="docutils literal notranslate"><span class="pre">.ts</span></code> file, you need to translate it in order to obtain
+translation files for other languages.
+To do so, you can use online services such as <a class="reference external" href="https://www.transifex.com">Transifex</a> or
+simply Qt Linguistic tools.</p>
+</div>
+<div class="section" id="distributing-translations">
+<h3>Distributing translations<a class="headerlink" href="#distributing-translations" title="Permalink to this headline">¶</a></h3>
+<p>Once you have obtained translation files for another language, e.g. French, you need to
+compile it into a <code class="docutils literal notranslate"><span class="pre">.qm</span></code> file and then ship it.</p>
+<ul class="simple">
+<li><p>If you are using a single Python file plugin <code class="docutils literal notranslate"><span class="pre">myplugin.py</span></code>, the name of the compiled
+translation must be <code class="docutils literal notranslate"><span class="pre">myplugin_fr.qm</span></code>.</p></li>
+<li><p>If you are shipping a module <code class="docutils literal notranslate"><span class="pre">mymoduleplugin</span></code>, the name of the compiled translation
+must be <code class="docutils literal notranslate"><span class="pre">mymoduleplugin</span></code>.</p></li>
+</ul>
 </div>
 </div>
 </div>
