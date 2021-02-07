@@ -323,7 +323,7 @@
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.VersionInfo.parse" title="mobase.VersionInfo.parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse</span></code></a>(value[, scheme, manual_input])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.VersionInfo.parse" title="mobase.VersionInfo.parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse</span></code></a>(value[, scheme, is_manual])</p></td>
 <td><p>Update this VersionInfo by parsing the given string using the given scheme.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.VersionInfo.scheme" title="mobase.VersionInfo.scheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scheme</span></code></a>()</p></td>
@@ -389,14 +389,14 @@ and [4,inf) for major/minor/subminor/subsubminor. This only versions with a regu
 
 <dl class="method">
 <dt id="mobase.VersionInfo.parse">
-<code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">scheme=&lt;VersionScheme.DISCOVER: Ellipsis&gt;</em>, <em class="sig-param">manual_input=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.parse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">scheme=&lt;VersionScheme.DISCOVER: Ellipsis&gt;</em>, <em class="sig-param">is_manual=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.parse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update this VersionInfo by parsing the given string using the given scheme.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> – String to parse.</p></li>
 <li><p><strong>scheme</strong> – Scheme to use to parse the string.</p></li>
-<li><p><strong>manual_input</strong> – True if the given string should be treated as user input.</p></li>
+<li><p><strong>is_manual</strong> – True if the given string should be treated as user input.</p></li>
 </ul>
 </dd>
 </dl>

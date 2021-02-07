@@ -351,7 +351,7 @@ a valid shared pointer.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IFileTree.clear" title="mobase.IFileTree.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
 <td><p>Delete (detach) all the entries from this tree.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IFileTree.copy" title="mobase.IFileTree.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(entry[, path, policy])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IFileTree.copy" title="mobase.IFileTree.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(entry[, path, insert_policy])</p></td>
 <td><p>Move the given entry to the given path under this tree.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IFileTree.createOrphanTree" title="mobase.IFileTree.createOrphanTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">createOrphanTree</span></code></a>([name])</p></td>
@@ -491,7 +491,7 @@ entry that cannot be deleted, this means that the tree can be partially cleared.
 
 <dl class="method">
 <dt id="mobase.IFileTree.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">entry</em>, <em class="sig-param">path=''</em>, <em class="sig-param">policy=&lt;InsertPolicy.FAIL_IF_EXISTS: Ellipsis&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IFileTree.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">entry</em>, <em class="sig-param">path=''</em>, <em class="sig-param">insert_policy=&lt;InsertPolicy.FAIL_IF_EXISTS: Ellipsis&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IFileTree.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move the given entry to the given path under this tree.</p>
 <p>The entry must not be a parent tree of this tree. This method can also be used
 to rename entries.</p>
@@ -508,7 +508,7 @@ entry, and to subtrees of this tree if the insert policy is MERGE.</p>
 <li><p><strong>path</strong> – The path to copy the entry to. If the path ends with / or , the entry will
 be copied in the corresponding directory instead of replacing it. If the
 given path is empty (<cite>“”</cite>), the entry is copied directly under this tree.</p></li>
-<li><p><strong>policy</strong> – Policy to use to resolve conflicts.</p></li>
+<li><p><strong>insert_policy</strong> – Policy to use to resolve conflicts.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
