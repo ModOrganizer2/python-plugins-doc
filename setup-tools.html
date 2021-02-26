@@ -95,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configure-mypy-to-find-the-mobase-stubs">3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-configure-black-to-auto-format-your-source-files">3. [Optional] Configure <code class="docutils literal notranslate"><span class="pre">black</span></code> to auto-format your source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
 </ul>
 </li>
@@ -294,7 +294,7 @@ This guide assumes that:</p>
 <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python extension</a>.</p></li>
 <li><p>You have Python installed: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
 <ul>
-<li><p>It is recommended but not mandatory to use the Python version that is used by MO2.
+<li><p>You must use the Python version that used by MO2.
 You can check the <code class="docutils literal notranslate"><span class="pre">pythonXX.dll</span></code> in the MO2 installation folder to find the Python version used by MO2 (<code class="docutils literal notranslate"><span class="pre">python38.dll</span></code> means Python 3.8).</p></li>
 </ul>
 </li>
@@ -310,18 +310,19 @@ installed MO2 at <code class="docutils literal notranslate"><span class="pre">C:
 <div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p><strong>Note:</strong> This part is optional but highly recommended if you want a proper environment to work with.
-Everything here is written to be as simple as possible but you can of course adapt it to your preferences: use a python virtual
-environment, use workspace settings instead of global ones, etc.</p>
+Everything here is written to be as simple as possible but you can of course adapt it to your preferences:
+use a python virtual environment, use workspace settings instead of global ones, etc.</p>
 <div class="section" id="get-the-mobase-stubs">
 <h3>1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs<a class="headerlink" href="#get-the-mobase-stubs" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">mobase</span></code> is the MO2 Python module. The module is written in C++ and thus cannot be read directly by tools such
 as <code class="docutils literal notranslate"><span class="pre">flake8</span></code> or <code class="docutils literal notranslate"><span class="pre">mypy</span></code>.
 Instead, we provide <a class="reference external" href="https://stackoverflow.com/questions/59051631/what-is-the-use-of-stub-files-pyi-in-python">stubs</a>
 which can be used for auto-completion or type-checking.</p>
-<p>The stubs for <code class="docutils literal notranslate"><span class="pre">mobase</span></code> are available at <a class="reference external" href="https://github.com/ModOrganizer2/pystubs-generation/tree/master/stubs">https://github.com/ModOrganizer2/pystubs-generation/tree/master/stubs</a>.
-You want to download the <code class="docutils literal notranslate"><span class="pre">mobase.pyi</span></code> file in the folder corresponding to your MO2 version and put it under <code class="docutils literal notranslate"><span class="pre">$MO2DIR/plugins/data</span></code>.</p>
-<p><strong>Note:</strong> It is possible to put the stubs in a different location, but we are going to use <code class="docutils literal notranslate"><span class="pre">$MO2DIR/plugins/data</span></code> for PyQt5,
-so we might as well use it for the stubs.</p>
+<p>You can install the stubs for <code class="docutils literal notranslate"><span class="pre">mobase</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mobase</span><span class="o">-</span><span class="n">stubs</span>
+</pre></div>
+</div>
+<p>This will install the stubs for <code class="docutils literal notranslate"><span class="pre">mobase</span></code> but also for PyQt5, which is heavily used by MO2.</p>
 </div>
 <div class="section" id="configure-visual-studio-code-for-mobase">
 <h3>2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code><a class="headerlink" href="#configure-visual-studio-code-for-mobase" title="Permalink to this headline">¶</a></h3>
@@ -331,30 +332,24 @@ Open <code class="docutils literal notranslate"><span class="pre">settings.json<
 <div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;python.linting.enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 <span class="nt">&quot;python.linting.mypyEnabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 <span class="nt">&quot;python.linting.flake8Enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<span class="nt">&quot;python.autoComplete.extraPaths&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&quot;$MO2DIR\\plugins\\data&quot;</span><span class="p">,</span>
-<span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="configure-mypy-to-find-the-mobase-stubs">
-<h3>3. Configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to find the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs<a class="headerlink" href="#configure-mypy-to-find-the-mobase-stubs" title="Permalink to this headline">¶</a></h3>
-<p>There are multiply way to configure <code class="docutils literal notranslate"><span class="pre">mypy</span></code>:</p>
-<ol class="arabic simple">
-<li><p>You can create a <code class="docutils literal notranslate"><span class="pre">mypy.ini</span></code> file somewhere containing:</p></li>
-</ol>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[mypy]</span>
-<span class="na">mypy_path</span> <span class="o">=</span> <span class="s">$MO2DIR\plugins\data</span>
+<div class="section" id="optional-configure-black-to-auto-format-your-source-files">
+<h3>3. [Optional] Configure <code class="docutils literal notranslate"><span class="pre">black</span></code> to auto-format your source files<a class="headerlink" href="#optional-configure-black-to-auto-format-your-source-files" title="Permalink to this headline">¶</a></h3>
+<p>This step is optional for your own plugin but recent MO2 plugins use <code class="docutils literal notranslate"><span class="pre">black</span></code>
+to get consistent formatting.</p>
+<p>You can install <code class="docutils literal notranslate"><span class="pre">black</span></code> with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span> <span class="n">flake8</span><span class="o">-</span><span class="n">black</span>
 </pre></div>
 </div>
-<p>And then add the following to <code class="docutils literal notranslate"><span class="pre">settings.json</span></code> (with the correct path):</p>
-<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;python.linting.mypyArgs&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&quot;--config-file=path-to-mypy.ini&quot;</span><span class="p">,</span>
-<span class="p">]</span>
+<p>To configure Visual Studio Code to auto-format your code with <code class="docutils literal notranslate"><span class="pre">black</span></code> when saving, open <code class="docutils literal notranslate"><span class="pre">settings.json</span></code>
+(Ctrl+Shift+P, then “Open Settings (JSON)”), and add the following entries:</p>
+<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nt">&quot;editor.formatOnPaste&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nt">&quot;python.formatting.provider&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
 </pre></div>
 </div>
-<p>2. You can set the <code class="docutils literal notranslate"><span class="pre">MYPYPATH</span></code> environment variable to <code class="docutils literal notranslate"><span class="pre">$MO2DIR\plugins\data</span></code> (this requires
-restarting VS code).</p>
 </div>
 <div class="section" id="optional-automatically-reload-plugins-during-development">
 <h3>4. [Optional] Automatically reload plugins during development<a class="headerlink" href="#optional-automatically-reload-plugins-during-development" title="Permalink to this headline">¶</a></h3>
