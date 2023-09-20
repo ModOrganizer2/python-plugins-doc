@@ -17,6 +17,8 @@ ModState
       ~ModState.ESSENTIAL
       ~ModState.EXISTS
       ~ModState.VALID
+      ~ModState.name
+      ~ModState.value
 
    .. rubric:: Attributes Documentation
 
@@ -27,3 +29,5 @@ ModState
    .. autoattribute:: ESSENTIAL
    .. autoattribute:: EXISTS
    .. autoattribute:: VALID
+   .. autoattribute:: name
+   .. autoattribute:: value

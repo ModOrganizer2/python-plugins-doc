@@ -14,6 +14,8 @@ EndorsedState
       ~EndorsedState.ENDORSED_NEVER
       ~EndorsedState.ENDORSED_TRUE
       ~EndorsedState.ENDORSED_UNKNOWN
+      ~EndorsedState.name
+      ~EndorsedState.value
 
    .. rubric:: Attributes Documentation
 
@@ -21,3 +23,5 @@ EndorsedState
    .. autoattribute:: ENDORSED_NEVER
    .. autoattribute:: ENDORSED_TRUE
    .. autoattribute:: ENDORSED_UNKNOWN
+   .. autoattribute:: name
+   .. autoattribute:: value

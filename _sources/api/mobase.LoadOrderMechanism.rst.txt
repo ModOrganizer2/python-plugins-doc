@@ -11,9 +11,15 @@ LoadOrderMechanism
    .. autosummary::
 
       ~LoadOrderMechanism.FILE_TIME
+      ~LoadOrderMechanism.NONE
       ~LoadOrderMechanism.PLUGINS_TXT
+      ~LoadOrderMechanism.name
+      ~LoadOrderMechanism.value
 
    .. rubric:: Attributes Documentation
 
    .. autoattribute:: FILE_TIME
+   .. autoattribute:: NONE
    .. autoattribute:: PLUGINS_TXT
+   .. autoattribute:: name
+   .. autoattribute:: value

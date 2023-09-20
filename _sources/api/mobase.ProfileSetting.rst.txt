@@ -14,6 +14,8 @@ ProfileSetting
       ~ProfileSetting.MODS
       ~ProfileSetting.PREFER_DEFAULTS
       ~ProfileSetting.SAVEGAMES
+      ~ProfileSetting.name
+      ~ProfileSetting.value
 
    .. rubric:: Attributes Documentation
 
@@ -21,3 +23,5 @@ ProfileSetting
    .. autoattribute:: MODS
    .. autoattribute:: PREFER_DEFAULTS
    .. autoattribute:: SAVEGAMES
+   .. autoattribute:: name
+   .. autoattribute:: value

@@ -51,6 +51,7 @@ IOrganizer
       ~IOrganizer.setPersistent
       ~IOrganizer.setPluginSetting
       ~IOrganizer.startApplication
+      ~IOrganizer.virtualFileTree
       ~IOrganizer.waitForApplication
 
    .. rubric:: Methods Documentation
@@ -96,4 +97,5 @@ IOrganizer
    .. automethod:: setPersistent
    .. automethod:: setPluginSetting
    .. automethod:: startApplication
+   .. automethod:: virtualFileTree
    .. automethod:: waitForApplication

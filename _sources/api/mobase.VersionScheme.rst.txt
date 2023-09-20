@@ -16,6 +16,8 @@ VersionScheme
       ~VersionScheme.LITERAL
       ~VersionScheme.NUMBERS_AND_LETTERS
       ~VersionScheme.REGULAR
+      ~VersionScheme.name
+      ~VersionScheme.value
 
    .. rubric:: Attributes Documentation
 
@@ -25,3 +27,5 @@ VersionScheme
    .. autoattribute:: LITERAL
    .. autoattribute:: NUMBERS_AND_LETTERS
    .. autoattribute:: REGULAR
+   .. autoattribute:: name
+   .. autoattribute:: value

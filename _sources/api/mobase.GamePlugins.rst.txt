@@ -12,6 +12,7 @@ GamePlugins
 
       ~GamePlugins.getLoadOrder
       ~GamePlugins.lightPluginsAreSupported
+      ~GamePlugins.overridePluginsAreSupported
       ~GamePlugins.readPluginLists
       ~GamePlugins.writePluginLists
 
@@ -19,5 +20,6 @@ GamePlugins
 
    .. automethod:: getLoadOrder
    .. automethod:: lightPluginsAreSupported
+   .. automethod:: overridePluginsAreSupported
    .. automethod:: readPluginLists
    .. automethod:: writePluginLists

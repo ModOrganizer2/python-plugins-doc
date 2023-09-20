@@ -28,6 +28,7 @@ IPluginGame
       ~IPluginGame.gameVariants
       ~IPluginGame.gameVersion
       ~IPluginGame.getLauncherName
+      ~IPluginGame.getSupportURL
       ~IPluginGame.iniFiles
       ~IPluginGame.initializeProfile
       ~IPluginGame.isInstalled
@@ -39,6 +40,7 @@ IPluginGame
       ~IPluginGame.primaryPlugins
       ~IPluginGame.primarySources
       ~IPluginGame.savesDirectory
+      ~IPluginGame.secondaryDataDirectories
       ~IPluginGame.setGamePath
       ~IPluginGame.setGameVariant
       ~IPluginGame.sortMechanism
@@ -65,6 +67,7 @@ IPluginGame
    .. automethod:: gameVariants
    .. automethod:: gameVersion
    .. automethod:: getLauncherName
+   .. automethod:: getSupportURL
    .. automethod:: iniFiles
    .. automethod:: initializeProfile
    .. automethod:: isInstalled
@@ -76,6 +79,7 @@ IPluginGame
    .. automethod:: primaryPlugins
    .. automethod:: primarySources
    .. automethod:: savesDirectory
+   .. automethod:: secondaryDataDirectories
    .. automethod:: setGamePath
    .. automethod:: setGameVariant
    .. automethod:: sortMechanism

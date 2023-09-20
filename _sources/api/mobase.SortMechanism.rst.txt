@@ -14,6 +14,8 @@ SortMechanism
       ~SortMechanism.LOOT
       ~SortMechanism.MLOX
       ~SortMechanism.NONE
+      ~SortMechanism.name
+      ~SortMechanism.value
 
    .. rubric:: Attributes Documentation
 
@@ -21,3 +23,5 @@ SortMechanism
    .. autoattribute:: LOOT
    .. autoattribute:: MLOX
    .. autoattribute:: NONE
+   .. autoattribute:: name
+   .. autoattribute:: value

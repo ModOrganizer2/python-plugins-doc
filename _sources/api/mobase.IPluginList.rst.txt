@@ -10,7 +10,10 @@ IPluginList
 
    .. autosummary::
 
-      ~IPluginList.isMaster
+      ~IPluginList.hasLightExtension
+      ~IPluginList.hasMasterExtension
+      ~IPluginList.isLightFlagged
+      ~IPluginList.isMasterFlagged
       ~IPluginList.loadOrder
       ~IPluginList.masters
       ~IPluginList.onPluginMoved
@@ -26,7 +29,10 @@ IPluginList
 
    .. rubric:: Methods Documentation
 
-   .. automethod:: isMaster
+   .. automethod:: hasLightExtension
+   .. automethod:: hasMasterExtension
+   .. automethod:: isLightFlagged
+   .. automethod:: isMasterFlagged
    .. automethod:: loadOrder
    .. automethod:: masters
    .. automethod:: onPluginMoved

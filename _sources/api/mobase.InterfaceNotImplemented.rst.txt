@@ -1,7 +1,0 @@
-InterfaceNotImplemented
-=======================
-
-.. currentmodule:: mobase
-
-.. autoclass:: InterfaceNotImplemented
-   :show-inheritance:

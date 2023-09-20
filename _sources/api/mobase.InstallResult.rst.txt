@@ -15,6 +15,8 @@ InstallResult
       ~InstallResult.MANUAL_REQUESTED
       ~InstallResult.NOT_ATTEMPTED
       ~InstallResult.SUCCESS
+      ~InstallResult.name
+      ~InstallResult.value
 
    .. rubric:: Attributes Documentation
 
@@ -23,3 +25,5 @@ InstallResult
    .. autoattribute:: MANUAL_REQUESTED
    .. autoattribute:: NOT_ATTEMPTED
    .. autoattribute:: SUCCESS
+   .. autoattribute:: name
+   .. autoattribute:: value

@@ -16,6 +16,8 @@ GuessQuality
       ~GuessQuality.META
       ~GuessQuality.PRESET
       ~GuessQuality.USER
+      ~GuessQuality.name
+      ~GuessQuality.value
 
    .. rubric:: Attributes Documentation
 
@@ -25,3 +27,5 @@ GuessQuality
    .. autoattribute:: META
    .. autoattribute:: PRESET
    .. autoattribute:: USER
+   .. autoattribute:: name
+   .. autoattribute:: value
