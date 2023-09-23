@@ -439,8 +439,11 @@ used by the external NCC installer and the OMOD installer.</p></li>
 <dd><p>Method calls at the end of the installation process. This method is only called once
 per installation process, even for recursive installations (e.g. with the bundle installer).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>result</strong> – The result of the installation.</p></li>
 <li><p><strong>new_mod</strong> – If the installation succeeded (result is RESULT_SUCCESS), contains the newly
 installed mod, otherwise it contains a null pointer.</p></li>
@@ -461,8 +464,11 @@ it corresponds to a mod MO2 thinks corresponds to the archive (e.g. based on mat
 or name).</p>
 <p>The default implementation does nothing.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>archive</strong> – Path to the archive that is going to be installed.</p></li>
 <li><p><strong>reinstallation</strong> – True if this is a reinstallation, False otherwise.</p></li>
 <li><p><strong>current_mod</strong> – A currently installed mod corresponding to the archive being installed, or None
@@ -494,8 +500,11 @@ if there is no such mod.</p></li>
 <p>Python plugins usually do not need to re-implement this and can directly access the installation
 manager using <cite>_manager()</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>manager</strong> – The installation manager.</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>manager</strong> – The installation manager.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -507,8 +516,11 @@ manager using <cite>_manager()</cite>.</p>
 <p>Python plugins usually do not need to re-implement this and can directly access the parent
 widget using <cite>_parentWidget()</cite> once the UI has been initialized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>parent</strong> – The parent widget.</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>parent</strong> – The parent widget.</p>
 </dd>
 </dl>
 </dd></dl>

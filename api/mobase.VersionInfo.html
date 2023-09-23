@@ -434,6 +434,11 @@
 <dt class="sig sig-object py" id="mobase.VersionInfo.clear">
 <span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.clear" title="Link to this definition"></a></dt>
 <dd><p>Resets this VersionInfo to an invalid version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -472,8 +477,11 @@ and [4,inf) for major/minor/subminor/subsubminor. This only versions with a regu
 <span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme=VersionScheme.None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_manual=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.parse" title="Link to this definition"></a></dt>
 <dd><p>Update this VersionInfo by parsing the given string using the given scheme.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>value</strong> – String to parse.</p></li>
 <li><p><strong>scheme</strong> – Scheme to use to parse the string.</p></li>
 <li><p><strong>is_manual</strong> – True if the given string should be treated as user input.</p></li>

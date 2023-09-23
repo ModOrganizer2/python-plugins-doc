@@ -409,8 +409,8 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModRepositoryBridge.requestFileInfo" title="mobase.IModRepositoryBridge.requestFileInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">requestFileInfo</span></code></a>(game_name, mod_id, file_id, ...)</p></td>
 <td><p><dl class="field-list simple">
-<dt class="field-odd">param game_name<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Name of the game containing the mod.</p>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 </dl>
 </p></td>
@@ -420,8 +420,8 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IModRepositoryBridge.requestToggleEndorsement" title="mobase.IModRepositoryBridge.requestToggleEndorsement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">requestToggleEndorsement</span></code></a>(game_name, mod_id, ...)</p></td>
 <td><p><dl class="field-list simple">
-<dt class="field-odd">param game_name<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Name of the game containing the mod.</p>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 </dl>
 </p></td>
@@ -480,8 +480,11 @@
 <span class="sig-name descname"><span class="pre">requestDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModRepositoryBridge.requestDescription" title="Link to this definition"></a></dt>
 <dd><p>Request description of a mod.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>game_name</strong> – Name of the game containing the mod.</p></li>
 <li><p><strong>mod_id</strong> – Nexus ID of the mod.</p></li>
 <li><p><strong>user_data</strong> – User data to be returned with the result.</p></li>
@@ -495,8 +498,11 @@
 <span class="sig-name descname"><span class="pre">requestDownloadURL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModRepositoryBridge.requestDownloadURL" title="Link to this definition"></a></dt>
 <dd><p>Request download URL for mod file.0</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>game_name</strong> – Name of the game containing the mod.</p></li>
 <li><p><strong>mod_id</strong> – Nexus ID of the mod.</p></li>
 <li><p><strong>file_id</strong> – ID of the file for which a URL should be returned.</p></li>
@@ -510,8 +516,11 @@
 <dt class="sig sig-object py" id="mobase.IModRepositoryBridge.requestFileInfo">
 <span class="sig-name descname"><span class="pre">requestFileInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModRepositoryBridge.requestFileInfo" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>game_name</strong> – Name of the game containing the mod.</p></li>
 <li><p><strong>mod_id</strong> – Nexus ID of the mod.</p></li>
 <li><p><strong>file_id</strong> – ID of the file for which information is requested.</p></li>
@@ -526,8 +535,11 @@
 <span class="sig-name descname"><span class="pre">requestFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModRepositoryBridge.requestFiles" title="Link to this definition"></a></dt>
 <dd><p>Request the list of files belonging to a mod.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>game_name</strong> – Name of the game containing the mod.</p></li>
 <li><p><strong>mod_id</strong> – Nexus ID of the mod.</p></li>
 <li><p><strong>user_data</strong> – User data to be returned with the result.</p></li>
@@ -540,8 +552,11 @@
 <dt class="sig sig-object py" id="mobase.IModRepositoryBridge.requestToggleEndorsement">
 <span class="sig-name descname"><span class="pre">requestToggleEndorsement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endorse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IModRepositoryBridge.requestToggleEndorsement" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>game_name</strong> – Name of the game containing the mod.</p></li>
 <li><p><strong>mod_id</strong> – Nexus ID of the mod.</p></li>
 <li><p><strong>mod_version</strong> – Version of the mod.</p></li>

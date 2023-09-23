@@ -790,8 +790,11 @@ from the display name for disambiguation.</p>
 <span class="sig-name descname"><span class="pre">modDataChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IOrganizer.modDataChanged" title="Link to this definition"></a></dt>
 <dd><p>Notify the organizer that the given mod has changed.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mod</strong> – The mod that has changed.</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mod</strong> – The mod that has changed.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1120,8 +1123,11 @@ list, data tab and other smaller things like problems button (same as pressing F
 <p>The main part of the refresh of the mods file structure, mod list and plugin list is done
 asynchronously, so you should not expect them to be up-to-date when this function returns.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>save_changes</strong> – If True, the relevant profile information is saved first (enabled mods and order of mods).</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>save_changes</strong> – If True, the relevant profile information is saved first (enabled mods and order of mods).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1149,8 +1155,11 @@ asynchronously, so you should not expect them to be up-to-date when this functio
 <dd><p>Set the specified persistent value for a plugin.</p>
 <p>This does not update the in-memory value for this setting, see <cite>setPluginSetting()</cite> for this.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>plugin_name</strong> – Name of the plugin for which to change a value. This should always be <cite>IPlugin.name()</cite> unless you have a
 really good reason to access data of another mod AND if you can verify that plugin is actually installed.</p></li>
 <li><p><strong>key</strong> – Identifier of the setting.</p></li>
@@ -1167,8 +1176,11 @@ really good reason to access data of another mod AND if you can verify that plug
 <dd><p>Set the specified setting for a plugin.</p>
 <p>This automatically notify handlers register with <cite>onPluginSettingChanged</cite>, so you do not have to do it yourself.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>plugin_name</strong> – Name of the plugin for which to change a value. This should always be <cite>IPlugin.name()</cite> unless you have a
 really good reason to access data of another mod AND if you can verify that plugin is actually installed.</p></li>
 <li><p><strong>key</strong> – Identifier of the setting.</p></li>

@@ -647,7 +647,8 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">detectGame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.detectGame" title="Link to this definition"></a></dt>
 <dd><p>Detect the game.</p>
 <p>This method is the first called for game plugins (before <cite>init()</cite>). The following
-methods should work properly after the call to <cite>detectGame()</cite> (and before <cite>init()</cite>):</p>
+methods should work properly after the call to <cite>detectGame()</cite> (and before <cite>init()</cite>):
+:rtype: <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>gameName()</p></li>
@@ -726,7 +727,7 @@ methods should work properly after the call to <cite>detectGame()</cite> (and be
 <p>Python plugin should not implement this method but <cite>_featureList()</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code>)], <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code>)]</p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code>)], <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code>)]</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A mapping from feature type to actual game features.</p>
@@ -879,8 +880,11 @@ with this future functionality in mind.</p>
 <p>This function will be used to initially create a profile, potentially to repair it or upgrade/downgrade
 it so the implementations have to gracefully handle the case that the directory already contains files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>directory</strong> – The directory where the profile is to be initialized.</p></li>
 <li><p><strong>settings</strong> – The parameters for how the profile should be initialized.</p></li>
 </ul>
@@ -1049,8 +1053,11 @@ data directory returned by dataDirectory().</p>
 to specify the installation location. This is not called if the game has been auto-detected,
 so <cite>isInstalled()</cite> should call this.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> – Path to the game installation.</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>path</strong> – Path to the game installation.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1062,8 +1069,11 @@ so <cite>isInstalled()</cite> should call this.</p>
 <p>If there are multiple variants of game (as returned by <cite>gameVariants()</cite>), this will be
 called on start with the user-selected game variant.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>variant</strong> – The game variant selected by the user.</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>variant</strong> – The game variant selected by the user.</p>
 </dd>
 </dl>
 </dd></dl>
