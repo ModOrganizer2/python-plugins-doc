@@ -16,6 +16,7 @@ IPluginGame
       ~IPluginGame.dataDirectory
       ~IPluginGame.detectGame
       ~IPluginGame.documentsDirectory
+      ~IPluginGame.enabledPlugins
       ~IPluginGame.executableForcedLoads
       ~IPluginGame.executables
       ~IPluginGame.feature
@@ -55,6 +56,7 @@ IPluginGame
    .. automethod:: dataDirectory
    .. automethod:: detectGame
    .. automethod:: documentsDirectory
+   .. automethod:: enabledPlugins
    .. automethod:: executableForcedLoads
    .. automethod:: executables
    .. automethod:: feature

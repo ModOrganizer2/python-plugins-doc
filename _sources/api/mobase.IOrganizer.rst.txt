@@ -30,6 +30,7 @@ IOrganizer
       ~IOrganizer.modsPath
       ~IOrganizer.onAboutToRun
       ~IOrganizer.onFinishedRun
+      ~IOrganizer.onNextRefresh
       ~IOrganizer.onPluginDisabled
       ~IOrganizer.onPluginEnabled
       ~IOrganizer.onPluginSettingChanged
@@ -76,6 +77,7 @@ IOrganizer
    .. automethod:: modsPath
    .. automethod:: onAboutToRun
    .. automethod:: onFinishedRun
+   .. automethod:: onNextRefresh
    .. automethod:: onPluginDisabled
    .. automethod:: onPluginEnabled
    .. automethod:: onPluginSettingChanged

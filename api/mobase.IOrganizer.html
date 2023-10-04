@@ -465,37 +465,40 @@ of Mod Organizer to be used by plugins.</p>
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onAboutToRun" title="mobase.IOrganizer.onAboutToRun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onAboutToRun</span></code></a>(callback)</p></td>
-<td><p>Install a new handler to be called when an application is about to run.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onAboutToRun" title="mobase.IOrganizer.onAboutToRun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onAboutToRun</span></code></a>(**kwds)</p></td>
+<td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onFinishedRun" title="mobase.IOrganizer.onFinishedRun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onFinishedRun</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when an application has finished running.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginDisabled" title="mobase.IOrganizer.onPluginDisabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginDisabled</span></code></a>(**kwds)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onNextRefresh" title="mobase.IOrganizer.onNextRefresh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onNextRefresh</span></code></a>(callback[, immediate_if_possible])</p></td>
+<td><p>Install a new handler to be called on the next refresh or immediately.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginDisabled" title="mobase.IOrganizer.onPluginDisabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginDisabled</span></code></a>(**kwds)</p></td>
 <td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginEnabled" title="mobase.IOrganizer.onPluginEnabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginEnabled</span></code></a>(**kwds)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginEnabled" title="mobase.IOrganizer.onPluginEnabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginEnabled</span></code></a>(**kwds)</p></td>
 <td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginSettingChanged" title="mobase.IOrganizer.onPluginSettingChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginSettingChanged</span></code></a>(callback)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginSettingChanged" title="mobase.IOrganizer.onPluginSettingChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginSettingChanged</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a plugin setting is changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileChanged" title="mobase.IOrganizer.onProfileChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileChanged</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileChanged" title="mobase.IOrganizer.onProfileChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileChanged</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when the current profile is changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileCreated" title="mobase.IOrganizer.onProfileCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileCreated</span></code></a>(callback)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileCreated" title="mobase.IOrganizer.onProfileCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileCreated</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a new profile is created.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRemoved" title="mobase.IOrganizer.onProfileRemoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRemoved</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRemoved" title="mobase.IOrganizer.onProfileRemoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRemoved</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a profile is remove.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRenamed" title="mobase.IOrganizer.onProfileRenamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRenamed</span></code></a>(callback)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRenamed" title="mobase.IOrganizer.onProfileRenamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRenamed</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a profile is renamed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onUserInterfaceInitialized" title="mobase.IOrganizer.onUserInterfaceInitialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onUserInterfaceInitialized</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onUserInterfaceInitialized" title="mobase.IOrganizer.onUserInterfaceInitialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onUserInterfaceInitialized</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when the UI has been fully initialized.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.overwritePath" title="mobase.IOrganizer.overwritePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwritePath</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.overwritePath" title="mobase.IOrganizer.overwritePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwritePath</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">rtype<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
@@ -503,13 +506,13 @@ of Mod Organizer to be used by plugins.</p>
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.persistent" title="mobase.IOrganizer.persistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">persistent</span></code></a>(plugin_name, key[, default])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.persistent" title="mobase.IOrganizer.persistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">persistent</span></code></a>(plugin_name, key[, default])</p></td>
 <td><p>Retrieve the specified persistent value for a plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginDataPath" title="mobase.IOrganizer.pluginDataPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginDataPath</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginDataPath" title="mobase.IOrganizer.pluginDataPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginDataPath</span></code></a>()</p></td>
 <td><p>Retrieve the path to a directory where plugin data should be stored.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginList" title="mobase.IOrganizer.pluginList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginList</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginList" title="mobase.IOrganizer.pluginList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginList</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">rtype<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mobase.IPluginList.html#mobase.IPluginList" title="mobase.IPluginList"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPluginList</span></code></a></p>
@@ -517,10 +520,10 @@ of Mod Organizer to be used by plugins.</p>
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginSetting" title="mobase.IOrganizer.pluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginSetting</span></code></a>(plugin_name, key)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginSetting" title="mobase.IOrganizer.pluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginSetting</span></code></a>(plugin_name, key)</p></td>
 <td><p>Retrieve settings of plugins.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.profile" title="mobase.IOrganizer.profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.profile" title="mobase.IOrganizer.profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">rtype<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mobase.IProfile.html#mobase.IProfile" title="mobase.IProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">IProfile</span></code></a></p>
@@ -528,7 +531,7 @@ of Mod Organizer to be used by plugins.</p>
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.profileName" title="mobase.IOrganizer.profileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profileName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.profileName" title="mobase.IOrganizer.profileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profileName</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">rtype<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
@@ -536,7 +539,7 @@ of Mod Organizer to be used by plugins.</p>
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.profilePath" title="mobase.IOrganizer.profilePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profilePath</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.profilePath" title="mobase.IOrganizer.profilePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profilePath</span></code></a>()</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">rtype<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
@@ -544,25 +547,25 @@ of Mod Organizer to be used by plugins.</p>
 </dl>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.refresh" title="mobase.IOrganizer.refresh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refresh</span></code></a>([save_changes])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.refresh" title="mobase.IOrganizer.refresh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refresh</span></code></a>([save_changes])</p></td>
 <td><p>Refresh the internal mods file structure from disk.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.resolvePath" title="mobase.IOrganizer.resolvePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolvePath</span></code></a>(filename)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.resolvePath" title="mobase.IOrganizer.resolvePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolvePath</span></code></a>(filename)</p></td>
 <td><p>Resolves a path relative to the virtual data directory to its absolute real path.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPersistent" title="mobase.IOrganizer.setPersistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPersistent</span></code></a>(plugin_name, key, value[, sync])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPersistent" title="mobase.IOrganizer.setPersistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPersistent</span></code></a>(plugin_name, key, value[, sync])</p></td>
 <td><p>Set the specified persistent value for a plugin.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPluginSetting" title="mobase.IOrganizer.setPluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPluginSetting</span></code></a>(plugin_name, key, value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPluginSetting" title="mobase.IOrganizer.setPluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPluginSetting</span></code></a>(plugin_name, key, value)</p></td>
 <td><p>Set the specified setting for a plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.startApplication" title="mobase.IOrganizer.startApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startApplication</span></code></a>(executable[, args, cwd, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.startApplication" title="mobase.IOrganizer.startApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startApplication</span></code></a>(executable[, args, cwd, ...])</p></td>
 <td><p>Starts an application with virtual filesystem active.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.virtualFileTree" title="mobase.IOrganizer.virtualFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">virtualFileTree</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.virtualFileTree" title="mobase.IOrganizer.virtualFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">virtualFileTree</span></code></a>()</p></td>
 <td><p>Retrieve a IFileTree object representing the virtual file tree.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.waitForApplication" title="mobase.IOrganizer.waitForApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitForApplication</span></code></a>(handle[, refresh])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.waitForApplication" title="mobase.IOrganizer.waitForApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitForApplication</span></code></a>(handle[, refresh])</p></td>
 <td><p>Wait for the application corresponding to the given handle to finish.</p></td>
 </tr>
 </tbody>
@@ -827,22 +830,8 @@ from the display name for disambiguation.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mobase.IOrganizer.onAboutToRun">
-<span class="sig-name descname"><span class="pre">onAboutToRun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IOrganizer.onAboutToRun" title="Link to this definition"></a></dt>
-<dd><p>Install a new handler to be called when an application is about to run.</p>
-<p>Multiple handlers can be installed. If any of the handler returns <cite>False</cite>, the application will
-not run.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>callback</strong> – The function to call when an application is about to run. The parameter is the absolute path
-to the application to run. The function can return False to prevent the application from running.</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">onAboutToRun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IOrganizer.onAboutToRun" title="Link to this definition"></a></dt>
+<dd><p>Helper for &#64;overload to raise when called.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -858,9 +847,31 @@ to the application to run. The function can return False to prevent the applicat
 path to the application, and the second parameter is the exit code of the application.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the handler was installed properly (there are currently no reasons for this to fail).</p>
+<dd class="field-odd"><p>True if the handler was installed properly (there are currently no reasons for</p>
 </dd>
 </dl>
+<p>this to fail).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.IOrganizer.onNextRefresh">
+<span class="sig-name descname"><span class="pre">onNextRefresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immediate_if_possible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IOrganizer.onNextRefresh" title="Link to this definition"></a></dt>
+<dd><p>Install a new handler to be called on the next refresh or immediately.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>callback</strong> – Function to call on the next refresh (or immediately).</p></li>
+<li><p><strong>immediate_if_possible</strong> – If True, immediately run the callback if no refresh is currently running.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the handler was installed properly (there are currently no reasons for</p>
+</dd>
+</dl>
+<p>this to fail).</p>
 </dd></dl>
 
 <dl class="py method">
