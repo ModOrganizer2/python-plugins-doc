@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IFileTree &mdash; MO2 Python Plugin API  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+
+  
     <link rel="shortcut icon" href="../_static/mo2.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -16,7 +18,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -502,7 +504,7 @@ This method invalidates iterators to this tree and all the subtrees
 present in the given path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFileTree</span></code></a></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFileTree</span></code></a></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>path</strong> – Path to the directory to create.</p>
@@ -525,7 +527,7 @@ This method invalidates iterators to this tree and all the subtrees present in t
 given path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -551,7 +553,7 @@ a new entry. This will replace both files and directories.</p></li>
 entry that cannot be deleted, this means that the tree can be partially cleared.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if all entries have been detached, False otherwise.</p>
@@ -573,7 +575,7 @@ one (if the entry is a file, and a file exists, the file will be replaced).</p>
 entry, and to subtrees of this tree if the insert policy is MERGE.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -599,7 +601,7 @@ given path is empty (<cite>“”</cite>), the entry is copied directly under th
 <dd><p>Create a new orphan empty tree.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFileTree</span></code></a></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFileTree</span></code></a></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>name</strong> – Name of the tree.</p>
@@ -616,7 +618,7 @@ given path is empty (<cite>“”</cite>), the entry is copied directly under th
 <dd><p>Check if the given entry exists.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -638,7 +640,7 @@ given path is empty (<cite>“”</cite>), the entry is copied directly under th
 type, <cite>None</cite> is returned.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">UnionType</span></code>[<a class="reference internal" href="#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFileTree</span></code></a>, <a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFileTree</span></code></a> | <a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -659,7 +661,7 @@ type, <cite>None</cite> is returned.</p>
 <dd><p>Insert the given entry in this tree, removing it from its
 previous parent.</p>
 <p>The entry must not be this tree or a parent entry of this tree.
-:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>If the insert policy if <cite>FAIL_IF_EXISTS</cite>, the call will fail if an entry
@@ -712,7 +714,7 @@ be replaced with the directory.</p>
 present in the given path, and all the subtrees of the given source.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a>, <a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a>, <a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -746,7 +748,7 @@ one (if the entry is a file, and a file exists, the file will be replaced).</p>
 entry, and to subtrees of this tree if the insert policy is MERGE.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -769,7 +771,7 @@ given path is empty (<cite>“”</cite>), this is equivalent to <cite>insert()<
 <dd><p>Retrieve the path from this tree to the given entry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -798,7 +800,7 @@ given path is empty (<cite>“”</cite>), this is equivalent to <cite>insert()<
 directly from this tree will be removed. This method invalidates iterators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>names</strong> – Names of the entries to delete.</p>
@@ -817,7 +819,7 @@ directly from this tree will be removed. This method invalidates iterators.</p>
 directly from this tree will be removed. This method invalidates iterators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>filter</strong> – Predicate that should return true for entries to delete.</p>
@@ -837,7 +839,7 @@ directly from this tree will be removed. This method invalidates iterators.</p>
 a <cite>WalkReturn</cite> object to indicates what to do.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
