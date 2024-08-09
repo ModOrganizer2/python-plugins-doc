@@ -151,6 +151,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry"><code class="docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.GameFeature.html">GameFeature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.GameFeature.html#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.GamePlugins.html">GamePlugins</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.GamePlugins.html#mobase.GamePlugins"><code class="docutils literal notranslate"><span class="pre">GamePlugins</span></code></a></li>
 </ul>
@@ -169,6 +173,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IFileTree.html">IFileTree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.IFileTree.html#mobase.IFileTree"><code class="docutils literal notranslate"><span class="pre">IFileTree</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IGameFeatures.html">IGameFeatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.IGameFeatures.html#mobase.IGameFeatures"><code class="docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IInstallationManager.html">IInstallationManager</a><ul>
@@ -373,19 +381,46 @@ by qt are implemented (including dds) but no audio files and no 3d mesh formats.
 <p class="rubric">Methods Summary</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginPreview.genFilePreview" title="mobase.IPluginPreview.genFilePreview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">genFilePreview</span></code></a>(filename, max_size)</p></td>
-<td><p>Generate a preview for the specified file.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginPreview.genDataPreview" title="mobase.IPluginPreview.genDataPreview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">genDataPreview</span></code></a>(file_data, filename, max_size)</p></td>
+<td><p>Generate a preview widget from in-memory data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginPreview.supportedExtensions" title="mobase.IPluginPreview.supportedExtensions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">supportedExtensions</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginPreview.genFilePreview" title="mobase.IPluginPreview.genFilePreview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">genFilePreview</span></code></a>(filename, max_size)</p></td>
+<td><p>Generate a preview widget for the specified file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginPreview.supportedExtensions" title="mobase.IPluginPreview.supportedExtensions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">supportedExtensions</span></code></a>()</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginPreview.supportsArchives" title="mobase.IPluginPreview.supportsArchives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">supportsArchives</span></code></a>()</p></td>
+<td><p>Check if this preview plugin supports preview from in-memory data.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Methods Documentation</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="mobase.IPluginPreview.genDataPreview">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">genDataPreview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginPreview.genDataPreview" title="Link to this definition"></a></dt>
+<dd><p>Generate a preview widget from in-memory data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>file_data</strong> – In-memory data to preview.</p></li>
+<li><p><strong>filename</strong> – Name of the file the data comes from.</p></li>
+<li><p><strong>max_size</strong> – Maximum size of the generated widget.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The widget showing a preview of the in-memory data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="mobase.IPluginPreview.genFilePreview">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">genFilePreview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginPreview.genFilePreview" title="Link to this definition"></a></dt>
-<dd><p>Generate a preview for the specified file.</p>
+<dd><p>Generate a preview widget for the specified file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></span></p>
@@ -407,10 +442,24 @@ by qt are implemented (including dds) but no audio files and no 3d mesh formats.
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supportedExtensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginPreview.supportedExtensions" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The list of file extensions that are supported by this preview plugin.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.IPluginPreview.supportsArchives">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supportsArchives</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginPreview.supportsArchives" title="Link to this definition"></a></dt>
+<dd><p>Check if this preview plugin supports preview from in-memory data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the plugin supports preview from raw data, False otherwise.</p>
 </dd>
 </dl>
 </dd></dl>

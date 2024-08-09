@@ -10,10 +10,14 @@ IPluginPreview
 
    .. autosummary::
 
+      ~IPluginPreview.genDataPreview
       ~IPluginPreview.genFilePreview
       ~IPluginPreview.supportedExtensions
+      ~IPluginPreview.supportsArchives
 
    .. rubric:: Methods Documentation
 
+   .. automethod:: genDataPreview
    .. automethod:: genFilePreview
    .. automethod:: supportedExtensions
+   .. automethod:: supportsArchives

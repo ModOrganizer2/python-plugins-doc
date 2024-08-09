@@ -1,0 +1,23 @@
+IGameFeatures
+=============
+
+.. currentmodule:: mobase
+
+.. autoclass:: IGameFeatures
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~IGameFeatures.gameFeature
+      ~IGameFeatures.registerFeature
+      ~IGameFeatures.unregisterFeature
+      ~IGameFeatures.unregisterFeatures
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: gameFeature
+   .. automethod:: registerFeature
+   .. automethod:: unregisterFeature
+   .. automethod:: unregisterFeatures

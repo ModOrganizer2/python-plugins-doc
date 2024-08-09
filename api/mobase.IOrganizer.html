@@ -151,6 +151,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry"><code class="docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.GameFeature.html">GameFeature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.GameFeature.html#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.GamePlugins.html">GamePlugins</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.GamePlugins.html#mobase.GamePlugins"><code class="docutils literal notranslate"><span class="pre">GamePlugins</span></code></a></li>
 </ul>
@@ -169,6 +173,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IFileTree.html">IFileTree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.IFileTree.html#mobase.IFileTree"><code class="docutils literal notranslate"><span class="pre">IFileTree</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IGameFeatures.html">IGameFeatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.IGameFeatures.html#mobase.IGameFeatures"><code class="docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IInstallationManager.html">IInstallationManager</a><ul>
@@ -397,112 +405,115 @@ of Mod Organizer to be used by plugins.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.findFiles" title="mobase.IOrganizer.findFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">findFiles</span></code></a>(**kwds)</p></td>
 <td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.getFileOrigins" title="mobase.IOrganizer.getFileOrigins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFileOrigins</span></code></a>(filename)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.gameFeatures" title="mobase.IOrganizer.gameFeatures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameFeatures</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.getFileOrigins" title="mobase.IOrganizer.getFileOrigins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFileOrigins</span></code></a>(filename)</p></td>
 <td><p>Retrieve the file origins for the specified file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.getGame" title="mobase.IOrganizer.getGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getGame</span></code></a>(name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.getGame" title="mobase.IOrganizer.getGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getGame</span></code></a>(name)</p></td>
 <td><p>Retrieve the game plugin matching the given name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.getPluginDataPath" title="mobase.IOrganizer.getPluginDataPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPluginDataPath</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.getPluginDataPath" title="mobase.IOrganizer.getPluginDataPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPluginDataPath</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.installMod" title="mobase.IOrganizer.installMod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">installMod</span></code></a>(filename[, name_suggestion])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.installMod" title="mobase.IOrganizer.installMod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">installMod</span></code></a>(filename[, name_suggestion])</p></td>
 <td><p>Install a mod archive at the specified location.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.isPluginEnabled" title="mobase.IOrganizer.isPluginEnabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isPluginEnabled</span></code></a>(**kwds)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.isPluginEnabled" title="mobase.IOrganizer.isPluginEnabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isPluginEnabled</span></code></a>(**kwds)</p></td>
 <td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.listDirectories" title="mobase.IOrganizer.listDirectories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listDirectories</span></code></a>(directory)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.listDirectories" title="mobase.IOrganizer.listDirectories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listDirectories</span></code></a>(directory)</p></td>
 <td><p>Retrieve the list of (virtual) subdirectories in the given path.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.managedGame" title="mobase.IOrganizer.managedGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">managedGame</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.managedGame" title="mobase.IOrganizer.managedGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">managedGame</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.modDataChanged" title="mobase.IOrganizer.modDataChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modDataChanged</span></code></a>(mod)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.modDataChanged" title="mobase.IOrganizer.modDataChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modDataChanged</span></code></a>(mod)</p></td>
 <td><p>Notify the organizer that the given mod has changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.modList" title="mobase.IOrganizer.modList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modList</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.modList" title="mobase.IOrganizer.modList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modList</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.modsPath" title="mobase.IOrganizer.modsPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modsPath</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.modsPath" title="mobase.IOrganizer.modsPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modsPath</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onAboutToRun" title="mobase.IOrganizer.onAboutToRun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onAboutToRun</span></code></a>(**kwds)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onAboutToRun" title="mobase.IOrganizer.onAboutToRun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onAboutToRun</span></code></a>(**kwds)</p></td>
 <td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onFinishedRun" title="mobase.IOrganizer.onFinishedRun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onFinishedRun</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onFinishedRun" title="mobase.IOrganizer.onFinishedRun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onFinishedRun</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when an application has finished running.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onNextRefresh" title="mobase.IOrganizer.onNextRefresh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onNextRefresh</span></code></a>(callback[, immediate_if_possible])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onNextRefresh" title="mobase.IOrganizer.onNextRefresh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onNextRefresh</span></code></a>(callback[, immediate_if_possible])</p></td>
 <td><p>Install a new handler to be called on the next refresh or immediately.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginDisabled" title="mobase.IOrganizer.onPluginDisabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginDisabled</span></code></a>(**kwds)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginDisabled" title="mobase.IOrganizer.onPluginDisabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginDisabled</span></code></a>(**kwds)</p></td>
 <td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginEnabled" title="mobase.IOrganizer.onPluginEnabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginEnabled</span></code></a>(**kwds)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginEnabled" title="mobase.IOrganizer.onPluginEnabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginEnabled</span></code></a>(**kwds)</p></td>
 <td><p>Helper for &#64;overload to raise when called.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginSettingChanged" title="mobase.IOrganizer.onPluginSettingChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginSettingChanged</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onPluginSettingChanged" title="mobase.IOrganizer.onPluginSettingChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onPluginSettingChanged</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a plugin setting is changed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileChanged" title="mobase.IOrganizer.onProfileChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileChanged</span></code></a>(callback)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileChanged" title="mobase.IOrganizer.onProfileChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileChanged</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when the current profile is changed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileCreated" title="mobase.IOrganizer.onProfileCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileCreated</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileCreated" title="mobase.IOrganizer.onProfileCreated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileCreated</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a new profile is created.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRemoved" title="mobase.IOrganizer.onProfileRemoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRemoved</span></code></a>(callback)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRemoved" title="mobase.IOrganizer.onProfileRemoved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRemoved</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a profile is remove.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRenamed" title="mobase.IOrganizer.onProfileRenamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRenamed</span></code></a>(callback)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onProfileRenamed" title="mobase.IOrganizer.onProfileRenamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onProfileRenamed</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when a profile is renamed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.onUserInterfaceInitialized" title="mobase.IOrganizer.onUserInterfaceInitialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onUserInterfaceInitialized</span></code></a>(callback)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.onUserInterfaceInitialized" title="mobase.IOrganizer.onUserInterfaceInitialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onUserInterfaceInitialized</span></code></a>(callback)</p></td>
 <td><p>Install a new handler to be called when the UI has been fully initialized.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.overwritePath" title="mobase.IOrganizer.overwritePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwritePath</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.overwritePath" title="mobase.IOrganizer.overwritePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwritePath</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.persistent" title="mobase.IOrganizer.persistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">persistent</span></code></a>(plugin_name, key[, default])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.persistent" title="mobase.IOrganizer.persistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">persistent</span></code></a>(plugin_name, key[, default])</p></td>
 <td><p>Retrieve the specified persistent value for a plugin.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginDataPath" title="mobase.IOrganizer.pluginDataPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginDataPath</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginDataPath" title="mobase.IOrganizer.pluginDataPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginDataPath</span></code></a>()</p></td>
 <td><p>Retrieve the path to a directory where plugin data should be stored.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginList" title="mobase.IOrganizer.pluginList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginList</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginList" title="mobase.IOrganizer.pluginList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginList</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginSetting" title="mobase.IOrganizer.pluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginSetting</span></code></a>(plugin_name, key)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.pluginSetting" title="mobase.IOrganizer.pluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pluginSetting</span></code></a>(plugin_name, key)</p></td>
 <td><p>Retrieve settings of plugins.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.profile" title="mobase.IOrganizer.profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.profile" title="mobase.IOrganizer.profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.profileName" title="mobase.IOrganizer.profileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profileName</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.profileName" title="mobase.IOrganizer.profileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profileName</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.profilePath" title="mobase.IOrganizer.profilePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profilePath</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.profilePath" title="mobase.IOrganizer.profilePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profilePath</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.refresh" title="mobase.IOrganizer.refresh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refresh</span></code></a>([save_changes])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.refresh" title="mobase.IOrganizer.refresh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refresh</span></code></a>([save_changes])</p></td>
 <td><p>Refresh the internal mods file structure from disk.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.resolvePath" title="mobase.IOrganizer.resolvePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolvePath</span></code></a>(filename)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.resolvePath" title="mobase.IOrganizer.resolvePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolvePath</span></code></a>(filename)</p></td>
 <td><p>Resolves a path relative to the virtual data directory to its absolute real path.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPersistent" title="mobase.IOrganizer.setPersistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPersistent</span></code></a>(plugin_name, key, value[, sync])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPersistent" title="mobase.IOrganizer.setPersistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPersistent</span></code></a>(plugin_name, key, value[, sync])</p></td>
 <td><p>Set the specified persistent value for a plugin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPluginSetting" title="mobase.IOrganizer.setPluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPluginSetting</span></code></a>(plugin_name, key, value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.setPluginSetting" title="mobase.IOrganizer.setPluginSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPluginSetting</span></code></a>(plugin_name, key, value)</p></td>
 <td><p>Set the specified setting for a plugin.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.startApplication" title="mobase.IOrganizer.startApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startApplication</span></code></a>(executable[, args, cwd, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.startApplication" title="mobase.IOrganizer.startApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startApplication</span></code></a>(executable[, args, cwd, ...])</p></td>
 <td><p>Starts an application with virtual filesystem active.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.virtualFileTree" title="mobase.IOrganizer.virtualFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">virtualFileTree</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.virtualFileTree" title="mobase.IOrganizer.virtualFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">virtualFileTree</span></code></a>()</p></td>
 <td><p>Retrieve a IFileTree object representing the virtual file tree.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IOrganizer.waitForApplication" title="mobase.IOrganizer.waitForApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitForApplication</span></code></a>(handle[, refresh])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IOrganizer.waitForApplication" title="mobase.IOrganizer.waitForApplication"><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitForApplication</span></code></a>(handle[, refresh])</p></td>
 <td><p>Wait for the application corresponding to the given handle to finish.</p></td>
 </tr>
 </tbody>
@@ -618,6 +629,19 @@ to merge or replace, the call will succeed, otherwise the call will fail.</p>
 <dt class="sig sig-object py" id="mobase.IOrganizer.findFiles">
 <span class="sig-name descname"><span class="pre">findFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IOrganizer.findFiles" title="Link to this definition"></a></dt>
 <dd><p>Helper for &#64;overload to raise when called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.IOrganizer.gameFeatures">
+<span class="sig-name descname"><span class="pre">gameFeatures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IOrganizer.gameFeatures" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="mobase.IGameFeatures.html#mobase.IGameFeatures" title="mobase.IGameFeatures"><code class="xref py py-class docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The interface to the game features.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1189,7 +1213,7 @@ Note that the lock overlay will always allow the user to unlock, in
 which case this will return False.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">

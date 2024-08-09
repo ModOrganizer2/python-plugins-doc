@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VersionInfo &mdash; MO2 Python Plugin API  documentation</title>
+  <title>GameFeature &mdash; MO2 Python Plugin API  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="VersionScheme" href="mobase.VersionScheme.html" />
-    <link rel="prev" title="UnmanagedMods" href="mobase.UnmanagedMods.html" /> 
+    <link rel="next" title="GamePlugins" href="mobase.GamePlugins.html" />
+    <link rel="prev" title="FileTreeEntry" href="mobase.FileTreeEntry.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -151,8 +151,8 @@
 <li class="toctree-l4"><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry"><code class="docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="mobase.GameFeature.html">GameFeature</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="mobase.GameFeature.html#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GameFeature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.GamePlugins.html">GamePlugins</a><ul>
@@ -331,8 +331,8 @@
 <li class="toctree-l4"><a class="reference internal" href="mobase.UnmanagedMods.html#mobase.UnmanagedMods"><code class="docutils literal notranslate"><span class="pre">UnmanagedMods</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">VersionInfo</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mobase.VersionInfo"><code class="docutils literal notranslate"><span class="pre">VersionInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.VersionInfo.html">VersionInfo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.VersionInfo.html#mobase.VersionInfo"><code class="docutils literal notranslate"><span class="pre">VersionInfo</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.VersionScheme.html">VersionScheme</a><ul>
@@ -360,9 +360,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../mobase.html"><code class="docutils literal notranslate"><span class="pre">mobase</span></code> API</a></li>
-      <li class="breadcrumb-item active">VersionInfo</li>
+      <li class="breadcrumb-item active">GameFeature</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/mobase.VersionInfo.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/mobase.GameFeature.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -370,129 +370,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="versioninfo">
-<h1>VersionInfo<a class="headerlink" href="#versioninfo" title="Link to this heading"></a></h1>
+  <section id="gamefeature">
+<h1>GameFeature<a class="headerlink" href="#gamefeature" title="Link to this heading"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="mobase.VersionInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.</span></span><span class="sig-name descname"><span class="pre">VersionInfo</span></span><a class="headerlink" href="#mobase.VersionInfo" title="Link to this definition"></a></dt>
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.</span></span><span class="sig-name descname"><span class="pre">VersionInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="mobase.VersionScheme.html#mobase.VersionScheme" title="mobase.VersionScheme"><span class="pre">VersionScheme</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">VersionScheme.DISCOVER</span></span></em><span class="sig-paren">)</span></dt>
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.</span></span><span class="sig-name descname"><span class="pre">VersionInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">major</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subminor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsubminor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="mobase.ReleaseType.html#mobase.ReleaseType" title="mobase.ReleaseType"><span class="pre">ReleaseType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ReleaseType.FINAL</span></span></em><span class="sig-paren">)</span></dt>
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.</span></span><span class="sig-name descname"><span class="pre">VersionInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">major</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subminor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="mobase.ReleaseType.html#mobase.ReleaseType" title="mobase.ReleaseType"><span class="pre">ReleaseType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ReleaseType.FINAL</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Represents the version of a mod or plugin.</p>
-<p class="rubric">Methods Summary</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.VersionInfo.canonicalString" title="mobase.VersionInfo.canonicalString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">canonicalString</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.VersionInfo.clear" title="mobase.VersionInfo.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
-<td><p>Resets this VersionInfo to an invalid version.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.VersionInfo.displayString" title="mobase.VersionInfo.displayString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displayString</span></code></a>([forced_segments])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.VersionInfo.isValid" title="mobase.VersionInfo.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.VersionInfo.parse" title="mobase.VersionInfo.parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse</span></code></a>(value[, scheme, is_manual])</p></td>
-<td><p>Update this VersionInfo by parsing the given string using the given scheme.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.VersionInfo.scheme" title="mobase.VersionInfo.scheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scheme</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods Documentation</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="mobase.VersionInfo.canonicalString">
-<span class="sig-name descname"><span class="pre">canonicalString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.canonicalString" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A canonical string representing this version, that can be stored and then parsed using the parse() method.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mobase.VersionInfo.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.clear" title="Link to this definition"></a></dt>
-<dd><p>Resets this VersionInfo to an invalid version.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mobase.VersionInfo.displayString">
-<span class="sig-name descname"><span class="pre">displayString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forced_segments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.displayString" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>forced_segments</strong> – The number of version segments to display even if the version is 0. 1 is major, 2 is major
-and minor, etc. The only implemented ranges are (-inf,2] for major/minor, [3] for major/minor/subminor,
-and [4,inf) for major/minor/subminor/subsubminor. This only versions with a regular scheme.</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A string for display to the user. The returned string may not contain enough information to reconstruct this version info.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mobase.VersionInfo.isValid">
-<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.isValid" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if this VersionInfo is valid, False otherwise.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mobase.VersionInfo.parse">
-<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme=VersionScheme.None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_manual=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.parse" title="Link to this definition"></a></dt>
-<dd><p>Update this VersionInfo by parsing the given string using the given scheme.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>value</strong> – String to parse.</p></li>
-<li><p><strong>scheme</strong> – Scheme to use to parse the string.</p></li>
-<li><p><strong>is_manual</strong> – True if the given string should be treated as user input.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mobase.VersionInfo.scheme">
-<span class="sig-name descname"><span class="pre">scheme</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.VersionInfo.scheme" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="mobase.VersionScheme.html#mobase.VersionScheme" title="mobase.VersionScheme"><code class="xref py py-class docutils literal notranslate"><span class="pre">VersionScheme</span></code></a></span></p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The version scheme in effect for this VersionInfo.</p>
-</dd>
-</dl>
-</dd></dl>
-
+<dt class="sig sig-object py" id="mobase.GameFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.</span></span><span class="sig-name descname"><span class="pre">GameFeature</span></span><a class="headerlink" href="#mobase.GameFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for all game features, cannot be inherited, used only for typing
+purpose in Python.</p>
 </dd></dl>
 
 </section>
@@ -501,8 +386,8 @@ and [4,inf) for major/minor/subminor/subsubminor. This only versions with a regu
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="mobase.UnmanagedMods.html" class="btn btn-neutral float-left" title="UnmanagedMods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="mobase.VersionScheme.html" class="btn btn-neutral float-right" title="VersionScheme" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobase.FileTreeEntry.html" class="btn btn-neutral float-left" title="FileTreeEntry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mobase.GamePlugins.html" class="btn btn-neutral float-right" title="GamePlugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

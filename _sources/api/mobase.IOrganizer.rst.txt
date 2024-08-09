@@ -18,6 +18,7 @@ IOrganizer
       ~IOrganizer.downloadsPath
       ~IOrganizer.findFileInfos
       ~IOrganizer.findFiles
+      ~IOrganizer.gameFeatures
       ~IOrganizer.getFileOrigins
       ~IOrganizer.getGame
       ~IOrganizer.getPluginDataPath
@@ -65,6 +66,7 @@ IOrganizer
    .. automethod:: downloadsPath
    .. automethod:: findFileInfos
    .. automethod:: findFiles
+   .. automethod:: gameFeatures
    .. automethod:: getFileOrigins
    .. automethod:: getGame
    .. automethod:: getPluginDataPath

@@ -151,6 +151,10 @@
 <li class="toctree-l4"><a class="reference internal" href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry"><code class="docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.GameFeature.html">GameFeature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/mobase.GameFeature.html#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.GamePlugins.html">GamePlugins</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/mobase.GamePlugins.html#mobase.GamePlugins"><code class="docutils literal notranslate"><span class="pre">GamePlugins</span></code></a></li>
 </ul>
@@ -169,6 +173,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IFileTree.html">IFileTree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/mobase.IFileTree.html#mobase.IFileTree"><code class="docutils literal notranslate"><span class="pre">IFileTree</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/mobase.IGameFeatures.html">IGameFeatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/mobase.IGameFeatures.html#mobase.IGameFeatures"><code class="docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/mobase.IInstallationManager.html">IInstallationManager</a><ul>
@@ -410,20 +418,26 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/mobase.FileTreeEntry.html#mobase.FileTreeEntry" title="mobase.FileTreeEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a>()</p></td>
 <td><p>Represent an entry in a file tree, either a file or a directory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.GamePlugins.html#mobase.GamePlugins" title="mobase.GamePlugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GamePlugins</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.GameFeature.html#mobase.GameFeature" title="mobase.GameFeature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GameFeature</span></code></a>()</p></td>
+<td><p>Base class for all game features, cannot be inherited, used only for typing purpose in Python.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.GamePlugins.html#mobase.GamePlugins" title="mobase.GamePlugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GamePlugins</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.GuessQuality.html#mobase.GuessQuality" title="mobase.GuessQuality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessQuality</span></code></a>(value[, names, module, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.GuessQuality.html#mobase.GuessQuality" title="mobase.GuessQuality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessQuality</span></code></a>(value[, names, module, ...])</p></td>
 <td><p>Describes how good the code considers a guess (i.e. for a mod name) this is used to determine if a name from another source should overwrite or not.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.GuessedString.html#mobase.GuessedString" title="mobase.GuessedString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessedString</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.GuessedString.html#mobase.GuessedString" title="mobase.GuessedString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GuessedString</span></code></a>()</p></td>
 <td><p>Represents a string that may be set from different places.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IDownloadManager.html#mobase.IDownloadManager" title="mobase.IDownloadManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDownloadManager</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IDownloadManager.html#mobase.IDownloadManager" title="mobase.IDownloadManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDownloadManager</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IFileTree.html#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IFileTree</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IFileTree.html#mobase.IFileTree" title="mobase.IFileTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IFileTree</span></code></a>()</p></td>
 <td><p>Interface to classes that provides way to visualize and alter file trees.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/mobase.IGameFeatures.html#mobase.IGameFeatures" title="mobase.IGameFeatures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a>()</p></td>
+<td><p>Interface for the game features, accessible through IOrganizer.gameFeatures().</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/mobase.IInstallationManager.html#mobase.IInstallationManager" title="mobase.IInstallationManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IInstallationManager</span></code></a>()</p></td>
 <td><p></p></td>

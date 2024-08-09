@@ -151,6 +151,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry"><code class="docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.GameFeature.html">GameFeature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.GameFeature.html#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.GamePlugins.html">GamePlugins</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.GamePlugins.html#mobase.GamePlugins"><code class="docutils literal notranslate"><span class="pre">GamePlugins</span></code></a></li>
 </ul>
@@ -169,6 +173,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IFileTree.html">IFileTree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.IFileTree.html#mobase.IFileTree"><code class="docutils literal notranslate"><span class="pre">IFileTree</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IGameFeatures.html">IGameFeatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.IGameFeatures.html#mobase.IGameFeatures"><code class="docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IInstallationManager.html">IInstallationManager</a><ul>
@@ -391,68 +399,68 @@ plugin: <a class="reference external" href="https://github.com/ModOrganizer2/mod
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.detectGame" title="mobase.IPluginGame.detectGame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detectGame</span></code></a>()</p></td>
 <td><p>Detect the game.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.documentsDirectory" title="mobase.IPluginGame.documentsDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">documentsDirectory</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.displayGameName" title="mobase.IPluginGame.displayGameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displayGameName</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.enabledPlugins" title="mobase.IPluginGame.enabledPlugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enabledPlugins</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.documentsDirectory" title="mobase.IPluginGame.documentsDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">documentsDirectory</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.executableForcedLoads" title="mobase.IPluginGame.executableForcedLoads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executableForcedLoads</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.enabledPlugins" title="mobase.IPluginGame.enabledPlugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enabledPlugins</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.executables" title="mobase.IPluginGame.executables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executables</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.executableForcedLoads" title="mobase.IPluginGame.executableForcedLoads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executableForcedLoads</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.feature" title="mobase.IPluginGame.feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code></a>(feature_type)</p></td>
-<td><p>Retrieve a specified game feature from this plugin.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.featureList" title="mobase.IPluginGame.featureList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">featureList</span></code></a>()</p></td>
-<td><p>Retrieve the list of game features implemented for this plugin.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameDirectory" title="mobase.IPluginGame.gameDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameDirectory</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.executables" title="mobase.IPluginGame.executables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executables</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameIcon" title="mobase.IPluginGame.gameIcon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameIcon</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameDirectory" title="mobase.IPluginGame.gameDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameDirectory</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameName" title="mobase.IPluginGame.gameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameIcon" title="mobase.IPluginGame.gameIcon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameIcon</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameNexusName" title="mobase.IPluginGame.gameNexusName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameNexusName</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameName" title="mobase.IPluginGame.gameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameName</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameShortName" title="mobase.IPluginGame.gameShortName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameShortName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameNexusName" title="mobase.IPluginGame.gameNexusName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameNexusName</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVariants" title="mobase.IPluginGame.gameVariants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVariants</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameShortName" title="mobase.IPluginGame.gameShortName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameShortName</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVariants" title="mobase.IPluginGame.gameVariants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVariants</span></code></a>()</p></td>
 <td><p>Retrieve the list of variants for this game.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVersion" title="mobase.IPluginGame.gameVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVersion</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.gameVersion" title="mobase.IPluginGame.gameVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gameVersion</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.getLauncherName" title="mobase.IPluginGame.getLauncherName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLauncherName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.getLauncherName" title="mobase.IPluginGame.getLauncherName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLauncherName</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.getSupportURL" title="mobase.IPluginGame.getSupportURL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSupportURL</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.getSupportURL" title="mobase.IPluginGame.getSupportURL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSupportURL</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.iniFiles" title="mobase.IPluginGame.iniFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iniFiles</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.iniFiles" title="mobase.IPluginGame.iniFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iniFiles</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.initializeProfile" title="mobase.IPluginGame.initializeProfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initializeProfile</span></code></a>(directory, settings)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.initializeProfile" title="mobase.IPluginGame.initializeProfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initializeProfile</span></code></a>(directory, settings)</p></td>
 <td><p>Initialize a profile for this game.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.isInstalled" title="mobase.IPluginGame.isInstalled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isInstalled</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.isInstalled" title="mobase.IPluginGame.isInstalled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isInstalled</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.listSaves" title="mobase.IPluginGame.listSaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listSaves</span></code></a>(folder)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.listSaves" title="mobase.IPluginGame.listSaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listSaves</span></code></a>(folder)</p></td>
 <td><p>List saves in the given directory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.loadOrderMechanism" title="mobase.IPluginGame.loadOrderMechanism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loadOrderMechanism</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.loadOrderMechanism" title="mobase.IPluginGame.loadOrderMechanism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loadOrderMechanism</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.looksValid" title="mobase.IPluginGame.looksValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">looksValid</span></code></a>(directory)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.looksValid" title="mobase.IPluginGame.looksValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">looksValid</span></code></a>(directory)</p></td>
 <td><p>Check if the given directory looks like a valid game installation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginGame.lootGameName" title="mobase.IPluginGame.lootGameName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lootGameName</span></code></a>()</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginGame.nexusGameID" title="mobase.IPluginGame.nexusGameID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nexusGameID</span></code></a>()</p></td>
 <td><p>Retrieve the Nexus game ID for this game.</p></td>
@@ -564,6 +572,19 @@ methods should work properly after the call to <cite>detectGame()</cite> (and be
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="mobase.IPluginGame.displayGameName">
+<span class="sig-name descname"><span class="pre">displayGameName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.displayGameName" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The name of the game to user for display, default to gameName().</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="mobase.IPluginGame.documentsDirectory">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">documentsDirectory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.documentsDirectory" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
@@ -616,39 +637,6 @@ methods should work properly after the call to <cite>detectGame()</cite> (and be
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="mobase.IPluginGame.feature">
-<span class="sig-name descname"><span class="pre">feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.feature" title="Link to this definition"></a></dt>
-<dd><p>Retrieve a specified game feature from this plugin.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code>)</span></p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>feature_type</strong> – The class of feature to retrieve.</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The game feature corresponding to the given type, or <cite>None</cite> if the feature is</p>
-</dd>
-</dl>
-<p>not implemented.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mobase.IPluginGame.featureList">
-<span class="sig-name descname"><span class="pre">featureList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.featureList" title="Link to this definition"></a></dt>
-<dd><p>Retrieve the list of game features implemented for this plugin.</p>
-<p>Python plugin should not implement this method but <cite>_featureList()</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code>)], <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code>)]</span></p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A mapping from feature type to actual game features.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="mobase.IPluginGame.gameDirectory">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gameDirectory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.gameDirectory" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
@@ -682,7 +670,7 @@ methods should work properly after the call to <cite>detectGame()</cite> (and be
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The name of the game (as displayed to the user).</p>
+<dd class="field-even"><p>The name of the game (for internal usage).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -824,7 +812,7 @@ it so the implementations have to gracefully handle the case that the directory 
 <dd><p>List saves in the given directory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="mobase.ISaveGame.html#mobase.ISaveGame" title="mobase.ISaveGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">ISaveGame</span></code></a>]</span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<a class="reference internal" href="mobase.ISaveGame.html#mobase.ISaveGame" title="mobase.ISaveGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">ISaveGame</span></code></a>]</span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>folder</strong> – The folder to list saves from.</p>
@@ -861,6 +849,19 @@ it so the implementations have to gracefully handle the case that the directory 
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if the directory looks like a valid installation of this game, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.IPluginGame.lootGameName">
+<span class="sig-name descname"><span class="pre">lootGameName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginGame.lootGameName" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The game name to use when calling LOOT from MO2, default to gameShortName().</p>
 </dd>
 </dl>
 </dd></dl>

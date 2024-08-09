@@ -12,8 +12,10 @@ IPluginList
 
       ~IPluginList.hasLightExtension
       ~IPluginList.hasMasterExtension
+      ~IPluginList.hasNoRecords
       ~IPluginList.isLightFlagged
       ~IPluginList.isMasterFlagged
+      ~IPluginList.isMediumFlagged
       ~IPluginList.loadOrder
       ~IPluginList.masters
       ~IPluginList.onPluginMoved
@@ -31,8 +33,10 @@ IPluginList
 
    .. automethod:: hasLightExtension
    .. automethod:: hasMasterExtension
+   .. automethod:: hasNoRecords
    .. automethod:: isLightFlagged
    .. automethod:: isMasterFlagged
+   .. automethod:: isMediumFlagged
    .. automethod:: loadOrder
    .. automethod:: masters
    .. automethod:: onPluginMoved

@@ -15,12 +15,11 @@ IPluginGame
       ~IPluginGame.binaryName
       ~IPluginGame.dataDirectory
       ~IPluginGame.detectGame
+      ~IPluginGame.displayGameName
       ~IPluginGame.documentsDirectory
       ~IPluginGame.enabledPlugins
       ~IPluginGame.executableForcedLoads
       ~IPluginGame.executables
-      ~IPluginGame.feature
-      ~IPluginGame.featureList
       ~IPluginGame.gameDirectory
       ~IPluginGame.gameIcon
       ~IPluginGame.gameName
@@ -36,6 +35,7 @@ IPluginGame
       ~IPluginGame.listSaves
       ~IPluginGame.loadOrderMechanism
       ~IPluginGame.looksValid
+      ~IPluginGame.lootGameName
       ~IPluginGame.nexusGameID
       ~IPluginGame.nexusModOrganizerID
       ~IPluginGame.primaryPlugins
@@ -55,12 +55,11 @@ IPluginGame
    .. automethod:: binaryName
    .. automethod:: dataDirectory
    .. automethod:: detectGame
+   .. automethod:: displayGameName
    .. automethod:: documentsDirectory
    .. automethod:: enabledPlugins
    .. automethod:: executableForcedLoads
    .. automethod:: executables
-   .. automethod:: feature
-   .. automethod:: featureList
    .. automethod:: gameDirectory
    .. automethod:: gameIcon
    .. automethod:: gameName
@@ -76,6 +75,7 @@ IPluginGame
    .. automethod:: listSaves
    .. automethod:: loadOrderMechanism
    .. automethod:: looksValid
+   .. automethod:: lootGameName
    .. automethod:: nexusGameID
    .. automethod:: nexusModOrganizerID
    .. automethod:: primaryPlugins

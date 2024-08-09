@@ -151,6 +151,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mobase.FileTreeEntry.html#mobase.FileTreeEntry"><code class="docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.GameFeature.html">GameFeature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.GameFeature.html#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.GamePlugins.html">GamePlugins</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.GamePlugins.html#mobase.GamePlugins"><code class="docutils literal notranslate"><span class="pre">GamePlugins</span></code></a></li>
 </ul>
@@ -169,6 +173,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IFileTree.html">IFileTree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mobase.IFileTree.html#mobase.IFileTree"><code class="docutils literal notranslate"><span class="pre">IFileTree</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mobase.IGameFeatures.html">IGameFeatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mobase.IGameFeatures.html#mobase.IGameFeatures"><code class="docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobase.IInstallationManager.html">IInstallationManager</a><ul>
@@ -378,11 +386,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.hasMasterExtension" title="mobase.IPluginList.hasMasterExtension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasMasterExtension</span></code></a>(name)</p></td>
 <td><p>Determine if a plugin has a .esm extension.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.isLightFlagged" title="mobase.IPluginList.isLightFlagged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isLightFlagged</span></code></a>(name)</p></td>
-<td><p>Determine if a plugin is flagged as light</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.hasNoRecords" title="mobase.IPluginList.hasNoRecords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasNoRecords</span></code></a>(name)</p></td>
+<td><p>Determine if a plugin has no records.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.isMasterFlagged" title="mobase.IPluginList.isMasterFlagged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isMasterFlagged</span></code></a>(name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.isLightFlagged" title="mobase.IPluginList.isLightFlagged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isLightFlagged</span></code></a>(name)</p></td>
+<td><p>Determine if a plugin is flagged as light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.isMasterFlagged" title="mobase.IPluginList.isMasterFlagged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isMasterFlagged</span></code></a>(name)</p></td>
 <td><p>Determine if a plugin is flagged as mater, i.e., a library, reference by other plugins.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.IPluginList.isMediumFlagged" title="mobase.IPluginList.isMediumFlagged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isMediumFlagged</span></code></a>(name)</p></td>
+<td><p>Determine if a plugin is flagged as medium.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mobase.IPluginList.loadOrder" title="mobase.IPluginList.loadOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loadOrder</span></code></a>(name)</p></td>
 <td><p>Retrieve the load order of a plugin.</p></td>
@@ -460,9 +474,27 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="mobase.IPluginList.hasNoRecords">
+<span class="sig-name descname"><span class="pre">hasNoRecords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginList.hasNoRecords" title="Link to this definition"></a></dt>
+<dd><p>Determine if a plugin has no records.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>name</strong> – Filename of the plugin (without path but with file extension).</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the given file plugin contains no records, False if it does OR if the</p>
+</dd>
+</dl>
+<p>file does not exist.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="mobase.IPluginList.isLightFlagged">
 <span class="sig-name descname"><span class="pre">isLightFlagged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginList.isLightFlagged" title="Link to this definition"></a></dt>
-<dd><p>Determine if a plugin is flagged as light</p>
+<dd><p>Determine if a plugin is flagged as light.</p>
 <p>In gamebryo games, a master file will usually have a .esl file extension but
 technically an esp can be flagged as light.</p>
 <dl class="field-list simple">
@@ -495,6 +527,26 @@ technically an esp can be flagged as master and an esm might not be.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if the given plugin is a master plugin, False otherwise or if the</p>
+</dd>
+</dl>
+<p>file does not exist.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.IPluginList.isMediumFlagged">
+<span class="sig-name descname"><span class="pre">isMediumFlagged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.IPluginList.isMediumFlagged" title="Link to this definition"></a></dt>
+<dd><p>Determine if a plugin is flagged as medium.</p>
+<p>This plugin flag was added in Starfield and signifies plugin records that
+update existing records</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>name</strong> – Filename of the plugin (without path but with file extension).</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the given plugin is a medium plugin, False otherwise or if the</p>
 </dd>
 </dl>
 <p>file does not exist.</p>

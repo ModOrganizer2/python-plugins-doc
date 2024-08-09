@@ -1,0 +1,7 @@
+GameFeature
+===========
+
+.. currentmodule:: mobase
+
+.. autoclass:: GameFeature
+   :show-inheritance:
