@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mobase.widgets &mdash; MO2 Python Plugin API  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/mo2.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="mobase" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            MO2 Python Plugin API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../setup-tools.html">Setting up the environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../setup-tools.html#required-tools">Required tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../setup-tools.html#preparation">Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../setup-tools.html#get-the-mobase-stubs">1. Get the <code class="docutils literal notranslate"><span class="pre">mobase</span></code> stubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../setup-tools.html#configure-visual-studio-code-for-mobase">2. Configure Visual Studio Code for <code class="docutils literal notranslate"><span class="pre">mobase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../setup-tools.html#optional-configure-black-to-auto-format-your-source-files">3. [Optional] Configure <code class="docutils literal notranslate"><span class="pre">black</span></code> to auto-format your source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../setup-tools.html#optional-automatically-reload-plugins-during-development">4. [Optional] Automatically reload plugins during development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../setup-tools.html#testing-the-setup">Testing the setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin-types.html">Type of Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#installers">Installers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#previewers">Previewers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#mod-page">Mod Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#game">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#tool">Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#proxies">Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#free-plugins"><em>Free Plugins</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugin-types.html#extension-interfaces">Extension Interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plugin-types.html#diagnose">Diagnose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plugin-types.html#file-mappings">File Mappings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writing-plugins.html">Writing Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../writing-plugins.html#getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#single-file-plugins">Single file plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#module-plugins">Module Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../writing-plugins.html#writing-the-plugin">Writing the plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#iplugin-interface"><code class="docutils literal notranslate"><span class="pre">IPlugin</span></code> interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../writing-plugins.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#tutorial-plugins">Tutorial Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#official-plugins">Official Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#unofficial-plugins">Unofficial Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../writing-plugins.html#internationalization">Internationalization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#adding-translation-code">Adding translation code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#generating-qt-translation-files">Generating Qt translation files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#translating">Translating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../writing-plugins.html#distributing-translations">Distributing translations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#why-is-mo2-throwing-an-exception-when-i-try-to-create-a-type-inheriting-one-of-mo2-class">1. Why is MO2 throwing an exception when I try to create a type inheriting one of MO2 class?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#how-can-i-be-sure-to-implement-all-the-required-methods-when-creating-a-plugin">2. How can I be sure to implement all the required methods when creating a plugin?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#why-are-my-isinstance-x-qobject-and-isinstance-y-qwidget-not-working">3. Why are my <code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">QObject)</span></code> and <code class="docutils literal notranslate"><span class="pre">isinstance(y,</span> <span class="pre">QWidget)</span></code> not working?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">mobase</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mobase.widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.BSAInvalidation"><code class="docutils literal notranslate"><span class="pre">BSAInvalidation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.DataArchives"><code class="docutils literal notranslate"><span class="pre">DataArchives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.EndorsedState"><code class="docutils literal notranslate"><span class="pre">EndorsedState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ExecutableForcedLoadSetting"><code class="docutils literal notranslate"><span class="pre">ExecutableForcedLoadSetting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ExecutableInfo"><code class="docutils literal notranslate"><span class="pre">ExecutableInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.FileInfo"><code class="docutils literal notranslate"><span class="pre">FileInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.FileTreeEntry"><code class="docutils literal notranslate"><span class="pre">FileTreeEntry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.GameFeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.GamePlugins"><code class="docutils literal notranslate"><span class="pre">GamePlugins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.GuessQuality"><code class="docutils literal notranslate"><span class="pre">GuessQuality</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.GuessedString"><code class="docutils literal notranslate"><span class="pre">GuessedString</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IDownloadManager"><code class="docutils literal notranslate"><span class="pre">IDownloadManager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IFileTree"><code class="docutils literal notranslate"><span class="pre">IFileTree</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IGameFeatures"><code class="docutils literal notranslate"><span class="pre">IGameFeatures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IInstallationManager"><code class="docutils literal notranslate"><span class="pre">IInstallationManager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IModInterface"><code class="docutils literal notranslate"><span class="pre">IModInterface</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IModList"><code class="docutils literal notranslate"><span class="pre">IModList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IModRepositoryBridge"><code class="docutils literal notranslate"><span class="pre">IModRepositoryBridge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IOrganizer"><code class="docutils literal notranslate"><span class="pre">IOrganizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPlugin"><code class="docutils literal notranslate"><span class="pre">IPlugin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginDiagnose"><code class="docutils literal notranslate"><span class="pre">IPluginDiagnose</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginFileMapper"><code class="docutils literal notranslate"><span class="pre">IPluginFileMapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginGame"><code class="docutils literal notranslate"><span class="pre">IPluginGame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginInstaller"><code class="docutils literal notranslate"><span class="pre">IPluginInstaller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginInstallerCustom"><code class="docutils literal notranslate"><span class="pre">IPluginInstallerCustom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginInstallerSimple"><code class="docutils literal notranslate"><span class="pre">IPluginInstallerSimple</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginList"><code class="docutils literal notranslate"><span class="pre">IPluginList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginModPage"><code class="docutils literal notranslate"><span class="pre">IPluginModPage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginPreview"><code class="docutils literal notranslate"><span class="pre">IPluginPreview</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginRequirement"><code class="docutils literal notranslate"><span class="pre">IPluginRequirement</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IPluginTool"><code class="docutils literal notranslate"><span class="pre">IPluginTool</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.IProfile"><code class="docutils literal notranslate"><span class="pre">IProfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ISaveGame"><code class="docutils literal notranslate"><span class="pre">ISaveGame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ISaveGameInfoWidget"><code class="docutils literal notranslate"><span class="pre">ISaveGameInfoWidget</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.InstallResult"><code class="docutils literal notranslate"><span class="pre">InstallResult</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.LoadOrderMechanism"><code class="docutils literal notranslate"><span class="pre">LoadOrderMechanism</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.LocalSavegames"><code class="docutils literal notranslate"><span class="pre">LocalSavegames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.Mapping"><code class="docutils literal notranslate"><span class="pre">Mapping</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ModDataChecker"><code class="docutils literal notranslate"><span class="pre">ModDataChecker</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ModDataContent"><code class="docutils literal notranslate"><span class="pre">ModDataContent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ModRepositoryFileInfo"><code class="docutils literal notranslate"><span class="pre">ModRepositoryFileInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ModState"><code class="docutils literal notranslate"><span class="pre">ModState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.PluginRequirementFactory"><code class="docutils literal notranslate"><span class="pre">PluginRequirementFactory</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.PluginSetting"><code class="docutils literal notranslate"><span class="pre">PluginSetting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.PluginState"><code class="docutils literal notranslate"><span class="pre">PluginState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ProfileSetting"><code class="docutils literal notranslate"><span class="pre">ProfileSetting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ReleaseType"><code class="docutils literal notranslate"><span class="pre">ReleaseType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.SaveGameInfo"><code class="docutils literal notranslate"><span class="pre">SaveGameInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.ScriptExtender"><code class="docutils literal notranslate"><span class="pre">ScriptExtender</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.SortMechanism"><code class="docutils literal notranslate"><span class="pre">SortMechanism</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.TrackedState"><code class="docutils literal notranslate"><span class="pre">TrackedState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.UnmanagedMods"><code class="docutils literal notranslate"><span class="pre">UnmanagedMods</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.VersionInfo"><code class="docutils literal notranslate"><span class="pre">VersionInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.VersionScheme"><code class="docutils literal notranslate"><span class="pre">VersionScheme</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.getFileVersion"><code class="docutils literal notranslate"><span class="pre">getFileVersion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.getIconForExecutable"><code class="docutils literal notranslate"><span class="pre">getIconForExecutable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.getProductVersion"><code class="docutils literal notranslate"><span class="pre">getProductVersion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.GameFeatureType"><code class="docutils literal notranslate"><span class="pre">GameFeatureType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.INVALID_HANDLE_VALUE"><code class="docutils literal notranslate"><span class="pre">INVALID_HANDLE_VALUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.MoVariant"><code class="docutils literal notranslate"><span class="pre">MoVariant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#mobase.__version__"><code class="docutils literal notranslate"><span class="pre">__version__</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MO2 Python Plugin API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">mobase</a></li>
+      <li class="breadcrumb-item active">mobase.widgets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/mobase/widgets/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-mobase.widgets">
+<span id="mobase-widgets"></span><h1>mobase.widgets<a class="headerlink" href="#module-mobase.widgets" title="Link to this heading"></a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.widgets.__version__" title="mobase.widgets.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaskDialog</span></code></a></p></td>
+<td><p>Customizable choice dialog.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mobase.widgets.TaskDialogButton" title="mobase.widgets.TaskDialogButton"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaskDialogButton</span></code></a></p></td>
+<td><p>Special button to be used inside TaskDialog widgets.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.widgets.</span></span><span class="sig-name descname"><span class="pre">TaskDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyQt6.QtWidgets.QWidget</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyQt6.QtWidgets.QMessageBox.Icon</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PyQt6.QtWidgets.QMessageBox.Icon.NoIcon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buttons</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mobase.widgets.TaskDialogButton" title="mobase.widgets.TaskDialogButton"><span class="pre">TaskDialogButton</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remember</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.widgets.TaskDialog" title="Link to this definition"></a></dt>
+<dd><p>Customizable choice dialog.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.addButton">
+<span class="sig-name descname"><span class="pre">addButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">button</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#mobase.widgets.TaskDialogButton" title="mobase.widgets.TaskDialogButton"><span class="pre">TaskDialogButton</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><span class="pre">TaskDialog</span></a></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.addButton" title="Link to this definition"></a></dt>
+<dd><p>Add a custom button to this TaskDialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>button</strong> – Button to add to the dialog.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.addContent">
+<span class="sig-name descname"><span class="pre">addContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyQt6.QtWidgets.QWidget</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.addContent" title="Link to this definition"></a></dt>
+<dd><p>Add a custom widget content to this TaskDialog. Widget content are put between
+content and buttons (above buttons).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget</strong> – Widget to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.exec">
+<span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PyQt6.QtWidgets.QMessageBox.StandardButton</span></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.exec" title="Link to this definition"></a></dt>
+<dd><p>Display this dialog and wait for user-interaction to return. This is a blocking
+function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The button clicked by the user. Without custom buttons, this return Ok,</p>
+</dd>
+</dl>
+<p>otherwise it returns the button set in the TaskDialogButton.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.setContent">
+<span class="sig-name descname"><span class="pre">setContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><span class="pre">TaskDialog</span></a></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.setContent" title="Link to this definition"></a></dt>
+<dd><p>Set the top-level message of this dialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>content</strong> – Top-level message to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.setDetails">
+<span class="sig-name descname"><span class="pre">setDetails</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><span class="pre">TaskDialog</span></a></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.setDetails" title="Link to this definition"></a></dt>
+<dd><p>Set the details for this TaskDialog.</p>
+<p>The details are hidden by default and the user can display them by clicking
+the “Details” button at the bottom of the TaskDialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>details</strong> – Details content to display. Can be a multi-line string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.setIcon">
+<span class="sig-name descname"><span class="pre">setIcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyQt6.QtWidgets.QMessageBox.Icon</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><span class="pre">TaskDialog</span></a></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.setIcon" title="Link to this definition"></a></dt>
+<dd><p>Set the icon of the dialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>icon</strong> – Icon of the dialog.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.setMain">
+<span class="sig-name descname"><span class="pre">setMain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><span class="pre">TaskDialog</span></a></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.setMain" title="Link to this definition"></a></dt>
+<dd><p>Set the main message of the dialog. The main message is displayed at the top of
+the dialog in large font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>main</strong> – Main message of the dialog.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.setRemember">
+<span class="sig-name descname"><span class="pre">setRemember</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><span class="pre">TaskDialog</span></a></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.setRemember" title="Link to this definition"></a></dt>
+<dd><p>Configure the dialog to remember user-choice.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.setTitle">
+<span class="sig-name descname"><span class="pre">setTitle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#mobase.widgets.TaskDialog" title="mobase.widgets.TaskDialog"><span class="pre">TaskDialog</span></a></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.setTitle" title="Link to this definition"></a></dt>
+<dd><p>Set the title of the dialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>title</strong> – Title of the dialog.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialog.setWidth">
+<span class="sig-name descname"><span class="pre">setWidth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#mobase.widgets.TaskDialog.setWidth" title="Link to this definition"></a></dt>
+<dd><p>Set the width of the dialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>width</strong> – Width of the dialog.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialogButton">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.widgets.</span></span><span class="sig-name descname"><span class="pre">TaskDialogButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyQt6.QtWidgets.QMessageBox.StandardButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobase.widgets.TaskDialogButton" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobase.widgets.</span></span><span class="sig-name descname"><span class="pre">TaskDialogButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyQt6.QtWidgets.QMessageBox.StandardButton</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Special button to be used inside TaskDialog widgets.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialogButton.button">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyQt6.QtWidgets.QMessageBox.StandardButton</span></em><a class="headerlink" href="#mobase.widgets.TaskDialogButton.button" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialogButton.description">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mobase.widgets.TaskDialogButton.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mobase.widgets.TaskDialogButton.text">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mobase.widgets.TaskDialogButton.text" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mobase.widgets.__version__">
+<span class="sig-prename descclassname"><span class="pre">mobase.widgets.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'2.5.2'</span></em><a class="headerlink" href="#mobase.widgets.__version__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="mobase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Holt59.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
