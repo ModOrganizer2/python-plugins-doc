@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -5,21 +7,17 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Writing Plugins &mdash; MO2 Python Plugin API  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
 
   
     <link rel="shortcut icon" href="_static/mo2.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -108,7 +106,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="autoapi/mobase/index.html">mobase</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/mobase/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mobase/index.html#submodules">Submodules</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="autoapi/mobase/widgets/index.html">mobase.widgets</a></li>
 </ul>
 </li>
@@ -227,12 +225,12 @@ put in the <code class="docutils literal notranslate"><span class="pre">plugins<
 <p>Prior to version 2.3, this was the only way of creating a Python plugin. You simply need
 to create a <code class="docutils literal notranslate"><span class="pre">myplugin.py</span></code> file in the <code class="docutils literal notranslate"><span class="pre">plugins</span></code> folder of Mod Organizer 2 with a content
 similar to:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mobase</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mobase</span>
 
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
     <span class="o">...</span>
 
-<span class="k">def</span> <span class="nf">createPlugin</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">createPlugin</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">MyPlugin</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -240,18 +238,18 @@ similar to:</p>
 The <code class="docutils literal notranslate"><span class="pre">createPlugin</span></code> function is the function that is called by Mod Organizer 2 to instantiate
 the plugin.</p>
 <p>You can also provide multiple plugins by using <code class="docutils literal notranslate"><span class="pre">createPlugins</span></code> instead of <code class="docutils literal notranslate"><span class="pre">createPlugin</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
-<span class="kn">import</span> <span class="nn">mobase</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mobase</span>
 
-<span class="k">class</span> <span class="nc">MyPlugin1</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin1</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
     <span class="o">...</span>
 
-<span class="k">class</span> <span class="nc">MyPlugin2</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin2</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
     <span class="o">...</span>
 
 
-<span class="k">def</span> <span class="nf">createPlugins</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">createPlugins</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">MyPlugin1</span><span class="p">(),</span> <span class="n">MyPlugin2</span><span class="p">()]</span>
 </pre></div>
 </div>
@@ -279,20 +277,20 @@ function.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">plugin.py</span></code>, you could define your plugin:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plugin.py</span>
 
-<span class="kn">import</span> <span class="nn">mobase</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mobase</span>
 
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
 <p>And in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, you should write <code class="docutils literal notranslate"><span class="pre">createPlugin</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># __init__.py</span>
 
-<span class="kn">import</span> <span class="nn">mobase</span>  <span class="c1"># For type-checking createPlugin().</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mobase</span>  <span class="c1"># For type-checking createPlugin().</span>
 
-<span class="kn">from</span> <span class="nn">.plugin</span> <span class="kn">import</span> <span class="n">MyPlugin</span>  <span class="c1"># Always use relative import:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.plugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyPlugin</span>  <span class="c1"># Always use relative import:</span>
 
-<span class="k">def</span> <span class="nf">createPlugin</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">createPlugin</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">MyPlugin</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -309,46 +307,46 @@ always use relative imports within the module (<code class="docutils literal not
 <p>In the code snippets above, the <code class="docutils literal notranslate"><span class="pre">MyPlugin</span></code> class was not implemented.
 Depending on the <a class="reference internal" href="plugin-types.html#type-of-plugins"><span class="std std-ref">type of plugins</span></a> that you want to create, you will
 need to extend a different class.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyTool</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPluginTool</span><span class="p">):</span>  <span class="c1"># Create a Tool plugin</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyTool</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPluginTool</span><span class="p">):</span>  <span class="c1"># Create a Tool plugin</span>
     <span class="o">...</span>
 
-<span class="k">class</span> <span class="nc">MyPreview</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPluginPreview</span><span class="p">):</span>  <span class="c1"># Create a preview plugin</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPreview</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPluginPreview</span><span class="p">):</span>  <span class="c1"># Create a preview plugin</span>
     <span class="o">...</span>
 </pre></div>
 </div>
 <p>Each plugin class has its own abstract methods that you need to implement but all the classes
 also extend <code class="docutils literal notranslate"><span class="pre">IPlugin</span></code>, so you need to implement the methods from <a class="reference internal" href="autoapi/mobase/index.html#mobase.IPlugin" title="mobase.IPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPlugin</span></code></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
-<span class="kn">import</span> <span class="nn">mobase</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mobase</span>
 
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>  <span class="c1"># The base class depends on the actual type of plugin</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>  <span class="c1"># The base class depends on the actual type of plugin</span>
 
     <span class="n">_organizer</span><span class="p">:</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IOrganizer</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># You need to call this manually.</span>
 
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organizer</span><span class="p">:</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IOrganizer</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organizer</span><span class="p">:</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IOrganizer</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_organizer</span> <span class="o">=</span> <span class="n">organizer</span>
         <span class="k">return</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">author</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">author</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;Tannin&quot;</span>
 
-    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tr</span><span class="p">(</span><span class="s2">&quot;Gives a friendly greeting&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">VersionInfo</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">VersionInfo</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">mobase</span><span class="o">.</span><span class="n">VersionInfo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mobase</span><span class="o">.</span><span class="n">ReleaseType</span><span class="o">.</span><span class="n">FINAL</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">isActive</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">isActive</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_organizer</span><span class="o">.</span><span class="n">pluginSetting</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="s2">&quot;enabled&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">mobase</span><span class="o">.</span><span class="n">PluginSetting</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">mobase</span><span class="o">.</span><span class="n">PluginSetting</span><span class="p">]:</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="n">mobase</span><span class="o">.</span><span class="n">PluginSetting</span><span class="p">(</span><span class="s2">&quot;enabled&quot;</span><span class="p">,</span> <span class="s2">&quot;enable this plugin&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
         <span class="p">]</span>
@@ -482,15 +480,15 @@ that takes a <code class="docutils literal notranslate"><span class="pre">str</s
 <li><p>You need to wrap all translatable strings in a call to <code class="docutils literal notranslate"><span class="pre">self.__str(&quot;My</span> <span class="pre">String&quot;)</span></code> (see
 example below).</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">QApplication</span>
 
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">localizedName</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">localizedName</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="c1"># Use self.__tr to wrap string you want translatable.</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tr</span><span class="p">(</span><span class="s2">&quot;My Plugin Name&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__tr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__tr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="c1"># The first argument must EXACTLY match the class name:</span>
         <span class="k">return</span> <span class="n">QApplication</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;MyPlugin&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
 </pre></div>

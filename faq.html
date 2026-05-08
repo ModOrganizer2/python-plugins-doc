@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -5,21 +7,17 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ &mdash; MO2 Python Plugin API  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
 
   
     <link rel="shortcut icon" href="_static/mo2.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -108,7 +106,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="autoapi/mobase/index.html">mobase</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/mobase/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mobase/index.html#submodules">Submodules</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="autoapi/mobase/widgets/index.html">mobase.widgets</a></li>
 </ul>
 </li>
@@ -218,8 +216,8 @@
 <p>This often happens if you forget to call <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code> with the right arguments.
 Even if the list of arguments is empty (as in the example), it must be called due to a “bug”
 in <code class="docutils literal notranslate"><span class="pre">boost::python</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MySaveGame</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">ISaveGame</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MySaveGame</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">ISaveGame</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># Mandatory!</span>
 </pre></div>
 </div>
@@ -230,18 +228,18 @@ in <code class="docutils literal notranslate"><span class="pre">boost::python</s
 at some point simply because there plugin is missing a function implementation.
 You can have <code class="docutils literal notranslate"><span class="pre">mypy</span></code> warn you for such issue by typing the <code class="docutils literal notranslate"><span class="pre">createPlugin</span></code> or <code class="docutils literal notranslate"><span class="pre">createPlugins</span></code>
 functions:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
 
 <span class="c1"># A plugin that is missing something (e.g. display()).</span>
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPluginTool</span><span class="p">):</span> <span class="o">...</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPluginTool</span><span class="p">):</span> <span class="o">...</span>
 
 <span class="c1"># If you type-hint `createPlugin` by adding `-&gt; mobase.IPlugin`,</span>
 <span class="c1"># `mypy` will warn you that `MyPlugin` is an incomplete class.</span>
-<span class="k">def</span> <span class="nf">createPlugin</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">createPlugin</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">MyPlugin</span><span class="p">()</span>
 
 <span class="c1"># You can also type-hint `createPlugins`:</span>
-<span class="k">def</span> <span class="nf">createPlugins</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">createPlugins</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">mobase</span><span class="o">.</span><span class="n">IPlugin</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">MyPlugin</span><span class="p">()]</span>
 </pre></div>
 </div>

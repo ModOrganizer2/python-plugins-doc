@@ -4,8 +4,8 @@ mobase
 .. py:module:: mobase
 
 
-Subpackages
------------
+Submodules
+----------
 
 .. toctree::
    :maxdepth: 1
@@ -225,20 +225,11 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __ge__(other: EndorsedState) -> bool
 
-      Return self>=value.
-
-
 
    .. py:method:: __gt__(other: EndorsedState) -> bool
-
-      Return self>value.
-
 
 
    .. py:method:: __int__() -> int
@@ -246,26 +237,14 @@ Package Contents
 
    .. py:method:: __le__(other: EndorsedState) -> bool
 
-      Return self<=value.
-
-
 
    .. py:method:: __lt__(other: EndorsedState) -> bool
-
-      Return self<value.
-
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: ENDORSED_FALSE
@@ -291,11 +270,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -400,20 +381,11 @@ Package Contents
 
       .. py:method:: __eq__(other: object) -> bool
 
-         Return self==value.
-
-
 
       .. py:method:: __ge__(other: FileTreeEntry) -> bool
 
-         Return self>=value.
-
-
 
       .. py:method:: __gt__(other: FileTreeEntry) -> bool
-
-         Return self>value.
-
 
 
       .. py:method:: __int__() -> int
@@ -424,20 +396,11 @@ Package Contents
 
       .. py:method:: __le__(other: FileTreeEntry) -> bool
 
-         Return self<=value.
-
-
 
       .. py:method:: __lt__(other: FileTreeEntry) -> bool
 
-         Return self<value.
-
-
 
       .. py:method:: __ne__(other: object) -> bool
-
-         Return self!=value.
-
 
 
       .. py:method:: __or__(other: FileTreeEntry) -> FileTreeEntry
@@ -453,9 +416,6 @@ Package Contents
 
 
       .. py:method:: __str__() -> str
-
-         Return str(self).
-
 
 
       .. py:method:: __xor__(other: FileTreeEntry) -> FileTreeEntry
@@ -479,20 +439,19 @@ Package Contents
       .. py:property:: name
          :type: str
 
+
          The name of the Enum member.
 
 
       .. py:property:: value
          :type: int
 
+
          The value of the Enum member.
 
 
 
    .. py:method:: __eq__(other: object) -> bool
-
-      Return self==value.
-
 
 
    .. py:method:: detach() -> bool
@@ -672,23 +631,14 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __int__() -> int
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: FALLBACK
@@ -724,11 +674,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -743,9 +695,6 @@ Package Contents
 
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:method:: reset() -> GuessedString
@@ -952,23 +901,14 @@ Package Contents
 
       .. py:method:: __eq__(other: object) -> bool
 
-         Return self==value.
-
-
 
       .. py:method:: __int__() -> int
 
 
       .. py:method:: __ne__(other: object) -> bool
 
-         Return self!=value.
-
-
 
       .. py:method:: __str__() -> str
-
-         Return str(self).
-
 
 
       .. py:attribute:: FAIL_IF_EXISTS
@@ -989,11 +929,13 @@ Package Contents
       .. py:property:: name
          :type: str
 
+
          The name of the Enum member.
 
 
       .. py:property:: value
          :type: int
+
 
          The value of the Enum member.
 
@@ -1010,23 +952,14 @@ Package Contents
 
       .. py:method:: __eq__(other: object) -> bool
 
-         Return self==value.
-
-
 
       .. py:method:: __int__() -> int
 
 
       .. py:method:: __ne__(other: object) -> bool
 
-         Return self!=value.
-
-
 
       .. py:method:: __str__() -> str
-
-         Return str(self).
-
 
 
       .. py:attribute:: CONTINUE
@@ -1047,11 +980,13 @@ Package Contents
       .. py:property:: name
          :type: str
 
+
          The name of the Enum member.
 
 
       .. py:property:: value
          :type: int
+
 
          The value of the Enum member.
 
@@ -3986,23 +3921,14 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __int__() -> int
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: CANCELED
@@ -4033,11 +3959,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -4087,23 +4015,14 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __int__() -> int
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: FILE_TIME
@@ -4124,11 +4043,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -4156,9 +4077,6 @@ Package Contents
               Mapping(source: str, destination: str, is_directory: bool, create_target: bool = False)
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:property:: createTarget
@@ -4234,23 +4152,14 @@ Package Contents
 
       .. py:method:: __eq__(other: object) -> bool
 
-         Return self==value.
-
-
 
       .. py:method:: __int__() -> int
 
 
       .. py:method:: __ne__(other: object) -> bool
 
-         Return self!=value.
-
-
 
       .. py:method:: __str__() -> str
-
-         Return str(self).
-
 
 
       .. py:attribute:: FIXABLE
@@ -4271,11 +4180,13 @@ Package Contents
       .. py:property:: name
          :type: str
 
+
          The name of the Enum member.
 
 
       .. py:property:: value
          :type: int
+
 
          The value of the Enum member.
 
@@ -4435,9 +4346,6 @@ Package Contents
 
    .. py:method:: __str__() -> str
 
-      Return str(self).
-
-
 
    .. py:method:: createFromJson(data: str) -> ModRepositoryFileInfo
       :staticmethod:
@@ -4572,20 +4480,11 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __ge__(other: ModState) -> bool
 
-      Return self>=value.
-
-
 
    .. py:method:: __gt__(other: ModState) -> bool
-
-      Return self>value.
-
 
 
    .. py:method:: __int__() -> int
@@ -4596,20 +4495,11 @@ Package Contents
 
    .. py:method:: __le__(other: ModState) -> bool
 
-      Return self<=value.
-
-
 
    .. py:method:: __lt__(other: ModState) -> bool
 
-      Return self<value.
-
-
 
    .. py:method:: __ne__(other: object) -> bool
-
-      Return self!=value.
-
 
 
    .. py:method:: __or__(other: ModState) -> ModState
@@ -4625,9 +4515,6 @@ Package Contents
 
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:method:: __xor__(other: ModState) -> ModState
@@ -4671,11 +4558,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -4811,20 +4700,11 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __ge__(other: PluginState) -> bool
 
-      Return self>=value.
-
-
 
    .. py:method:: __gt__(other: PluginState) -> bool
-
-      Return self>value.
-
 
 
    .. py:method:: __int__() -> int
@@ -4835,20 +4715,11 @@ Package Contents
 
    .. py:method:: __le__(other: PluginState) -> bool
 
-      Return self<=value.
-
-
 
    .. py:method:: __lt__(other: PluginState) -> bool
 
-      Return self<value.
-
-
 
    .. py:method:: __ne__(other: object) -> bool
-
-      Return self!=value.
-
 
 
    .. py:method:: __or__(other: PluginState) -> PluginState
@@ -4864,9 +4735,6 @@ Package Contents
 
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:method:: __xor__(other: PluginState) -> PluginState
@@ -4890,11 +4758,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -4947,20 +4817,11 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __ge__(other: ProfileSetting) -> bool
 
-      Return self>=value.
-
-
 
    .. py:method:: __gt__(other: ProfileSetting) -> bool
-
-      Return self>value.
-
 
 
    .. py:method:: __int__() -> int
@@ -4971,20 +4832,11 @@ Package Contents
 
    .. py:method:: __le__(other: ProfileSetting) -> bool
 
-      Return self<=value.
-
-
 
    .. py:method:: __lt__(other: ProfileSetting) -> bool
 
-      Return self<value.
-
-
 
    .. py:method:: __ne__(other: object) -> bool
-
-      Return self!=value.
-
 
 
    .. py:method:: __or__(other: ProfileSetting) -> ProfileSetting
@@ -5000,9 +4852,6 @@ Package Contents
 
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:method:: __xor__(other: ProfileSetting) -> ProfileSetting
@@ -5031,11 +4880,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -5085,23 +4936,14 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __int__() -> int
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: ALPHA
@@ -5132,11 +4974,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -5295,23 +5139,14 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __int__() -> int
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: BOSS
@@ -5337,11 +5172,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -5391,20 +5228,11 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __ge__(other: TrackedState) -> bool
 
-      Return self>=value.
-
-
 
    .. py:method:: __gt__(other: TrackedState) -> bool
-
-      Return self>value.
-
 
 
    .. py:method:: __int__() -> int
@@ -5412,26 +5240,14 @@ Package Contents
 
    .. py:method:: __le__(other: TrackedState) -> bool
 
-      Return self<=value.
-
-
 
    .. py:method:: __lt__(other: TrackedState) -> bool
-
-      Return self<value.
-
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: TRACKED_FALSE
@@ -5452,11 +5268,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
@@ -5534,38 +5352,20 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __ge__(arg0: VersionInfo) -> bool
-
-      Return self>=value.
-
 
 
    .. py:method:: __gt__(arg0: VersionInfo) -> bool
 
-      Return self>value.
-
-
 
    .. py:method:: __le__(arg0: VersionInfo) -> bool
-
-      Return self<=value.
-
 
 
    .. py:method:: __lt__(arg0: VersionInfo) -> bool
 
-      Return self<value.
-
-
 
    .. py:method:: __ne__(other: object) -> bool
-
-      Return self!=value.
-
 
 
    .. py:method:: __str__() -> str
@@ -5663,23 +5463,14 @@ Package Contents
 
    .. py:method:: __eq__(other: object) -> bool
 
-      Return self==value.
-
-
 
    .. py:method:: __int__() -> int
 
 
    .. py:method:: __ne__(other: object) -> bool
 
-      Return self!=value.
-
-
 
    .. py:method:: __str__() -> str
-
-      Return str(self).
-
 
 
    .. py:attribute:: DATE
@@ -5715,11 +5506,13 @@ Package Contents
    .. py:property:: name
       :type: str
 
+
       The name of the Enum member.
 
 
    .. py:property:: value
       :type: int
+
 
       The value of the Enum member.
 
